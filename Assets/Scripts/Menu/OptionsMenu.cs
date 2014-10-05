@@ -16,6 +16,8 @@ public class OptionsMenu : MenuPage
 	
 		menuManager = FindObjectOfType<MenuManager>();
 
+		PlayerData.Load();
+
 		musicCheckbox.enabled = PlayerData.music;
 	}
 	
