@@ -1,0 +1,228 @@
+fileFormatVersion: 2
+guid: 07e3b4b1880a94f9caa374053621e857
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Anim_FoodWhale
+    21300002: Anim_FoodWhale_0
+    21300004: Anim_FoodWhale_1
+    21300006: Anim_FoodWhale_2
+    21300008: Anim_FoodWhale_3
+    21300010: Anim_FoodWhale_4
+    21300012: Anim_FoodWhale_5
+    21300014: Anim_FoodWhale_6
+    21300016: Anim_FoodWhale_7
+    21300018: Anim_FoodWhale_8
+    21300020: Anim_FoodWhale_9
+    21300022: Anim_FoodWhale_10
+    21300024: Anim_FoodWhale_11
+    21300026: Anim_FoodWhale_12
+    21300028: Anim_FoodWhale_13
+    21300030: Anim_FoodWhale_14
+    21300032: Anim_FoodWhale_15
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: Anim_FoodWhale_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 407
+        width: 123
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodWhale_1
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 407
+        width: 123
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodWhale_2
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 407
+        width: 123
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodWhale_3
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 407
+        width: 123
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodWhale_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 302
+        width: 123
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodWhale_5
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 302
+        width: 123
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodWhale_6
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 302
+        width: 123
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodWhale_7
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 302
+        width: 123
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodWhale_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 197
+        width: 123
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodWhale_9
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 197
+        width: 123
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodWhale_10
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 197
+        width: 123
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodWhale_11
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 197
+        width: 123
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodWhale_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 92
+        width: 123
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodWhale_13
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 92
+        width: 123
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodWhale_14
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 92
+        width: 123
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodWhale_15
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 92
+        width: 123
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

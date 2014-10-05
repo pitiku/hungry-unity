@@ -1,0 +1,378 @@
+fileFormatVersion: 2
+guid: 632aecabfedf64cba87c1a48310cf2c2
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Anim_Bat
+    21300002: Anim_Bat_0
+    21300004: Anim_Bat_1
+    21300006: Anim_Bat_2
+    21300008: Anim_Bat_3
+    21300010: Anim_Bat_4
+    21300012: Anim_Bat_5
+    21300014: Anim_Bat_6
+    21300016: Anim_Bat_7
+    21300018: Anim_Bat_8
+    21300020: Anim_Bat_9
+    21300022: Anim_Bat_10
+    21300024: Anim_Bat_11
+    21300026: Anim_Bat_12
+    21300028: Anim_Bat_13
+    21300030: Anim_Bat_14
+    21300032: Anim_Bat_15
+    21300034: Anim_Bat_16
+    21300036: Anim_Bat_17
+    21300038: Anim_Bat_18
+    21300040: Anim_Bat_19
+    21300042: Anim_Bat_20
+    21300044: Anim_Bat_21
+    21300046: Anim_Bat_22
+    21300048: Anim_Bat_23
+    21300050: Anim_Bat_24
+    21300052: Anim_Bat_25
+    21300054: Anim_Bat_26
+    21300056: Anim_Bat_27
+    21300058: Anim_Bat_28
+    21300060: Anim_Bat_29
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Anim_Bat_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 820
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Bat_1
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 820
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Bat_2
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 820
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Bat_3
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 820
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Bat_4
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 820
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Bat_5
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 820
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Bat_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 616
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Bat_7
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 616
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Bat_8
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 616
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Bat_9
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 616
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Bat_10
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 616
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Bat_11
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 616
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Bat_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 412
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Bat_13
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 412
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Bat_14
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 412
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Bat_15
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 412
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Bat_16
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 412
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Bat_17
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 412
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Bat_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 208
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Bat_19
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 208
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Bat_20
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 208
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Bat_21
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 208
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Bat_22
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 208
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Bat_23
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 208
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Bat_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Bat_25
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 4
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Bat_26
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 4
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Bat_27
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 4
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Bat_28
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 4
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Bat_29
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 4
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
