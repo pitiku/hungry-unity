@@ -1,0 +1,378 @@
+fileFormatVersion: 2
+guid: 5ab0dd7d957ac4468b36329776c5cfbb
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Anim_Chameleon_EyesAndTongue
+    21300002: Anim_Chameleon_EyesAndTongue_0
+    21300004: Anim_Chameleon_EyesAndTongue_1
+    21300006: Anim_Chameleon_EyesAndTongue_2
+    21300008: Anim_Chameleon_EyesAndTongue_3
+    21300010: Anim_Chameleon_EyesAndTongue_4
+    21300012: Anim_Chameleon_EyesAndTongue_5
+    21300014: Anim_Chameleon_EyesAndTongue_6
+    21300016: Anim_Chameleon_EyesAndTongue_7
+    21300018: Anim_Chameleon_EyesAndTongue_8
+    21300020: Anim_Chameleon_EyesAndTongue_9
+    21300022: Anim_Chameleon_EyesAndTongue_10
+    21300024: Anim_Chameleon_EyesAndTongue_11
+    21300026: Anim_Chameleon_EyesAndTongue_12
+    21300028: Anim_Chameleon_EyesAndTongue_13
+    21300030: Anim_Chameleon_EyesAndTongue_14
+    21300032: Anim_Chameleon_EyesAndTongue_15
+    21300034: Anim_Chameleon_EyesAndTongue_16
+    21300036: Anim_Chameleon_EyesAndTongue_17
+    21300038: Anim_Chameleon_EyesAndTongue_18
+    21300040: Anim_Chameleon_EyesAndTongue_19
+    21300042: Anim_Chameleon_EyesAndTongue_20
+    21300044: Anim_Chameleon_EyesAndTongue_21
+    21300046: Anim_Chameleon_EyesAndTongue_22
+    21300048: Anim_Chameleon_EyesAndTongue_23
+    21300050: Anim_Chameleon_EyesAndTongue_24
+    21300052: Anim_Chameleon_EyesAndTongue_25
+    21300054: Anim_Chameleon_EyesAndTongue_26
+    21300056: Anim_Chameleon_EyesAndTongue_27
+    21300058: Anim_Chameleon_EyesAndTongue_28
+    21300060: Anim_Chameleon_EyesAndTongue_29
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Anim_Chameleon_EyesAndTongue_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 854
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Chameleon_EyesAndTongue_1
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 854
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Chameleon_EyesAndTongue_2
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 854
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Chameleon_EyesAndTongue_3
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 854
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Chameleon_EyesAndTongue_4
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 854
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Chameleon_EyesAndTongue_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 684
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Chameleon_EyesAndTongue_6
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 684
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Chameleon_EyesAndTongue_7
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 684
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Chameleon_EyesAndTongue_8
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 684
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Chameleon_EyesAndTongue_9
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 684
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Chameleon_EyesAndTongue_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 514
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Chameleon_EyesAndTongue_11
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 514
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Chameleon_EyesAndTongue_12
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 514
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Chameleon_EyesAndTongue_13
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 514
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Chameleon_EyesAndTongue_14
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 514
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Chameleon_EyesAndTongue_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 344
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Chameleon_EyesAndTongue_16
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 344
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Chameleon_EyesAndTongue_17
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 344
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Chameleon_EyesAndTongue_18
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 344
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Chameleon_EyesAndTongue_19
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 344
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Chameleon_EyesAndTongue_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 174
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Chameleon_EyesAndTongue_21
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 174
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Chameleon_EyesAndTongue_22
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 174
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Chameleon_EyesAndTongue_23
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 174
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Chameleon_EyesAndTongue_24
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 174
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Chameleon_EyesAndTongue_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Chameleon_EyesAndTongue_26
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 4
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Chameleon_EyesAndTongue_27
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 4
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Chameleon_EyesAndTongue_28
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 4
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Chameleon_EyesAndTongue_29
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 4
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

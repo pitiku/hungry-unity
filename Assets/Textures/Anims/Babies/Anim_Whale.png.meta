@@ -1,0 +1,377 @@
+fileFormatVersion: 2
+guid: 9e5d701a1523f074394ed2f600691003
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Anim_Wale_0
+    21300002: Anim_Wale_1
+    21300004: Anim_Wale_2
+    21300006: Anim_Wale_3
+    21300008: Anim_Wale_4
+    21300010: Anim_Wale_5
+    21300012: Anim_Wale_6
+    21300014: Anim_Wale_7
+    21300016: Anim_Wale_8
+    21300018: Anim_Wale_9
+    21300020: Anim_Wale_10
+    21300022: Anim_Wale_11
+    21300024: Anim_Wale_12
+    21300026: Anim_Wale_13
+    21300028: Anim_Wale_14
+    21300030: Anim_Wale_15
+    21300032: Anim_Wale_16
+    21300034: Anim_Wale_17
+    21300036: Anim_Wale_18
+    21300038: Anim_Wale_19
+    21300040: Anim_Wale_20
+    21300042: Anim_Wale_21
+    21300044: Anim_Wale_22
+    21300046: Anim_Wale_23
+    21300048: Anim_Wale_24
+    21300050: Anim_Wale_25
+    21300052: Anim_Wale_26
+    21300054: Anim_Wale_27
+    21300056: Anim_Wale_28
+    21300058: Anim_Wale_29
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Anim_Wale_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 854
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Wale_1
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 854
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Wale_2
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 854
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Wale_3
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 854
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Wale_4
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 854
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Wale_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 684
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Wale_6
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 684
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Wale_7
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 684
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Wale_8
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 684
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Wale_9
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 684
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Wale_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 514
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Wale_11
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 514
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Wale_12
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 514
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Wale_13
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 514
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Wale_14
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 514
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Wale_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 344
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Wale_16
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 344
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Wale_17
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 344
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Wale_18
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 344
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Wale_19
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 344
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Wale_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 174
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Wale_21
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 174
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Wale_22
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 174
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Wale_23
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 174
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Wale_24
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 174
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Wale_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Wale_26
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 4
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Wale_27
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 4
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Wale_28
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 4
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Wale_29
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 4
+        width: 204
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

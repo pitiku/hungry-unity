@@ -1,0 +1,763 @@
+fileFormatVersion: 2
+guid: 360f69e2783dc4744a3d656c9e931cc9
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Anim_Panda
+    21300002: Anim_Panda_0
+    21300004: Anim_Panda_1
+    21300006: Anim_Panda_2
+    21300008: Anim_Panda_3
+    21300010: Anim_Panda_4
+    21300012: Anim_Panda_5
+    21300014: Anim_Panda_6
+    21300016: Anim_Panda_7
+    21300018: Anim_Panda_8
+    21300020: Anim_Panda_9
+    21300022: Anim_Panda_10
+    21300024: Anim_Panda_11
+    21300026: Anim_Panda_12
+    21300028: Anim_Panda_13
+    21300030: Anim_Panda_14
+    21300032: Anim_Panda_15
+    21300034: Anim_Panda_16
+    21300036: Anim_Panda_17
+    21300038: Anim_Panda_18
+    21300040: Anim_Panda_19
+    21300042: Anim_Panda_20
+    21300044: Anim_Panda_21
+    21300046: Anim_Panda_22
+    21300048: Anim_Panda_23
+    21300050: Anim_Panda_24
+    21300052: Anim_Panda_25
+    21300054: Anim_Panda_26
+    21300056: Anim_Panda_27
+    21300058: Anim_Panda_28
+    21300060: Anim_Panda_29
+    21300062: Anim_Panda_30
+    21300064: Anim_Panda_31
+    21300066: Anim_Panda_32
+    21300068: Anim_Panda_33
+    21300070: Anim_Panda_34
+    21300072: Anim_Panda_35
+    21300074: Anim_Panda_36
+    21300076: Anim_Panda_37
+    21300078: Anim_Panda_38
+    21300080: Anim_Panda_39
+    21300082: Anim_Panda_40
+    21300084: Anim_Panda_41
+    21300086: Anim_Panda_42
+    21300088: Anim_Panda_43
+    21300090: Anim_Panda_44
+    21300092: Anim_Panda_45
+    21300094: Anim_Panda_46
+    21300096: Anim_Panda_47
+    21300098: Anim_Panda_48
+    21300100: Anim_Panda_49
+    21300102: Anim_Panda_50
+    21300104: Anim_Panda_51
+    21300106: Anim_Panda_52
+    21300108: Anim_Panda_53
+    21300110: Anim_Panda_54
+    21300112: Anim_Panda_55
+    21300114: Anim_Panda_56
+    21300116: Anim_Panda_57
+    21300118: Anim_Panda_58
+    21300120: Anim_Panda_59
+    21300122: Anim_Panda_60
+    21300124: Anim_Panda_61
+    21300126: Anim_Panda_62
+    21300128: Anim_Panda_63
+    21300130: Anim_Panda_64
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Anim_Panda_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1878
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_1
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 1878
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_2
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 1878
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_3
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 1878
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_4
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 1878
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_5
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 1878
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_6
+      rect:
+        serializedVersion: 2
+        x: 1308
+        y: 1878
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_7
+      rect:
+        serializedVersion: 2
+        x: 1526
+        y: 1878
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_8
+      rect:
+        serializedVersion: 2
+        x: 1744
+        y: 1878
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1708
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_10
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 1708
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_11
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 1708
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_12
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 1708
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_13
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 1708
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_14
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 1708
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_15
+      rect:
+        serializedVersion: 2
+        x: 1308
+        y: 1708
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_16
+      rect:
+        serializedVersion: 2
+        x: 1526
+        y: 1708
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_17
+      rect:
+        serializedVersion: 2
+        x: 1744
+        y: 1708
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1538
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_19
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 1538
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_20
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 1538
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_21
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 1538
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_22
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 1538
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_23
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 1538
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_24
+      rect:
+        serializedVersion: 2
+        x: 1308
+        y: 1538
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_25
+      rect:
+        serializedVersion: 2
+        x: 1526
+        y: 1538
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_26
+      rect:
+        serializedVersion: 2
+        x: 1744
+        y: 1538
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1368
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_28
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 1368
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_29
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 1368
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_30
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 1368
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_31
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 1368
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_32
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 1368
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_33
+      rect:
+        serializedVersion: 2
+        x: 1308
+        y: 1368
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_34
+      rect:
+        serializedVersion: 2
+        x: 1526
+        y: 1368
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_35
+      rect:
+        serializedVersion: 2
+        x: 1744
+        y: 1368
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1198
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_37
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 1198
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_38
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 1198
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_39
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 1198
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_40
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 1198
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_41
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 1198
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_42
+      rect:
+        serializedVersion: 2
+        x: 1308
+        y: 1198
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_43
+      rect:
+        serializedVersion: 2
+        x: 1526
+        y: 1198
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_44
+      rect:
+        serializedVersion: 2
+        x: 1744
+        y: 1198
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1028
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_46
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 1028
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_47
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 1028
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_48
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 1028
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_49
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 1028
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_50
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 1028
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_51
+      rect:
+        serializedVersion: 2
+        x: 1308
+        y: 1028
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_52
+      rect:
+        serializedVersion: 2
+        x: 1526
+        y: 1028
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_53
+      rect:
+        serializedVersion: 2
+        x: 1744
+        y: 1028
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_54
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 858
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_55
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 858
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_56
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 858
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_57
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 858
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_58
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 858
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_59
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 858
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_60
+      rect:
+        serializedVersion: 2
+        x: 1308
+        y: 858
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_61
+      rect:
+        serializedVersion: 2
+        x: 1526
+        y: 858
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_62
+      rect:
+        serializedVersion: 2
+        x: 1744
+        y: 858
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 688
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Panda_64
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 688
+        width: 218
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

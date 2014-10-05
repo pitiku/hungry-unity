@@ -1,0 +1,261 @@
+fileFormatVersion: 2
+guid: 20763bbf614e946e291be52dbdcad54c
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Anim_FoodAnteater
+    21300002: Anim_FoodAnteater_0
+    21300004: Anim_FoodAnteater_1
+    21300006: Anim_FoodAnteater_2
+    21300008: Anim_FoodAnteater_3
+    21300010: Anim_FoodAnteater_4
+    21300012: Anim_FoodAnteater_5
+    21300014: Anim_FoodAnteater_6
+    21300016: Anim_FoodAnteater_7
+    21300018: Anim_FoodAnteater_8
+    21300020: Anim_FoodAnteater_9
+    21300022: Anim_FoodAnteater_10
+    21300024: Anim_FoodAnteater_11
+    21300026: Anim_FoodAnteater_12
+    21300028: Anim_FoodAnteater_13
+    21300030: Anim_FoodAnteater_14
+    21300032: Anim_FoodAnteater_15
+    21300034: Anim_FoodAnteater_16
+    21300036: Anim_FoodAnteater_17
+    21300038: Anim_FoodAnteater_18
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: Anim_FoodAnteater_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 408
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodAnteater_1
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 408
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodAnteater_2
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 408
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodAnteater_3
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 408
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodAnteater_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 306
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodAnteater_5
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 306
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodAnteater_6
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 306
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodAnteater_7
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 306
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodAnteater_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 204
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodAnteater_9
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 204
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodAnteater_10
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 204
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodAnteater_11
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 204
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodAnteater_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 102
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodAnteater_13
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 102
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodAnteater_14
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 102
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodAnteater_15
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 102
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodAnteater_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodAnteater_17
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 0
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodAnteater_18
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 0
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

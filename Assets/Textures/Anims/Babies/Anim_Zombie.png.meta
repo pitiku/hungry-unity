@@ -1,0 +1,1203 @@
+fileFormatVersion: 2
+guid: 80be9d2a2776f47c89b3a41590ae9f6f
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Anim_Zombie
+    21300002: Anim_Zombie_0
+    21300004: Anim_Zombie_1
+    21300006: Anim_Zombie_2
+    21300008: Anim_Zombie_3
+    21300010: Anim_Zombie_4
+    21300012: Anim_Zombie_5
+    21300014: Anim_Zombie_6
+    21300016: Anim_Zombie_7
+    21300018: Anim_Zombie_8
+    21300020: Anim_Zombie_9
+    21300022: Anim_Zombie_10
+    21300024: Anim_Zombie_11
+    21300026: Anim_Zombie_12
+    21300028: Anim_Zombie_13
+    21300030: Anim_Zombie_14
+    21300032: Anim_Zombie_15
+    21300034: Anim_Zombie_16
+    21300036: Anim_Zombie_17
+    21300038: Anim_Zombie_18
+    21300040: Anim_Zombie_19
+    21300042: Anim_Zombie_20
+    21300044: Anim_Zombie_21
+    21300046: Anim_Zombie_22
+    21300048: Anim_Zombie_23
+    21300050: Anim_Zombie_24
+    21300052: Anim_Zombie_25
+    21300054: Anim_Zombie_26
+    21300056: Anim_Zombie_27
+    21300058: Anim_Zombie_28
+    21300060: Anim_Zombie_29
+    21300062: Anim_Zombie_30
+    21300064: Anim_Zombie_31
+    21300066: Anim_Zombie_32
+    21300068: Anim_Zombie_33
+    21300070: Anim_Zombie_34
+    21300072: Anim_Zombie_35
+    21300074: Anim_Zombie_36
+    21300076: Anim_Zombie_37
+    21300078: Anim_Zombie_38
+    21300080: Anim_Zombie_39
+    21300082: Anim_Zombie_40
+    21300084: Anim_Zombie_41
+    21300086: Anim_Zombie_42
+    21300088: Anim_Zombie_43
+    21300090: Anim_Zombie_44
+    21300092: Anim_Zombie_45
+    21300094: Anim_Zombie_46
+    21300096: Anim_Zombie_47
+    21300098: Anim_Zombie_48
+    21300100: Anim_Zombie_49
+    21300102: Anim_Zombie_50
+    21300104: Anim_Zombie_51
+    21300106: Anim_Zombie_52
+    21300108: Anim_Zombie_53
+    21300110: Anim_Zombie_54
+    21300112: Anim_Zombie_55
+    21300114: Anim_Zombie_56
+    21300116: Anim_Zombie_57
+    21300118: Anim_Zombie_58
+    21300120: Anim_Zombie_59
+    21300122: Anim_Zombie_60
+    21300124: Anim_Zombie_61
+    21300126: Anim_Zombie_62
+    21300128: Anim_Zombie_63
+    21300130: Anim_Zombie_64
+    21300132: Anim_Zombie_65
+    21300134: Anim_Zombie_66
+    21300136: Anim_Zombie_67
+    21300138: Anim_Zombie_68
+    21300140: Anim_Zombie_69
+    21300142: Anim_Zombie_70
+    21300144: Anim_Zombie_71
+    21300146: Anim_Zombie_72
+    21300148: Anim_Zombie_73
+    21300150: Anim_Zombie_74
+    21300152: Anim_Zombie_75
+    21300154: Anim_Zombie_76
+    21300156: Anim_Zombie_77
+    21300158: Anim_Zombie_78
+    21300160: Anim_Zombie_79
+    21300162: Anim_Zombie_80
+    21300164: Anim_Zombie_81
+    21300166: Anim_Zombie_82
+    21300168: Anim_Zombie_83
+    21300170: Anim_Zombie_84
+    21300172: Anim_Zombie_85
+    21300174: Anim_Zombie_86
+    21300176: Anim_Zombie_87
+    21300178: Anim_Zombie_88
+    21300180: Anim_Zombie_89
+    21300182: Anim_Zombie_90
+    21300184: Anim_Zombie_91
+    21300186: Anim_Zombie_92
+    21300188: Anim_Zombie_93
+    21300190: Anim_Zombie_94
+    21300192: Anim_Zombie_95
+    21300194: Anim_Zombie_96
+    21300196: Anim_Zombie_97
+    21300198: Anim_Zombie_98
+    21300200: Anim_Zombie_99
+    21300202: Anim_Zombie_100
+    21300204: Anim_Zombie_101
+    21300206: Anim_Zombie_102
+    21300208: Anim_Zombie_103
+    21300210: Anim_Zombie_104
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Anim_Zombie_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1830
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_1
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 1830
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_2
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 1830
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_3
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 1830
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_4
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 1830
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_5
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 1830
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_6
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 1830
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_7
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 1830
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_8
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 1830
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_9
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 1830
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_10
+      rect:
+        serializedVersion: 2
+        x: 1700
+        y: 1830
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_11
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 1830
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1612
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_13
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 1612
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_14
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 1612
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_15
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 1612
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_16
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 1612
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_17
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 1612
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_18
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 1612
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_19
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 1612
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_20
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 1612
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_21
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 1612
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_22
+      rect:
+        serializedVersion: 2
+        x: 1700
+        y: 1612
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_23
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 1612
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1394
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_25
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 1394
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_26
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 1394
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_27
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 1394
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_28
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 1394
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_29
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 1394
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_30
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 1394
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_31
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 1394
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_32
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 1394
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_33
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 1394
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_34
+      rect:
+        serializedVersion: 2
+        x: 1700
+        y: 1394
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_35
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 1394
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1176
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_37
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 1176
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_38
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 1176
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_39
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 1176
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_40
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 1176
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_41
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 1176
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_42
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 1176
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_43
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 1176
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_44
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 1176
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_45
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 1176
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_46
+      rect:
+        serializedVersion: 2
+        x: 1700
+        y: 1176
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_47
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 1176
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 958
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_49
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 958
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_50
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 958
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_51
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 958
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_52
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 958
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_53
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 958
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_54
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 958
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_55
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 958
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_56
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 958
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_57
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 958
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_58
+      rect:
+        serializedVersion: 2
+        x: 1700
+        y: 958
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_59
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 958
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 740
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_61
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 740
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_62
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 740
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_63
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 740
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_64
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 740
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_65
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 740
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_66
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 740
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_67
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 740
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_68
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 740
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_69
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 740
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_70
+      rect:
+        serializedVersion: 2
+        x: 1700
+        y: 740
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_71
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 740
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_72
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 522
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_73
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 522
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_74
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 522
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_75
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 522
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_76
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 522
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_77
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 522
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_78
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 522
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_79
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 522
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_80
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 522
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_81
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 522
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_82
+      rect:
+        serializedVersion: 2
+        x: 1700
+        y: 522
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_83
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 522
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_84
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 304
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_85
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 304
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_86
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 304
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_87
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 304
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_88
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 304
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_89
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 304
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_90
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 304
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_91
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 304
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_92
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 304
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_93
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 304
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_94
+      rect:
+        serializedVersion: 2
+        x: 1700
+        y: 304
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_95
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 304
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_96
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 86
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_97
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 86
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_98
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 86
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_99
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 86
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_100
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 86
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_101
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 86
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_102
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 86
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_103
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 86
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Zombie_104
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 86
+        width: 170
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

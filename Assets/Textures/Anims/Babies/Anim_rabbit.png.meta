@@ -1,0 +1,378 @@
+fileFormatVersion: 2
+guid: 685fcf0db7dd047f694f91151961d30a
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Anim_rabbit
+    21300002: Anim_rabbit_0
+    21300004: Anim_rabbit_1
+    21300006: Anim_rabbit_2
+    21300008: Anim_rabbit_3
+    21300010: Anim_rabbit_4
+    21300012: Anim_rabbit_5
+    21300014: Anim_rabbit_6
+    21300016: Anim_rabbit_7
+    21300018: Anim_rabbit_8
+    21300020: Anim_rabbit_9
+    21300022: Anim_rabbit_10
+    21300024: Anim_rabbit_11
+    21300026: Anim_rabbit_12
+    21300028: Anim_rabbit_13
+    21300030: Anim_rabbit_14
+    21300032: Anim_rabbit_15
+    21300034: Anim_rabbit_16
+    21300036: Anim_rabbit_17
+    21300038: Anim_rabbit_18
+    21300040: Anim_rabbit_19
+    21300042: Anim_rabbit_20
+    21300044: Anim_rabbit_21
+    21300046: Anim_rabbit_22
+    21300048: Anim_rabbit_23
+    21300050: Anim_rabbit_24
+    21300052: Anim_rabbit_25
+    21300054: Anim_rabbit_26
+    21300056: Anim_rabbit_27
+    21300058: Anim_rabbit_28
+    21300060: Anim_rabbit_29
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Anim_rabbit_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 820
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_rabbit_1
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 820
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_rabbit_2
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 820
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_rabbit_3
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 820
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_rabbit_4
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 820
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_rabbit_5
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 820
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_rabbit_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 616
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_rabbit_7
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 616
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_rabbit_8
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 616
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_rabbit_9
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 616
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_rabbit_10
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 616
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_rabbit_11
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 616
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_rabbit_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 412
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_rabbit_13
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 412
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_rabbit_14
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 412
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_rabbit_15
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 412
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_rabbit_16
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 412
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_rabbit_17
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 412
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_rabbit_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 208
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_rabbit_19
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 208
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_rabbit_20
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 208
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_rabbit_21
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 208
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_rabbit_22
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 208
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_rabbit_23
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 208
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_rabbit_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_rabbit_25
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 4
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_rabbit_26
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 4
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_rabbit_27
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 4
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_rabbit_28
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 4
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_rabbit_29
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 4
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

@@ -1,0 +1,1203 @@
+fileFormatVersion: 2
+guid: 44fda303a165b4012936ab284c176d1b
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Anim_Robot
+    21300002: Anim_Robot_0
+    21300004: Anim_Robot_1
+    21300006: Anim_Robot_2
+    21300008: Anim_Robot_3
+    21300010: Anim_Robot_4
+    21300012: Anim_Robot_5
+    21300014: Anim_Robot_6
+    21300016: Anim_Robot_7
+    21300018: Anim_Robot_8
+    21300020: Anim_Robot_9
+    21300022: Anim_Robot_10
+    21300024: Anim_Robot_11
+    21300026: Anim_Robot_12
+    21300028: Anim_Robot_13
+    21300030: Anim_Robot_14
+    21300032: Anim_Robot_15
+    21300034: Anim_Robot_16
+    21300036: Anim_Robot_17
+    21300038: Anim_Robot_18
+    21300040: Anim_Robot_19
+    21300042: Anim_Robot_20
+    21300044: Anim_Robot_21
+    21300046: Anim_Robot_22
+    21300048: Anim_Robot_23
+    21300050: Anim_Robot_24
+    21300052: Anim_Robot_25
+    21300054: Anim_Robot_26
+    21300056: Anim_Robot_27
+    21300058: Anim_Robot_28
+    21300060: Anim_Robot_29
+    21300062: Anim_Robot_30
+    21300064: Anim_Robot_31
+    21300066: Anim_Robot_32
+    21300068: Anim_Robot_33
+    21300070: Anim_Robot_34
+    21300072: Anim_Robot_35
+    21300074: Anim_Robot_36
+    21300076: Anim_Robot_37
+    21300078: Anim_Robot_38
+    21300080: Anim_Robot_39
+    21300082: Anim_Robot_40
+    21300084: Anim_Robot_41
+    21300086: Anim_Robot_42
+    21300088: Anim_Robot_43
+    21300090: Anim_Robot_44
+    21300092: Anim_Robot_45
+    21300094: Anim_Robot_46
+    21300096: Anim_Robot_47
+    21300098: Anim_Robot_48
+    21300100: Anim_Robot_49
+    21300102: Anim_Robot_50
+    21300104: Anim_Robot_51
+    21300106: Anim_Robot_52
+    21300108: Anim_Robot_53
+    21300110: Anim_Robot_54
+    21300112: Anim_Robot_55
+    21300114: Anim_Robot_56
+    21300116: Anim_Robot_57
+    21300118: Anim_Robot_58
+    21300120: Anim_Robot_59
+    21300122: Anim_Robot_60
+    21300124: Anim_Robot_61
+    21300126: Anim_Robot_62
+    21300128: Anim_Robot_63
+    21300130: Anim_Robot_64
+    21300132: Anim_Robot_65
+    21300134: Anim_Robot_66
+    21300136: Anim_Robot_67
+    21300138: Anim_Robot_68
+    21300140: Anim_Robot_69
+    21300142: Anim_Robot_70
+    21300144: Anim_Robot_71
+    21300146: Anim_Robot_72
+    21300148: Anim_Robot_73
+    21300150: Anim_Robot_74
+    21300152: Anim_Robot_75
+    21300154: Anim_Robot_76
+    21300156: Anim_Robot_77
+    21300158: Anim_Robot_78
+    21300160: Anim_Robot_79
+    21300162: Anim_Robot_80
+    21300164: Anim_Robot_81
+    21300166: Anim_Robot_82
+    21300168: Anim_Robot_83
+    21300170: Anim_Robot_84
+    21300172: Anim_Robot_85
+    21300174: Anim_Robot_86
+    21300176: Anim_Robot_87
+    21300178: Anim_Robot_88
+    21300180: Anim_Robot_89
+    21300182: Anim_Robot_90
+    21300184: Anim_Robot_91
+    21300186: Anim_Robot_92
+    21300188: Anim_Robot_93
+    21300190: Anim_Robot_94
+    21300192: Anim_Robot_95
+    21300194: Anim_Robot_96
+    21300196: Anim_Robot_97
+    21300198: Anim_Robot_98
+    21300200: Anim_Robot_99
+    21300202: Anim_Robot_100
+    21300204: Anim_Robot_101
+    21300206: Anim_Robot_102
+    21300208: Anim_Robot_103
+    21300210: Anim_Robot_104
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Anim_Robot_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1844
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_1
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 1844
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_2
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 1844
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_3
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 1844
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_4
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 1844
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_5
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 1844
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_6
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 1844
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_7
+      rect:
+        serializedVersion: 2
+        x: 1253
+        y: 1844
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_8
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 1844
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_9
+      rect:
+        serializedVersion: 2
+        x: 1611
+        y: 1844
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_10
+      rect:
+        serializedVersion: 2
+        x: 1790
+        y: 1844
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1640
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_12
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 1640
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_13
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 1640
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_14
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 1640
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_15
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 1640
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_16
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 1640
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_17
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 1640
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_18
+      rect:
+        serializedVersion: 2
+        x: 1253
+        y: 1640
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_19
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 1640
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_20
+      rect:
+        serializedVersion: 2
+        x: 1611
+        y: 1640
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_21
+      rect:
+        serializedVersion: 2
+        x: 1790
+        y: 1640
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1436
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_23
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 1436
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_24
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 1436
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_25
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 1436
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_26
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 1436
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_27
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 1436
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_28
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 1436
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_29
+      rect:
+        serializedVersion: 2
+        x: 1253
+        y: 1436
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_30
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 1436
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_31
+      rect:
+        serializedVersion: 2
+        x: 1611
+        y: 1436
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_32
+      rect:
+        serializedVersion: 2
+        x: 1790
+        y: 1436
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1232
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_34
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 1232
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_35
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 1232
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_36
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 1232
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_37
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 1232
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_38
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 1232
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_39
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 1232
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_40
+      rect:
+        serializedVersion: 2
+        x: 1253
+        y: 1232
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_41
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 1232
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_42
+      rect:
+        serializedVersion: 2
+        x: 1611
+        y: 1232
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_43
+      rect:
+        serializedVersion: 2
+        x: 1790
+        y: 1232
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_44
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1028
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_45
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 1028
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_46
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 1028
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_47
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 1028
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_48
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 1028
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_49
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 1028
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_50
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 1028
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_51
+      rect:
+        serializedVersion: 2
+        x: 1253
+        y: 1028
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_52
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 1028
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_53
+      rect:
+        serializedVersion: 2
+        x: 1611
+        y: 1028
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_54
+      rect:
+        serializedVersion: 2
+        x: 1790
+        y: 1028
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_55
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 824
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_56
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 824
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_57
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 824
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_58
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 824
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_59
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 824
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_60
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 824
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_61
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 824
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_62
+      rect:
+        serializedVersion: 2
+        x: 1253
+        y: 824
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_63
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 824
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_64
+      rect:
+        serializedVersion: 2
+        x: 1611
+        y: 824
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_65
+      rect:
+        serializedVersion: 2
+        x: 1790
+        y: 824
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_66
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 620
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_67
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 620
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_68
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 620
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_69
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 620
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_70
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 620
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_71
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 620
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_72
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 620
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_73
+      rect:
+        serializedVersion: 2
+        x: 1253
+        y: 620
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_74
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 620
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_75
+      rect:
+        serializedVersion: 2
+        x: 1611
+        y: 620
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_76
+      rect:
+        serializedVersion: 2
+        x: 1790
+        y: 620
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_77
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 416
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_78
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 416
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_79
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 416
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_80
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 416
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_81
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 416
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_82
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 416
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_83
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 416
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_84
+      rect:
+        serializedVersion: 2
+        x: 1253
+        y: 416
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_85
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 416
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_86
+      rect:
+        serializedVersion: 2
+        x: 1611
+        y: 416
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_87
+      rect:
+        serializedVersion: 2
+        x: 1790
+        y: 416
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_88
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 212
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_89
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 212
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_90
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 212
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_91
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 212
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_92
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 212
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_93
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 212
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_94
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 212
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_95
+      rect:
+        serializedVersion: 2
+        x: 1253
+        y: 212
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_96
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 212
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_97
+      rect:
+        serializedVersion: 2
+        x: 1611
+        y: 212
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_98
+      rect:
+        serializedVersion: 2
+        x: 1790
+        y: 212
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_99
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_100
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 8
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_101
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 8
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_102
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 8
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_103
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 8
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_Robot_104
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 8
+        width: 179
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

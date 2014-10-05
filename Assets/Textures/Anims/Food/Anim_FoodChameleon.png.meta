@@ -1,0 +1,261 @@
+fileFormatVersion: 2
+guid: 86ccd7f8a9208430b8ce78f9fec3540c
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Anim_FoodChameleon
+    21300002: Anim_FoodChameleon_0
+    21300004: Anim_FoodChameleon_1
+    21300006: Anim_FoodChameleon_2
+    21300008: Anim_FoodChameleon_3
+    21300010: Anim_FoodChameleon_4
+    21300012: Anim_FoodChameleon_5
+    21300014: Anim_FoodChameleon_6
+    21300016: Anim_FoodChameleon_7
+    21300018: Anim_FoodChameleon_8
+    21300020: Anim_FoodChameleon_9
+    21300022: Anim_FoodChameleon_10
+    21300024: Anim_FoodChameleon_11
+    21300026: Anim_FoodChameleon_12
+    21300028: Anim_FoodChameleon_13
+    21300030: Anim_FoodChameleon_14
+    21300032: Anim_FoodChameleon_15
+    21300034: Anim_FoodChameleon_16
+    21300036: Anim_FoodChameleon_17
+    21300038: Anim_FoodChameleon_18
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: Anim_FoodChameleon_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 410
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodChameleon_1
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 410
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodChameleon_2
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 410
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodChameleon_3
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 410
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodChameleon_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 308
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodChameleon_5
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 308
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodChameleon_6
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 308
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodChameleon_7
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 308
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodChameleon_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 206
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodChameleon_9
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 206
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodChameleon_10
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 206
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodChameleon_11
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 206
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodChameleon_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 104
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodChameleon_13
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 104
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodChameleon_14
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 104
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodChameleon_15
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 104
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodChameleon_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodChameleon_17
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 2
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Anim_FoodChameleon_18
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 2
+        width: 123
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
