@@ -8,19 +8,13 @@ public class MainMenu : MenuPage
 	public MenuItem shopButton;
 	public MenuItem pedestalButton;
 
-	MenuManager menuManager;
-
-	public override void Start () 
+	public override void OnStart () 
 	{
-		base.Start();
-	
-		menuManager = FindObjectOfType<MenuManager>();
+		CoinsCounter.Instance.gameObject.SetActive(false);
 	}
 	
-	public override void Update () 
+	public override void OnUpdate () 
 	{
-		base.Update();
-		
 		if (Input.GetKeyDown(KeyCode.Escape)) 
 		{
 			Application.Quit(); 
@@ -32,15 +26,16 @@ public class MainMenu : MenuPage
 		}
 		else if(optionsButton.IsJustPressed())
 		{
-			menuManager.SetPage(menuManager.optionsPage);
+			MenuManager.Instance.SetPage(MenuManager.Instance.optionsPage);
 		}
 		else if(shopButton.IsJustPressed())
 		{
-			menuManager.SetPage(menuManager.shopPage);
+			CoinsCounter.Instance.gameObject.SetActive(true);
+			MenuManager.Instance.SetPage(MenuManager.Instance.shopPage);
 		}
 		else if(pedestalButton.IsJustPressed())
 		{
-			menuManager.SetPage(menuManager.museumPage);
+			MenuManager.Instance.SetPage(MenuManager.Instance.museumPage);
 		}
 	}
 }

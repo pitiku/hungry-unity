@@ -3,6 +3,24 @@ using System.Collections;
 
 public class PlayerData
 {
+	private static PlayerData _Instance = null;
+	public static PlayerData Instance
+	{
+		get
+		{
+			if(_Instance == null)
+			{
+				_Instance = new PlayerData();
+			}
+			return _Instance;
+		}
+	}
+
+	private PlayerData()
+	{
+		Load();
+	}
+
 	public const int NUM_BABIES = 16;
 	public enum BABIES
 	{
@@ -24,50 +42,65 @@ public class PlayerData
 		CHAMELEON
 	};
 
+	public bool loaded = false;
+
 	//Options
-	public static bool music;
-	public static bool sound;
-	public static bool accelerometer;
+	public bool option_music;
+	public bool option_sound;
+	public bool option_accelerometer;
 
 	//Stats
-	public static int maxBabies;
-	public static int totalBabies;
-	public static int maxCoinsInAGame;
-	public static int coins;
-	public static int totalCoins;
-	public static int spentCoins;
-	public static int numGames;
-	public static int numPrizes;
-	public static int maxCombo;
+	public int maxBabies;
+	public int totalBabies;
+	public int maxCoinsInAGame;
+	private int coins;
+	public int totalCoins;
+	public int spentCoins;
+	public int numGames;
+	public int numPrizes;
+	public int maxCombo;
 
-	public static int lastDayPlayed;
+	public int lastDayPlayed;
 
 	//Items
-	public static bool upgrade_accelerometer;
-	public static bool upgrade_crown;
-	public static bool upgrade_globes;
-	public static bool upgrade_rainbowplus;
-	public static bool upgrade_rainbowplusplus;
-	public static bool upgrade_vacuum;
+	public bool upgrade_accelerometer;
+	public bool upgrade_crown;
+	public bool upgrade_gloves;
+	public bool upgrade_rainbowplus;
+	public bool upgrade_rainbowplusplus;
+	public bool upgrade_vacuum;
 
-	public static int powerup_boletTime;
-	public static int powerup_chainBoost;
-	public static int powerup_doubleCoins;
-	public static int powerup_extraRainbow;
-	public static int powerup_megaChainBoost;
-	public static int powerup_prizeSeason;
+	public int powerup_boletTime;
+	public int powerup_chainBoost;
+	public int powerup_doubleCoins;
+	public int powerup_extraRainbow;
+	public int powerup_megaChainBoost;
+	public int powerup_prizeSeason;
 
 	//Babies
-	public static bool[] babies;
+	public bool[] babies;
 
 	//Achievements
-	public static bool[] achievements;
-	
-	public static void Load()
+	public bool[] achievements;
+		
+	public int Coins
 	{
-		music = GetBool("music");
-		sound = GetBool("sound");
-		accelerometer = GetBool("accelerometer");
+		get
+		{
+			return coins;
+		}
+		set
+		{
+			coins = value;
+			CoinsCounter.Instance.UpdateCoins();
+		}
+	}
+	
+	private void Load()
+	{
+		option_music = GetBool("music");
+		option_sound = GetBool("sound");
+		option_accelerometer = GetBool("accelerometer");
 
 		maxBabies = PlayerPrefs.GetInt("maxBabies");
 		totalBabies = PlayerPrefs.GetInt("totalBabies");
@@ -83,7 +116,7 @@ public class PlayerData
 
 		upgrade_accelerometer = GetBool("upgrade_accelerometer");
 		upgrade_crown = GetBool("upgrade_crown");
-		upgrade_globes = GetBool("upgrade_globes");
+		upgrade_gloves = GetBool("upgrade_globes");
 		upgrade_rainbowplus = GetBool("upgrade_rainbowplus");
 		upgrade_rainbowplusplus = GetBool("upgrade_rainbowplusplus");
 		upgrade_vacuum = GetBool("upgrade_vacuum");
@@ -100,13 +133,19 @@ public class PlayerData
 		{
 			babies[i] = GetBool("baby"+i);
 		}
+
+		loaded = true;
 	}
 
-	public static void Save()
+	public void Save()
 	{
-		SetBool("music",  music);
-		SetBool("sound", sound);
-		SetBool("accelerometer", accelerometer);
+		if(!loaded)
+		{
+			Load();
+		}
+		SetBool("music",  option_music);
+		SetBool("sound", option_sound);
+		SetBool("accelerometer", option_accelerometer);
 		
 		PlayerPrefs.SetInt("maxBabies", maxBabies);
 		PlayerPrefs.SetInt("totalBabies", totalBabies);
@@ -122,7 +161,7 @@ public class PlayerData
 		
 		SetBool("upgrade_accelerometer", upgrade_accelerometer);
 		SetBool("upgrade_crown", upgrade_crown);
-		SetBool("upgrade_globes", upgrade_globes);
+		SetBool("upgrade_globes", upgrade_gloves);
 		SetBool("upgrade_rainbowplus", upgrade_rainbowplus);
 		SetBool("upgrade_rainbowplusplus", upgrade_rainbowplusplus);
 		SetBool("upgrade_vacuum", upgrade_vacuum);
@@ -142,22 +181,22 @@ public class PlayerData
 		PlayerPrefs.Save();
 	}
 
-	public static bool AnyInitialPowerUp()
+	public bool AnyInitialPowerUp()
 	{
 		return powerup_boletTime > 0 || powerup_chainBoost > 0 || powerup_doubleCoins > 0 || powerup_megaChainBoost > 0 || powerup_prizeSeason > 0;
 	}
 	
-	public static bool AnyFinalPowerUp()
+	public bool AnyFinalPowerUp()
 	{
 		return powerup_extraRainbow > 0;
 	}
 	
-	public static void SetBool(string _key, bool _value)
+	public void SetBool(string _key, bool _value)
 	{
 		PlayerPrefs.SetInt(_key, _value ? 1 : 0);
 	}
 
-	public static bool GetBool(string _key)
+	public bool GetBool(string _key)
 	{
 		if(!PlayerPrefs.HasKey(_key)) return false;
 		return PlayerPrefs.GetInt(_key)==1 ? true : false;

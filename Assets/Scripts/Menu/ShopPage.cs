@@ -8,31 +8,28 @@ public class ShopPage : MenuPage
 	public MenuItem powerups;
 	public MenuItem backButton;
 	
-	MenuManager menuManager;
-	
-	public override void Start () 
+	public override void OnStart () 
 	{
-		base.Start();
-		
-		menuManager = FindObjectOfType<MenuManager>();
 	}
 	
-	public override void Update () 
+	public override void OnUpdate () 
 	{
-		base.Update();
-		
 		if(babies.IsJustPressed())
 		{
+			MenuManager.Instance.SetPage(MenuManager.Instance.babiesPage);
 		}
 		else if(upgrades.IsJustPressed())
 		{
+			MenuManager.Instance.SetPage(MenuManager.Instance.upgradesPage);
 		}
 		else if(powerups.IsJustPressed())
 		{
+			MenuManager.Instance.SetPage(MenuManager.Instance.powerupsPage);
 		}
 		else if(backButton.IsJustPressed() || Input.GetKeyDown(KeyCode.Escape))
 		{
-			menuManager.SetPage(menuManager.mainPage);
+			MenuManager.Instance.SetPage(MenuManager.Instance.mainPage);
+			CoinsCounter.Instance.gameObject.SetActive(false);
 		}
 	}
 }

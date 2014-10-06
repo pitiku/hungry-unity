@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MuseumPage : MenuPage 
+public class BabiesPage : MenuPage 
 {
 	public MenuItem backButton;
 	
@@ -13,7 +13,7 @@ public class MuseumPage : MenuPage
 	{
 		if(backButton.IsJustPressed() || Input.GetKeyDown(KeyCode.Escape))
 		{
-			MenuManager.Instance.SetPage(MenuManager.Instance.mainPage);
+			MenuManager.Instance.SetPage(MenuManager.Instance.shopPage);
 		}
 	}
 }

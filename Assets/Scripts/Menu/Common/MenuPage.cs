@@ -6,16 +6,27 @@ public class MenuPage : MonoBehaviour
 	protected Menu menu;
 	MenuItem[] items;
 
-	public virtual void Start ()
+	void Start ()
 	{
 		items = FindObjectsOfType<MenuItem>();
 		foreach(MenuItem item in items)
 		{
 			item.SetPage(this);
 		}
+
+		OnStart();
 	}
 
-	public virtual void Update()
+	void Update()
+	{
+		OnUpdate();
+	}
+
+	public virtual void OnStart()
+	{
+	}
+
+	public virtual void OnUpdate()
 	{
 	}
 

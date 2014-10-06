@@ -19,8 +19,6 @@ public class Splash : MonoBehaviour {
 	void Start () 
 	{
 		fade = FindObjectOfType<FadeManager> ();
-
-		PlayerData.Load();
 	}
 
 	void SetState(SplashState _state)
