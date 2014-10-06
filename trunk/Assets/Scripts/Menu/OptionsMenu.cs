@@ -8,32 +8,22 @@ public class OptionsMenu : MenuPage
 
 	public MenuItem backButton;
 
-	MenuManager menuManager;
-	
-	public override void Start () 
+	public override void OnStart () 
 	{
-		base.Start();
-	
-		menuManager = FindObjectOfType<MenuManager>();
-
-		PlayerData.Load();
-
-		musicCheckbox.enabled = PlayerData.music;
+		musicCheckbox.enabled = PlayerData.Instance.option_music;
 	}
 	
-	public override void Update () 
+	public override void OnUpdate () 
 	{
-		base.Update();
-
 		if(musicItem.IsJustPressed())
 		{
-			PlayerData.music = !PlayerData.music;
-			musicCheckbox.enabled = PlayerData.music;
+			PlayerData.Instance.option_music = !PlayerData.Instance.option_music;
+			musicCheckbox.enabled = PlayerData.Instance.option_music;
 		}
 		else if(backButton.IsJustPressed() || Input.GetKeyDown(KeyCode.Escape))
 		{
-			PlayerData.Save();
-			menuManager.SetPage(menuManager.mainPage);
+			PlayerData.Instance.Save();
+			MenuManager.Instance.SetPage(MenuManager.Instance.mainPage);
 		}
 	}
 }
