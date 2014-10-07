@@ -11,6 +11,11 @@ public class MenuPage : MonoBehaviour
 	public bool HasInAnim = false;
 	public bool HasOutAnim = false;
 
+	void Awake()
+	{
+		animator = GetComponent<Animator>();
+	}
+
 	void Start ()
 	{
 		items = FindObjectsOfType<MenuItem>();
@@ -18,8 +23,6 @@ public class MenuPage : MonoBehaviour
 		{
 			item.SetPage(this);
 		}
-
-		animator = GetComponent<Animator>();
 
 		OnStart();
 	}
