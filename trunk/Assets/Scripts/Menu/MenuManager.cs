@@ -27,6 +27,7 @@ public class MenuManager : Menu
 	public MenuPage babiesPage;
 	public MenuPage upgradesPage;
 	public MenuPage powerupsPage;
+	public MenuPage statsPage;
 
 	public override void Start () 
 	{
