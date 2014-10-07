@@ -28,6 +28,9 @@ public class MenuItem : MonoBehaviour
 
 	public void ResetPressed()
 	{
-		m_bJustPressed = false;
+		if(m_bJustPressed)
+		{
+			m_bJustPressed = false;
+		}
 	}
 }

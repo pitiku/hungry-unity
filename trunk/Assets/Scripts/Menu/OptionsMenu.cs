@@ -39,6 +39,7 @@ public class OptionsMenu : MenuPage
 		}
 		else if(statsItem.IsJustPressed())
 		{
+			((StatsPage) MenuManager.Instance.statsPage).UpdateStats();
 			MenuManager.Instance.SetPage(MenuManager.Instance.statsPage);
 		}
 		else if(backButton.IsJustPressed() || Input.GetKeyDown(KeyCode.Escape))

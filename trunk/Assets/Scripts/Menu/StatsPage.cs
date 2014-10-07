@@ -27,5 +27,15 @@ public class StatsPage : MenuPage
 		}
 	}
 
-	public 
+	public void UpdateStats()
+	{
+		maxBabies.text = "" + PlayerData.Instance.maxBabies;
+		totalBabies.text = "" + PlayerData.Instance.totalBabies;
+		coins.text = "" + PlayerData.Instance.Coins;
+		totalCoins.text = "" + PlayerData.Instance.totalCoins;
+		spentCoind.text = "" + PlayerData.Instance.spentCoins;
+		gamesPlayed.text = "" + PlayerData.Instance.numGames;
+		prizesCollected.text = "" + PlayerData.Instance.numPrizes;
+		maxChain.text = "" + PlayerData.Instance.maxCombo;
+	}
 }
