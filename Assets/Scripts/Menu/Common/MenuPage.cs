@@ -5,6 +5,11 @@ public class MenuPage : MonoBehaviour
 {
 	protected Menu menu;
 	MenuItem[] items;
+	bool animating = false;
+
+	Animator animator;
+	public bool HasInAnim = false;
+	public bool HasOutAnim = false;
 
 	void Start ()
 	{
@@ -14,12 +19,17 @@ public class MenuPage : MonoBehaviour
 			item.SetPage(this);
 		}
 
+		animator = GetComponent<Animator>();
+
 		OnStart();
 	}
 
 	void Update()
 	{
-		OnUpdate();
+		if(!animating)
+		{
+			OnUpdate();
+		}
 	}
 
 	public virtual void OnStart()
@@ -41,5 +51,33 @@ public class MenuPage : MonoBehaviour
 		{
 			item.ResetPressed();
 		}
+	}
+
+	public void AnimateIn()
+	{
+		if(animator && HasInAnim)
+		{
+			animating = true;
+			animator.SetTrigger("In");
+		}
+	}
+
+	public void AnimateOut()
+	{
+		if(animator && HasOutAnim)
+		{
+			animating = true;
+			animator.SetTrigger("Out");
+		}
+	}
+	
+	public void FinishAnimation()
+	{
+		animating = false;
+	}
+	
+	public bool IsAnimationFinished()
+	{
+		return !animating;
 	}
 }
