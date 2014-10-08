@@ -56,6 +56,15 @@ public class MenuPage : MonoBehaviour
 		}
 	}
 
+	public void Animate(string _name)
+	{
+		if(animator)
+		{
+			animating = true;
+			animator.SetTrigger(_name);
+		}
+	}
+
 	public void AnimateIn()
 	{
 		if(animator && HasInAnim)
