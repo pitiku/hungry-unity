@@ -16,14 +16,17 @@ public class ShopPage : MenuPage
 	{
 		if(babies.IsJustPressed())
 		{
+			CoinsCounter.Instance.AnimateOut();
 			MenuManager.Instance.SetPage(MenuManager.Instance.babiesPage);
 		}
 		else if(upgrades.IsJustPressed())
 		{
+			CoinsCounter.Instance.AnimateOut();
 			MenuManager.Instance.SetPage(MenuManager.Instance.upgradesPage);
 		}
 		else if(powerups.IsJustPressed())
 		{
+			CoinsCounter.Instance.AnimateOut();
 			MenuManager.Instance.SetPage(MenuManager.Instance.powerupsPage);
 		}
 		else if(backButton.IsJustPressed() || Input.GetKeyDown(KeyCode.Escape))

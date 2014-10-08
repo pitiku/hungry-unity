@@ -35,13 +35,9 @@ public class MenuPage : MonoBehaviour
 		}
 	}
 
-	public virtual void OnStart()
-	{
-	}
-
-	public virtual void OnUpdate()
-	{
-	}
+	public virtual void OnStart(){}
+	public virtual void OnUpdate(){}
+	public virtual void OnSetPage(){}
 
 	public void SetMenu(Menu _menu)
 	{
