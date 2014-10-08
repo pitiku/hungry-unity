@@ -37,6 +37,8 @@ public class MenuManager : Menu
 		}
 
 		SetPage(mainPage);
+
+		GetComponent<AudioSource>().enabled = PlayerData.Instance.option_music;
 	}
 	
 	public override void Update () 
