@@ -24,8 +24,9 @@ public class OptionsMenu : MenuPage
 	{
 		if(musicItem.IsJustPressed())
 		{
-			PlayerData.Instance.option_music = !PlayerData.Instance.option_music;
-			musicCheckbox.enabled = PlayerData.Instance.option_music;
+			musicCheckbox.enabled = !musicCheckbox.enabled;
+			PlayerData.Instance.option_music = musicCheckbox.enabled;
+			MenuManager.Instance.GetComponent<AudioSource>().enabled = musicCheckbox.enabled;
 		}
 		else if(soundItem.IsJustPressed())
 		{
