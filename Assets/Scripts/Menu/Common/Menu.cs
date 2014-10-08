@@ -28,6 +28,7 @@ public class Menu : MonoBehaviour
 				currentPage = nextPage;
 				nextPage = null;
 				currentPage.gameObject.SetActive(true);
+				currentPage.OnSetPage();
 				if(InAnim)
 				{
 					currentPage.AnimateIn();
@@ -59,6 +60,7 @@ public class Menu : MonoBehaviour
 			currentPage = nextPage;
 			nextPage = null;
 			currentPage.gameObject.SetActive(true);
+			currentPage.OnSetPage();
 			if(_inAnim)
 			{
 				currentPage.AnimateIn();

@@ -77,6 +77,11 @@ public class UpgradesPage : MenuPage
 		MessageBuy.text = _textBuy;
 	}
 
+	public override void OnSetPage()
+	{
+		CoinsCounter.Instance.AnimateIn();
+	}
+
 	public override void OnUpdate () 
 	{
 		if(accelerometer.IsJustPressed())
@@ -200,6 +205,7 @@ public class UpgradesPage : MenuPage
 		}
 		else if(backButton.IsJustPressed() || Input.GetKeyDown(KeyCode.Escape))
 		{
+			CoinsCounter.Instance.AnimateOut();
 			MenuManager.Instance.SetPage(MenuManager.Instance.shopPage);
 		}
 	}
