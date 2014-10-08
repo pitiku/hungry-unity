@@ -3,6 +3,20 @@ using System.Collections;
 
 public class FadeManager : MonoBehaviour {
 
+	private static FadeManager s_Instance;
+	
+	public static FadeManager Instance
+	{
+		get
+		{
+			if (!s_Instance)
+			{
+				s_Instance = GameObject.FindObjectOfType<FadeManager>();
+			}
+			return s_Instance;
+		}
+	}
+
 	bool finished = true;
 	bool fadeIn = true;
 	float duration = 0.2f;

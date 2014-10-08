@@ -31,6 +31,7 @@ public class MainMenu : MenuPage
 		else if(shopButton.IsJustPressed())
 		{
 			CoinsCounter.Instance.gameObject.SetActive(true);
+			CoinsCounter.Instance.AnimateIn();
 			MenuManager.Instance.SetPage(MenuManager.Instance.shopPage);
 		}
 		else if(pedestalButton.IsJustPressed())

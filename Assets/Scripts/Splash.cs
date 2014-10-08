@@ -14,13 +14,6 @@ public class Splash : MonoBehaviour {
 	SplashState state = SplashState.INIT;
 	float m_fStateTimeStart;
 
-	FadeManager fade;
-	
-	void Start () 
-	{
-		fade = FindObjectOfType<FadeManager> ();
-	}
-
 	void SetState(SplashState _state)
 	{
 		state = _state;
@@ -34,13 +27,13 @@ public class Splash : MonoBehaviour {
 		case SplashState.INIT:
 			if((Time.time - m_fStateTimeStart) > 0.2f)
 			{
-				fade.FadeIn(0.5f);
+				FadeManager.Instance.FadeIn(0.5f);
 				SetState(SplashState.FADEIN);
 			}
 			break;
 
 		case SplashState.FADEIN:
-			if(fade.IsFinished())
+			if(FadeManager.Instance.IsFinished())
 			{
 				SetState(SplashState.SHOW);
 			}
@@ -49,13 +42,13 @@ public class Splash : MonoBehaviour {
 		case SplashState.SHOW:
 			if((Time.time - m_fStateTimeStart) > 2.0f || Input.anyKey)
 			{
-				fade.FadeOut(0.5f);
+				FadeManager.Instance.FadeOut(0.5f);
 				SetState(SplashState.FADEOUT);
 			}
 			break;
 
 		case SplashState.FADEOUT:
-			if(fade.IsFinished())
+			if(FadeManager.Instance.IsFinished())
 			{
 				Application.LoadLevel("MainMenu");
 			}
