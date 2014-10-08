@@ -18,8 +18,6 @@ public class MenuManager : Menu
 		}
 	}
 
-	FadeManager fade;
-
 	public MenuPage mainPage;
 	public MenuPage optionsPage;
 	public MenuPage shopPage;
@@ -33,10 +31,9 @@ public class MenuManager : Menu
 	{
 		base.Start();
 
-		fade = FindObjectOfType<FadeManager> ();
-		if(fade != null)
+		if(FadeManager.Instance)
 		{
-			fade.FadeIn(0.5f);
+			FadeManager.Instance.FadeIn(0.5f);
 		}
 
 		SetPage(mainPage);

@@ -6,6 +6,7 @@ public class Menu : MonoBehaviour
 	MenuPage[] pages;
 	MenuPage currentPage = null;
 	MenuPage nextPage = null;
+	bool InAnim = true;
 
 	public virtual void Start () 
 	{
@@ -27,18 +28,25 @@ public class Menu : MonoBehaviour
 				currentPage = nextPage;
 				nextPage = null;
 				currentPage.gameObject.SetActive(true);
-				currentPage.AnimateIn();
+				if(InAnim)
+				{
+					currentPage.AnimateIn();
+				}
 			}
 		}
 	}
 
-	public void SetPage(MenuPage _page)
+	public void SetPage(MenuPage _page, bool _outAnim = true, bool _inAnim = true)
 	{
 		nextPage = _page;
+		InAnim = _inAnim;
 
 		if(currentPage)
 		{
-			currentPage.AnimateOut();
+			if(_outAnim)
+			{
+				currentPage.AnimateOut();
+			}
 		}
 
 		if(!currentPage || currentPage.IsAnimationFinished())
@@ -51,7 +59,10 @@ public class Menu : MonoBehaviour
 			currentPage = nextPage;
 			nextPage = null;
 			currentPage.gameObject.SetActive(true);
-			currentPage.AnimateIn();
+			if(_inAnim)
+			{
+				currentPage.AnimateIn();
+			}
 		}
 	}
 }

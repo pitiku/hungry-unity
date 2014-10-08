@@ -28,8 +28,8 @@ public class ShopPage : MenuPage
 		}
 		else if(backButton.IsJustPressed() || Input.GetKeyDown(KeyCode.Escape))
 		{
-			MenuManager.Instance.SetPage(MenuManager.Instance.mainPage);
-			CoinsCounter.Instance.gameObject.SetActive(false);
+			CoinsCounter.Instance.AnimateOut();
+			MenuManager.Instance.SetPage(MenuManager.Instance.mainPage, true, false);
 		}
 	}
 }
