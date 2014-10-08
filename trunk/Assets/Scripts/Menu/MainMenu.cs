@@ -8,6 +8,8 @@ public class MainMenu : MenuPage
 	public MenuItem shopButton;
 	public MenuItem pedestalButton;
 
+	bool PlayPressed = false;
+
 	public override void OnStart () 
 	{
 		CoinsCounter.Instance.gameObject.SetActive(false);
@@ -15,6 +17,15 @@ public class MainMenu : MenuPage
 	
 	public override void OnUpdate () 
 	{
+		if(PlayPressed)
+		{
+			if(IsAnimationFinished())
+			{
+				Application.LoadLevel("Level");
+			}
+			return;
+		}
+
 		if (Input.GetKeyDown(KeyCode.Escape)) 
 		{
 			Application.Quit(); 
@@ -22,7 +33,8 @@ public class MainMenu : MenuPage
 
 		if(playButton.IsJustPressed())
 		{
-			Application.LoadLevel("Level");
+			Animate("StartGame");
+			PlayPressed = true;
 		}
 		else if(optionsButton.IsJustPressed())
 		{
