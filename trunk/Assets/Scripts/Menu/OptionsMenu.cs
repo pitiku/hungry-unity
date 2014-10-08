@@ -45,7 +45,7 @@ public class OptionsMenu : MenuPage
 		else if(backButton.IsJustPressed() || Input.GetKeyDown(KeyCode.Escape))
 		{
 			PlayerData.Instance.Save();
-			MenuManager.Instance.SetPage(MenuManager.Instance.mainPage);
+			MenuManager.Instance.SetPage(MenuManager.Instance.mainPage, true, false);
 		}
 	}
 }
