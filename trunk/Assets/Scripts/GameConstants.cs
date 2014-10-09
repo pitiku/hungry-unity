@@ -3,7 +3,6 @@ using System.Collections;
 
 public class GameConstants : MonoBehaviour {
 	
-	public const int NUM_BABIES = 16;
 	public enum eBabies
 	{
 		HUMAN = 0,
@@ -21,7 +20,8 @@ public class GameConstants : MonoBehaviour {
 		PANDA,
 		COW,
 		BAT,
-		CHAMELEON
+		CHAMELEON,
+		NUM_BABIES
 	};
 	
 	public enum eUpgrades
@@ -31,6 +31,18 @@ public class GameConstants : MonoBehaviour {
 		SUPER_RAINBOW,
 		VACUUM,
 		GLOVES,
-		MEGA_RAINBOW
+		MEGA_RAINBOW,
+		NUM_UPGRADES
+	};
+
+	public enum ePowerups
+	{
+		BOLET_TIME = 0,
+		DOUBLE_COINS,
+		EXTRA_RAINBOW,
+		PRIZE_SEASON,
+		CHAIN_BOOST,
+		MEGA_CHAIN_BOOST,
+		NUM_POWERUPS
 	};
 }

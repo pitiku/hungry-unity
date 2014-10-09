@@ -11,7 +11,12 @@ public class ShopPage : MenuPage
 	public override void OnStart () 
 	{
 	}
-	
+
+	public override void OnSetPage ()
+	{
+		CoinsCounter.Instance.AnimateIn();
+	}
+
 	public override void OnUpdate () 
 	{
 		if(babies.IsJustPressed())

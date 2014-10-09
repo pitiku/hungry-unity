@@ -33,7 +33,7 @@ public class MenuManager : Menu
 
 		if(FadeManager.Instance)
 		{
-			FadeManager.Instance.FadeIn(0.5f);
+			FadeManager.Instance.FadeIn(0.2f);
 		}
 
 		SetPage(mainPage);

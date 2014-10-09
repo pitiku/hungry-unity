@@ -14,6 +14,7 @@ public class MenuPage : MonoBehaviour
 	void Awake()
 	{
 		animator = GetComponent<Animator>();
+		if(animator) animator.enabled = false;
 	}
 
 	void Start ()
@@ -57,6 +58,7 @@ public class MenuPage : MonoBehaviour
 		if(animator)
 		{
 			animating = true;
+			animator.enabled = true;
 			animator.SetTrigger(_name);
 		}
 	}
@@ -66,6 +68,7 @@ public class MenuPage : MonoBehaviour
 		if(animator && HasInAnim)
 		{
 			animating = true;
+			animator.enabled = true;
 			animator.SetTrigger("In");
 		}
 	}
@@ -75,6 +78,7 @@ public class MenuPage : MonoBehaviour
 		if(animator && HasOutAnim)
 		{
 			animating = true;
+			animator.enabled = true;
 			animator.SetTrigger("Out");
 		}
 	}
@@ -82,6 +86,7 @@ public class MenuPage : MonoBehaviour
 	public void FinishAnimation()
 	{
 		animating = false;
+		if(animator) animator.enabled = false;
 	}
 	
 	public bool IsAnimationFinished()
