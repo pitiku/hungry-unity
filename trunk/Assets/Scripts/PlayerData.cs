@@ -97,7 +97,7 @@ public class PlayerData
 			maxBabies = PlayerPrefs.GetInt("maxBabies");
 			totalBabies = PlayerPrefs.GetInt("totalBabies");
 			maxCoinsInAGame = PlayerPrefs.GetInt("maxCoinsInAGame");
-			coins = PlayerPrefs.GetInt("coins");
+			coins = 1000000;//PlayerPrefs.GetInt("coins");
 			totalCoins = PlayerPrefs.GetInt("totalCoins");
 			spentCoins = PlayerPrefs.GetInt("spentCoins");
 			numGames = PlayerPrefs.GetInt("numGames");

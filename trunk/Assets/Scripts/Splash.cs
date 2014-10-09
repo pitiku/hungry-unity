@@ -27,7 +27,7 @@ public class Splash : MonoBehaviour {
 		case SplashState.INIT:
 			if((Time.time - m_fStateTimeStart) > 0.2f)
 			{
-				FadeManager.Instance.FadeIn(0.5f);
+				FadeManager.Instance.FadeIn(0.2f);
 				SetState(SplashState.FADEIN);
 			}
 			break;
@@ -42,7 +42,7 @@ public class Splash : MonoBehaviour {
 		case SplashState.SHOW:
 			if((Time.time - m_fStateTimeStart) > 2.0f || Input.anyKey)
 			{
-				FadeManager.Instance.FadeOut(0.5f);
+				FadeManager.Instance.FadeOut(0.2f);
 				SetState(SplashState.FADEOUT);
 			}
 			break;
