@@ -11,6 +11,9 @@ public class OptionsMenu : MenuPage
 	public SpriteRenderer accelerometerCheckbox;
 	public MenuItem statsItem;
 
+	public TextMesh accelerometerText;
+	public TextMesh accelerometerText_shadow;
+
 	public MenuItem backButton;
 
 	public override void OnStart () 
@@ -26,11 +29,8 @@ public class OptionsMenu : MenuPage
 
 		Color gray = Color.gray;
 		gray.a = 0.5f;
-		TextMesh[] items = accelerometerItem.GetComponentsInChildren<TextMesh>();
-		foreach(TextMesh item in items)
-		{
-			item.color = PlayerData.Instance.upgrade_accelerometer ? Color.white : gray;
-		}
+		accelerometerText.color = PlayerData.Instance.upgrade_accelerometer ? Color.white : gray;
+		accelerometerText_shadow.color = PlayerData.Instance.upgrade_accelerometer ? Color.black : gray;
 	}
 
 	public override void OnUpdate () 
