@@ -19,7 +19,20 @@ public class OptionsMenu : MenuPage
 		soundCheckbox.enabled = PlayerData.Instance.option_sound;
 		accelerometerCheckbox.enabled = PlayerData.Instance.option_accelerometer;
 	}
-	
+
+	public override void OnSetPage ()
+	{
+		accelerometerItem.enabled = PlayerData.Instance.upgrade_accelerometer;
+
+		Color gray = Color.gray;
+		gray.a = 0.5f;
+		TextMesh[] items = accelerometerItem.GetComponentsInChildren<TextMesh>();
+		foreach(TextMesh item in items)
+		{
+			item.color = PlayerData.Instance.upgrade_accelerometer ? Color.white : gray;
+		}
+	}
+
 	public override void OnUpdate () 
 	{
 		if(musicItem.IsJustPressed())
@@ -33,7 +46,7 @@ public class OptionsMenu : MenuPage
 			PlayerData.Instance.option_sound = !PlayerData.Instance.option_sound;
 			soundCheckbox.enabled = PlayerData.Instance.option_sound;
 		}
-		else if(accelerometerItem.IsJustPressed())
+		else if(accelerometerItem.enabled && accelerometerItem.IsJustPressed())
 		{
 			PlayerData.Instance.option_accelerometer = !PlayerData.Instance.option_accelerometer;
 			accelerometerCheckbox.enabled = PlayerData.Instance.option_accelerometer;

@@ -57,7 +57,7 @@ public class PlayerData
 	public int powerup_prizeSeason = 0;
 
 	//Babies
-	public bool[] babies = {true, true ,true, true, true, false, false, false, false, false, false, false, false, false, false, false};
+	public bool[] babies;
 
 	public int Coins
 	{
@@ -75,8 +75,18 @@ public class PlayerData
 		}
 	}
 	
-	private void Load()
+	public void Load()
 	{
+		if(loaded)
+		{
+			return;
+		}
+
+		loaded = true;
+
+		//Uncomment to reset
+		//PlayerPrefs.DeleteKey("music");
+		
 		//Check is there is saved data
 		if(PlayerPrefs.HasKey("music"))
 		{
@@ -109,14 +119,24 @@ public class PlayerData
 			powerup_extraRainbow = PlayerPrefs.GetInt("powerup_extraRainbow");
 			powerup_megaChainBoost = PlayerPrefs.GetInt("powerup_megaChainBoost");
 			powerup_prizeSeason = PlayerPrefs.GetInt("powerup_prizeSeason");
-			
+
+			babies = new bool[(int)GameConstants.eBabies.NUM_BABIES];
 			for(int i=0; i < (int)GameConstants.eBabies.NUM_BABIES; ++i)
 			{
 				babies[i] = GetBool("baby"+i);
 			}
 		}
+		else
+		{
+			//Unlock default babies
+			babies = new bool[(int)GameConstants.eBabies.NUM_BABIES];
+			babies[(int)GameConstants.eBabies.HUMAN] = true;
+			babies[(int)GameConstants.eBabies.CAT] = true;
+			babies[(int)GameConstants.eBabies.DOG] = true;
+			babies[(int)GameConstants.eBabies.BIRD] = true;
 
-		loaded = true;
+			Save();
+		}
 	}
 
 	public void Save()

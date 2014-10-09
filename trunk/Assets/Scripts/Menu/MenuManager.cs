@@ -27,6 +27,11 @@ public class MenuManager : Menu
 	public MenuPage powerupsPage;
 	public MenuPage statsPage;
 
+	void Awake()
+	{
+		PlayerData.Instance.Load();
+	}
+
 	public override void Start () 
 	{
 		base.Start();
