@@ -33,4 +33,9 @@ public class Baby : MonoBehaviour {
 			animator.SetTrigger("Eat_Fail");
 		}
 	}
+
+	public bool IsUnlocked()
+	{
+		return PlayerData.Instance.babies[(int)baby];
+	}
 }

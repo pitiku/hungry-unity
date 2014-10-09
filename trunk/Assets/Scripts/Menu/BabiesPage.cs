@@ -4,6 +4,8 @@ using System.Collections;
 public class BabiesPage : MenuPage 
 {
 	public MenuItem backButton;
+
+	public Baby[] babies;
 	
 	public override void OnStart () 
 	{
