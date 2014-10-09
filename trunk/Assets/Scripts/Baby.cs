@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Baby : MonoBehaviour {
 
+	public GameConstants.eBabies baby;
+
 	Animator animator;
 
 	public Transform mouth;
