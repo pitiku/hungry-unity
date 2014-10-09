@@ -21,68 +21,44 @@ public class PlayerData
 		Load();
 	}
 
-	public const int NUM_BABIES = 16;
-	public enum BABIES
-	{
-		HUMAN = 0,
-		DOG,
-		CAT,
-		BIRD,
-		MONKEY,
-		WHALE,
-		ALIEN,
-		ANTEATER,
-		PLANT,
-		RABBIT,
-		ROBOT,
-		ZOMBIE,
-		PANDA,
-		COW,
-		BAT,
-		CHAMELEON
-	};
-
 	public bool loaded = false;
 
+	public int lastDayPlayed = 0;
+
 	//Options
-	public bool option_music;
-	public bool option_sound;
-	public bool option_accelerometer;
+	public bool option_music = true;
+	public bool option_sound = true;
+	public bool option_accelerometer = false;
 
 	//Stats
-	public int maxBabies;
-	public int totalBabies;
-	public int maxCoinsInAGame;
-	private int coins;
-	public int totalCoins;
-	public int spentCoins;
-	public int numGames;
-	public int numPrizes;
-	public int maxCombo;
-
-	public int lastDayPlayed;
-
+	public int maxBabies = 0;
+	public int totalBabies = 0;
+	public int maxCoinsInAGame = 0;
+	private int coins = 0;
+	public int totalCoins = 0;
+	public int spentCoins = 0;
+	public int numGames = 0;
+	public int numPrizes = 0;
+	public int maxCombo = 0;
+	
 	//Items
-	public bool upgrade_accelerometer;
-	public bool upgrade_crown;
-	public bool upgrade_gloves;
-	public bool upgrade_rainbowplus;
-	public bool upgrade_rainbowplusplus;
-	public bool upgrade_vacuum;
+	public bool upgrade_accelerometer = false;
+	public bool upgrade_crown = false;
+	public bool upgrade_gloves = false;
+	public bool upgrade_rainbowplus = false;
+	public bool upgrade_rainbowplusplus = false;
+	public bool upgrade_vacuum = false;
 
-	public int powerup_boletTime;
-	public int powerup_chainBoost;
-	public int powerup_doubleCoins;
-	public int powerup_extraRainbow;
-	public int powerup_megaChainBoost;
-	public int powerup_prizeSeason;
+	public int powerup_boletTime = 0;
+	public int powerup_chainBoost = 0;
+	public int powerup_doubleCoins = 0;
+	public int powerup_extraRainbow = 0;
+	public int powerup_megaChainBoost = 0;
+	public int powerup_prizeSeason = 0;
 
 	//Babies
-	public bool[] babies;
+	public bool[] babies = {true, true ,true, true, true, false, false, false, false, false, false, false, false, false, false, false};
 
-	//Achievements
-	public bool[] achievements;
-		
 	public int Coins
 	{
 		get
@@ -92,46 +68,53 @@ public class PlayerData
 		set
 		{
 			coins = value;
-			CoinsCounter.Instance.UpdateCoins();
+			if(CoinsCounter.Instance)
+			{
+				CoinsCounter.Instance.UpdateCoins();
+			}
 		}
 	}
 	
 	private void Load()
 	{
-		option_music = GetBool("music");
-		option_sound = GetBool("sound");
-		option_accelerometer = GetBool("accelerometer");
-
-		maxBabies = PlayerPrefs.GetInt("maxBabies");
-		totalBabies = PlayerPrefs.GetInt("totalBabies");
-		maxCoinsInAGame = PlayerPrefs.GetInt("maxCoinsInAGame");
-		coins = PlayerPrefs.GetInt("coins");
-		totalCoins = PlayerPrefs.GetInt("totalCoins");
-		spentCoins = PlayerPrefs.GetInt("spentCoins");
-		numGames = PlayerPrefs.GetInt("numGames");
-		numPrizes = PlayerPrefs.GetInt("numPrizes");
-		maxCombo = PlayerPrefs.GetInt("maxCombo");
-
-		lastDayPlayed = PlayerPrefs.GetInt("lastDayPlayed");
-
-		upgrade_accelerometer = GetBool("upgrade_accelerometer");
-		upgrade_crown = GetBool("upgrade_crown");
-		upgrade_gloves = GetBool("upgrade_globes");
-		upgrade_rainbowplus = GetBool("upgrade_rainbowplus");
-		upgrade_rainbowplusplus = GetBool("upgrade_rainbowplusplus");
-		upgrade_vacuum = GetBool("upgrade_vacuum");
-
-		powerup_boletTime = PlayerPrefs.GetInt("powerup_boletTime");
-		powerup_chainBoost = PlayerPrefs.GetInt("powerup_chainBoost");
-		powerup_doubleCoins = PlayerPrefs.GetInt("powerup_doubleCoins");
-		powerup_extraRainbow = PlayerPrefs.GetInt("powerup_extraRainbow");
-		powerup_megaChainBoost = PlayerPrefs.GetInt("powerup_megaChainBoost");
-		powerup_prizeSeason = PlayerPrefs.GetInt("powerup_prizeSeason");
-
-		babies = new bool[NUM_BABIES];
-		for(int i=0; i < NUM_BABIES; ++i)
+		//Check is there is saved data
+		if(PlayerPrefs.HasKey("music"))
 		{
-			babies[i] = GetBool("baby"+i);
+			option_music = GetBool("music");
+			option_sound = GetBool("sound");
+			option_accelerometer = GetBool("accelerometer");
+			
+			maxBabies = PlayerPrefs.GetInt("maxBabies");
+			totalBabies = PlayerPrefs.GetInt("totalBabies");
+			maxCoinsInAGame = PlayerPrefs.GetInt("maxCoinsInAGame");
+			coins = PlayerPrefs.GetInt("coins");
+			totalCoins = PlayerPrefs.GetInt("totalCoins");
+			spentCoins = PlayerPrefs.GetInt("spentCoins");
+			numGames = PlayerPrefs.GetInt("numGames");
+			numPrizes = PlayerPrefs.GetInt("numPrizes");
+			maxCombo = PlayerPrefs.GetInt("maxCombo");
+			
+			lastDayPlayed = PlayerPrefs.GetInt("lastDayPlayed");
+			
+			upgrade_accelerometer = GetBool("upgrade_accelerometer");
+			upgrade_crown = GetBool("upgrade_crown");
+			upgrade_gloves = GetBool("upgrade_globes");
+			upgrade_rainbowplus = GetBool("upgrade_rainbowplus");
+			upgrade_rainbowplusplus = GetBool("upgrade_rainbowplusplus");
+			upgrade_vacuum = GetBool("upgrade_vacuum");
+			
+			powerup_boletTime = PlayerPrefs.GetInt("powerup_boletTime");
+			powerup_chainBoost = PlayerPrefs.GetInt("powerup_chainBoost");
+			powerup_doubleCoins = PlayerPrefs.GetInt("powerup_doubleCoins");
+			powerup_extraRainbow = PlayerPrefs.GetInt("powerup_extraRainbow");
+			powerup_megaChainBoost = PlayerPrefs.GetInt("powerup_megaChainBoost");
+			powerup_prizeSeason = PlayerPrefs.GetInt("powerup_prizeSeason");
+			
+			babies = new bool[GameConstants.NUM_BABIES];
+			for(int i=0; i < GameConstants.NUM_BABIES; ++i)
+			{
+				babies[i] = GetBool("baby"+i);
+			}
 		}
 
 		loaded = true;
@@ -143,6 +126,7 @@ public class PlayerData
 		{
 			Load();
 		}
+
 		SetBool("music",  option_music);
 		SetBool("sound", option_sound);
 		SetBool("accelerometer", option_accelerometer);
@@ -173,7 +157,7 @@ public class PlayerData
 		PlayerPrefs.SetInt("powerup_megaChainBoost", powerup_megaChainBoost);
 		PlayerPrefs.SetInt("powerup_prizeSeason", powerup_prizeSeason);
 
-		for(int i=0; i < NUM_BABIES; ++i)
+		for(int i=0; i < GameConstants.NUM_BABIES; ++i)
 		{
 			SetBool("baby"+i, babies[i]);
 		}
@@ -198,7 +182,6 @@ public class PlayerData
 
 	public bool GetBool(string _key)
 	{
-		if(!PlayerPrefs.HasKey(_key)) return false;
 		return PlayerPrefs.GetInt(_key)==1 ? true : false;
 	}
 }
