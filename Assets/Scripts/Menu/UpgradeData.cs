@@ -17,11 +17,11 @@ public class UpgradeData : MonoBehaviour {
 
 	public void UpdateVisual()
 	{
-		tick.gameObject.SetActive(IsBought());
-		priceText.gameObject.SetActive(!IsBought());
+		tick.enabled = IsBought();
+		priceText.GetComponent<MeshRenderer>().enabled = !IsBought();
 		priceText.text = "" + price;
 		priceText_shadow.text = "" + price;
-		halo.gameObject.SetActive(false);
+		halo.enabled = false;
 
 		if(!prerequisite || prerequisite.IsBought())
 		{
@@ -37,13 +37,13 @@ public class UpgradeData : MonoBehaviour {
 
 	public void Select(TextMesh _message)
 	{
-		halo.gameObject.SetActive(true);
+		halo.enabled = true;
 		_message.text = text;
 	}
 
 	public void UnSelect()
 	{
-		halo.gameObject.SetActive(false);
+		halo.enabled = false;
 	}
 
 	public bool IsBought()
