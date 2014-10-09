@@ -7,14 +7,11 @@ public class UpgradesPage : MenuPage
 
 	public UpgradeData[] upgrades;
 
-	public TextMesh Message;
-	public TextMesh MessageBuy;
-
-	public string DefaultText;
-	public string ClickToBuyText;
-	public string NotEnoughCoinsText;
-	public string OwnedText;
-	public string BuyRainbowText;
+	public MeshRenderer Message;
+	public MeshRenderer ClickToBuyText;
+	public MeshRenderer NotEnoughCoinsText;
+	public MeshRenderer OwnedText;
+	public MeshRenderer BuyRainbowText;
 
 	UpgradeData selected = null;
 
@@ -34,8 +31,12 @@ public class UpgradesPage : MenuPage
 			upgrade.UpdateVisual();
 		}
 
-		Message.text = DefaultText;
-		MessageBuy.text = "";
+		Message.enabled = true;
+
+		ClickToBuyText.enabled = false;
+		NotEnoughCoinsText.enabled = false;
+		OwnedText.enabled = false;
+		BuyRainbowText.enabled = false;
 	}
 	
 	public void Select(UpgradeData _upgrade)
@@ -45,23 +46,30 @@ public class UpgradesPage : MenuPage
 			selected.UnSelect();
 		}
 		selected = _upgrade;
-		selected.Select(Message);
+		selected.Select();
+
+		Message.enabled = false;
+		
+		ClickToBuyText.enabled = false;
+		NotEnoughCoinsText.enabled = false;
+		OwnedText.enabled = false;
+		BuyRainbowText.enabled = false;
 
 		if(selected.IsBought())
 		{
-			MessageBuy.text = OwnedText;
+			OwnedText.enabled = true;
 		}
 		else if(selected.prerequisite && !selected.prerequisite.IsBought())
 		{
-			MessageBuy.text = BuyRainbowText;
+			BuyRainbowText.enabled = true;
 		}
 		else if(selected.price > PlayerData.Instance.Coins)
 		{
-			MessageBuy.text = NotEnoughCoinsText;
+			NotEnoughCoinsText.enabled = true;
 		}
 		else
 		{
-			MessageBuy.text = ClickToBuyText;
+			ClickToBuyText.enabled = true;
 		}
 	}
 
@@ -71,19 +79,20 @@ public class UpgradesPage : MenuPage
 		{
 			if(upgrade.item.IsJustPressed())
 			{
-				if(selected == upgrade)
+				if(selected == upgrade && selected.CanBuy())
 				{
-					if(PlayerData.Instance.Coins >= upgrade.price)
+					if(PlayerData.Instance.Coins >= selected.price)
 					{
-						upgrade.Buy();
-						PlayerData.Instance.Coins -= upgrade.price;
+						selected.Buy();
+						PlayerData.Instance.Coins -= selected.price;
 
 						//Update all the visuals (because of prerequisites)
 						foreach(UpgradeData upgradeVis in upgrades)
 						{
 							upgradeVis.UpdateVisual();
 						}
-						
+						selected.Select();
+
 						PlayerData.Instance.Save();
 					}
 				}
@@ -91,9 +100,16 @@ public class UpgradesPage : MenuPage
 				{
 					Select(upgrade);
 				}
-				break;
+				return;
 			}
 		}
+
+		/*
+		if(InputManager.Instance.IsTouch)
+		{
+			Select(upgrades[0]);
+		}
+		*/
 
 		if(backButton.IsJustPressed() || Input.GetKeyDown(KeyCode.Escape))
 		{

@@ -5,22 +5,28 @@ public class UpgradeData : MonoBehaviour {
 
 	public GameConstants.eUpgrades upgrade;
 	public int price;
-	public string text;
 
 	public MenuItem item;
 	public SpriteRenderer tick;
 	public TextMesh priceText;
 	public TextMesh priceText_shadow;
 	public SpriteRenderer halo;
+	public MeshRenderer textMesh;
 
 	public UpgradeData prerequisite = null;
 
 	public void UpdateVisual()
 	{
 		tick.enabled = IsBought();
-		priceText.GetComponent<MeshRenderer>().enabled = !IsBought();
-		priceText.text = "" + price;
-		priceText_shadow.text = "" + price;
+		if(IsBought())
+		{
+			priceText.gameObject.SetActive(false);
+		}
+		else
+		{
+			priceText.text = "" + price;
+			priceText_shadow.text = "" + price;
+		}
 		halo.enabled = false;
 
 		if(!prerequisite || prerequisite.IsBought())
@@ -35,15 +41,21 @@ public class UpgradeData : MonoBehaviour {
 		}
 	}
 
-	public void Select(TextMesh _message)
+	public void Select()
 	{
 		halo.enabled = true;
-		_message.text = text;
+		textMesh.enabled = true;
 	}
 
 	public void UnSelect()
 	{
 		halo.enabled = false;
+		textMesh.enabled = false;
+	}
+
+	public bool CanBuy()
+	{
+		return !IsBought() && (!prerequisite || prerequisite.IsBought());
 	}
 
 	public bool IsBought()
