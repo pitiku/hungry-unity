@@ -16,7 +16,7 @@ public class UpgradesPage : MenuPage
 	public string OwnedText;
 	public string BuyRainbowText;
 
-	UpgradeData selectedUpgrade = null;
+	UpgradeData selected = null;
 
 	public override void OnStart () 
 	{
@@ -25,6 +25,8 @@ public class UpgradesPage : MenuPage
 	public override void OnSetPage()
 	{
 		CoinsCounter.Instance.AnimateIn();
+
+		selected = null;
 
 		foreach(UpgradeData upgrade in upgrades)
 		{
@@ -36,24 +38,24 @@ public class UpgradesPage : MenuPage
 		MessageBuy.text = "";
 	}
 	
-	public void SelectUpgrade(UpgradeData _upgrade)
+	public void Select(UpgradeData _upgrade)
 	{
-		if(selectedUpgrade)
+		if(selected)
 		{
-			selectedUpgrade.UnSelect();
+			selected.UnSelect();
 		}
-		selectedUpgrade = _upgrade;
-		selectedUpgrade.Select(Message);
+		selected = _upgrade;
+		selected.Select(Message);
 
-		if(selectedUpgrade.IsBought())
+		if(selected.IsBought())
 		{
 			MessageBuy.text = OwnedText;
 		}
-		else if(selectedUpgrade.prerequisite && !selectedUpgrade.prerequisite.IsBought())
+		else if(selected.prerequisite && !selected.prerequisite.IsBought())
 		{
 			MessageBuy.text = BuyRainbowText;
 		}
-		else if(selectedUpgrade.price > PlayerData.Instance.Coins)
+		else if(selected.price > PlayerData.Instance.Coins)
 		{
 			MessageBuy.text = NotEnoughCoinsText;
 		}
@@ -69,13 +71,14 @@ public class UpgradesPage : MenuPage
 		{
 			if(upgrade.item.IsJustPressed())
 			{
-				if(selectedUpgrade == upgrade)
+				if(selected == upgrade)
 				{
 					if(PlayerData.Instance.Coins >= upgrade.price)
 					{
 						upgrade.Buy();
 						PlayerData.Instance.Coins -= upgrade.price;
 
+						//Update all the visuals (because of prerequisites)
 						foreach(UpgradeData upgradeVis in upgrades)
 						{
 							upgradeVis.UpdateVisual();
@@ -86,7 +89,7 @@ public class UpgradesPage : MenuPage
 				}
 				else
 				{
-					SelectUpgrade(upgrade);
+					Select(upgrade);
 				}
 				break;
 			}

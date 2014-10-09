@@ -19,7 +19,9 @@ public class PowerupsPage : MenuPage
 	public override void OnSetPage()
 	{
 		CoinsCounter.Instance.AnimateIn();
-		
+
+		selected = null;
+
 		foreach(PowerupData powerup in powerups)
 		{
 			powerup.UnSelect();

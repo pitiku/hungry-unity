@@ -4,6 +4,7 @@ using System.Collections;
 public class CoinsCounter : SingletonMonoBehaviour<CoinsCounter> {
 
 	public TextMesh text;
+	public TextMesh text_shadow;
 	Animator animator;
 
 	void Awake()
@@ -27,6 +28,7 @@ public class CoinsCounter : SingletonMonoBehaviour<CoinsCounter> {
 	public void UpdateCoins()
 	{
 		text.text = "" + PlayerData.Instance.Coins;
+		text_shadow.text = "" + PlayerData.Instance.Coins;
 	}
 
 	public void AnimateIn()

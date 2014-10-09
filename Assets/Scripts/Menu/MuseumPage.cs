@@ -13,7 +13,7 @@ public class MuseumPage : MenuPage
 	{
 		if(backButton.IsJustPressed() || Input.GetKeyDown(KeyCode.Escape))
 		{
-			MenuManager.Instance.SetPage(MenuManager.Instance.mainPage);
+			MenuManager.Instance.SetPage(MenuManager.Instance.mainPage, true, false);
 		}
 	}
 }
