@@ -9,7 +9,8 @@ public class UpgradesPage : MenuPage
 
 	public TextMesh Message;
 	public TextMesh MessageBuy;
-	
+
+	public string DefaultText;
 	public string ClickToBuyText;
 	public string NotEnoughCoinsText;
 	public string OwnedText;
@@ -19,17 +20,22 @@ public class UpgradesPage : MenuPage
 
 	public override void OnStart () 
 	{
-		foreach(UpgradeData upgrade in upgrades)
-		{
-			upgrade.UpdateVisual();
-		}
 	}
 
 	public override void OnSetPage()
 	{
 		CoinsCounter.Instance.AnimateIn();
-	}
 
+		foreach(UpgradeData upgrade in upgrades)
+		{
+			upgrade.UnSelect();
+			upgrade.UpdateVisual();
+		}
+
+		Message.text = DefaultText;
+		MessageBuy.text = "";
+	}
+	
 	public void SelectUpgrade(UpgradeData _upgrade)
 	{
 		if(selectedUpgrade)
@@ -75,12 +81,7 @@ public class UpgradesPage : MenuPage
 							upgradeVis.UpdateVisual();
 						}
 						
-						//PlayerData.Instance.Save();
-					}
-					else
-					{
-						//Show coins popup
-						//CoinsPopUp.Instance.Show();
+						PlayerData.Instance.Save();
 					}
 				}
 				else
@@ -89,6 +90,12 @@ public class UpgradesPage : MenuPage
 				}
 				break;
 			}
+		}
+
+		if(backButton.IsJustPressed() || Input.GetKeyDown(KeyCode.Escape))
+		{
+			CoinsCounter.Instance.AnimateOut();
+			MenuManager.Instance.SetPage(MenuManager.Instance.shopPage);
 		}
 	}
 }

@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Living : MonoBehaviour {
-
+public class Living : MonoBehaviour 
+{
 	Vector2 scaleInit;
 
 	public float scaleFactorX = 0.15f;

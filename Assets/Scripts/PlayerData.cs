@@ -110,8 +110,7 @@ public class PlayerData
 			powerup_megaChainBoost = PlayerPrefs.GetInt("powerup_megaChainBoost");
 			powerup_prizeSeason = PlayerPrefs.GetInt("powerup_prizeSeason");
 			
-			babies = new bool[GameConstants.NUM_BABIES];
-			for(int i=0; i < GameConstants.NUM_BABIES; ++i)
+			for(int i=0; i < (int)GameConstants.eBabies.NUM_BABIES; ++i)
 			{
 				babies[i] = GetBool("baby"+i);
 			}
@@ -157,7 +156,7 @@ public class PlayerData
 		PlayerPrefs.SetInt("powerup_megaChainBoost", powerup_megaChainBoost);
 		PlayerPrefs.SetInt("powerup_prizeSeason", powerup_prizeSeason);
 
-		for(int i=0; i < GameConstants.NUM_BABIES; ++i)
+		for(int i=0; i < (int)GameConstants.eBabies.NUM_BABIES; ++i)
 		{
 			SetBool("baby"+i, babies[i]);
 		}

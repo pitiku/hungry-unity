@@ -14,7 +14,7 @@ public class MainMenu : MenuPage
 	{
 		CoinsCounter.Instance.gameObject.SetActive(false);
 	}
-	
+
 	public override void OnUpdate () 
 	{
 		if(PlayPressed)
@@ -38,17 +38,16 @@ public class MainMenu : MenuPage
 		}
 		else if(optionsButton.IsJustPressed())
 		{
-			MenuManager.Instance.SetPage(MenuManager.Instance.optionsPage);
+			MenuManager.Instance.SetPage(MenuManager.Instance.optionsPage, false, true);
 		}
 		else if(shopButton.IsJustPressed())
 		{
 			CoinsCounter.Instance.gameObject.SetActive(true);
-			CoinsCounter.Instance.AnimateIn();
-			MenuManager.Instance.SetPage(MenuManager.Instance.shopPage);
+			MenuManager.Instance.SetPage(MenuManager.Instance.shopPage, false, true);
 		}
 		else if(pedestalButton.IsJustPressed())
 		{
-			MenuManager.Instance.SetPage(MenuManager.Instance.museumPage);
+			MenuManager.Instance.SetPage(MenuManager.Instance.museumPage, false, true);
 		}
 	}
 }
