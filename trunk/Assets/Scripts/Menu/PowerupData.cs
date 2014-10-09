@@ -3,7 +3,6 @@ using System.Collections;
 
 public class PowerupData : MonoBehaviour 
 {
-	
 	public GameConstants.ePowerups powerup;
 	public int price;
 	public string text;
@@ -19,18 +18,18 @@ public class PowerupData : MonoBehaviour
 		countText.text = "" + GetCount();
 		priceText.text = "" + price;
 		priceText_shadow.text = "" + price;
-		halo.gameObject.SetActive(false);
+		halo.enabled = false;
 	}
 	
 	public void Select(TextMesh _message)
 	{
-		halo.gameObject.SetActive(true);
+		halo.enabled = true;
 		_message.text = text;
 	}
 	
 	public void UnSelect()
 	{
-		halo.gameObject.SetActive(false);
+		halo.enabled = false;
 	}
 	
 	public int GetCount()
