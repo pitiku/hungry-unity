@@ -4,10 +4,9 @@ using System.Collections;
 public class Baby : MonoBehaviour {
 
 	public GameConstants.eBabies baby;
+	public Transform mouth;
 
 	Animator animator;
-
-	public Transform mouth;
 
 	void Start () 
 	{
@@ -18,15 +17,20 @@ public class Baby : MonoBehaviour {
 	{
 	}
 
+	public void Idle()
+	{
+		animator.SetTrigger("Idle");
+	}
+
 	public void Eat(bool _bSuccess)
 	{
 		if(_bSuccess)
 		{
-			animator.SetBool("Eat_Success", true);
+			animator.SetTrigger("Eat_Success");
 		}
 		else
 		{
-			animator.SetBool("Eat_Fail", true);
+			animator.SetTrigger("Eat_Fail");
 		}
 	}
 }
