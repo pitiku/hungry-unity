@@ -5,10 +5,11 @@ public class Baby : MonoBehaviour {
 
 	public GameConstants.eBabies baby;
 	public Transform mouth;
+	public Animator childAnimator;
 
 	Animator animator;
 
-	void Start () 
+	void Awake() 
 	{
 		animator = GetComponent<Animator>();
 	}
@@ -20,6 +21,10 @@ public class Baby : MonoBehaviour {
 	public void Idle()
 	{
 		animator.SetTrigger("Idle");
+		if(childAnimator)
+		{
+			childAnimator.SetTrigger("Idle");
+		}
 	}
 
 	public void Eat(bool _bSuccess)
@@ -27,10 +32,18 @@ public class Baby : MonoBehaviour {
 		if(_bSuccess)
 		{
 			animator.SetTrigger("Eat_Success");
+			if(childAnimator)
+			{
+				childAnimator.SetTrigger("Eat_Success");
+			}
 		}
 		else
 		{
 			animator.SetTrigger("Eat_Fail");
+			if(childAnimator)
+			{
+				childAnimator.SetTrigger("Eat_Fail");
+			}
 		}
 	}
 
