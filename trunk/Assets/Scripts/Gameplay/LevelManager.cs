@@ -3,8 +3,6 @@ using System.Collections;
 
 public class LevelManager : MonoBehaviour 
 {
-	public PauseScreen pause;
-
 	public GameObject[] babies;
 	public GameObject[] clouds;
 
@@ -100,7 +98,7 @@ public class LevelManager : MonoBehaviour
 		}
 	}
 
-	float GetStateDuration()
+	float GetStateTime()
 	{
 		return Time.time - stateTimeStart;
 	}

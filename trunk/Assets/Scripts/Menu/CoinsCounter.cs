@@ -17,14 +17,6 @@ public class CoinsCounter : SingletonMonoBehaviour<CoinsCounter> {
 		UpdateCoins();
 	}
 	
-	void Update () 
-	{
-		if(GetComponent<MenuItem>().IsJustPressed())
-		{
-			//Open coins popup
-		}
-	}
-
 	public void UpdateCoins()
 	{
 		text.text = "" + PlayerData.Instance.Coins;

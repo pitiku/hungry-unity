@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BabyInShop : MonoBehaviour {
+public class Rainbow : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
