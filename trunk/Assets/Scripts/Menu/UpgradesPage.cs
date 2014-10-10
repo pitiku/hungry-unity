@@ -38,18 +38,9 @@ public class UpgradesPage : MenuPage
 		OwnedText.enabled = false;
 		BuyRainbowText.enabled = false;
 	}
-	
-	public void Select(UpgradeData _upgrade)
-	{
-		if(selected)
-		{
-			selected.UnSelect();
-		}
-		selected = _upgrade;
-		selected.Select();
 
-		Message.enabled = false;
-		
+	void UpdateMessage()
+	{
 		ClickToBuyText.enabled = false;
 		NotEnoughCoinsText.enabled = false;
 		OwnedText.enabled = false;
@@ -73,6 +64,20 @@ public class UpgradesPage : MenuPage
 		}
 	}
 
+	public void Select(UpgradeData _upgrade)
+	{
+		if(selected)
+		{
+			selected.UnSelect();
+		}
+		selected = _upgrade;
+		selected.Select();
+
+		Message.enabled = false;
+
+		UpdateMessage();
+	}
+
 	public override void OnUpdate () 
 	{
 		foreach(UpgradeData upgrade in upgrades)
@@ -84,15 +89,18 @@ public class UpgradesPage : MenuPage
 					if(PlayerData.Instance.Coins >= selected.price)
 					{
 						selected.Buy();
-						PlayerData.Instance.Coins -= selected.price;
+						UpdateMessage();
 
 						//Update all the visuals (because of prerequisites)
 						foreach(UpgradeData upgradeVis in upgrades)
 						{
-							upgradeVis.UpdateVisual();
+							if(!upgradeVis.IsBought() && upgradeVis.prerequisite)
+							{
+								upgradeVis.UpdateVisual();
+							}
 						}
-						selected.Select();
 
+						PlayerData.Instance.Coins -= selected.price;
 						PlayerData.Instance.Save();
 					}
 				}

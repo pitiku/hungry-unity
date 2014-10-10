@@ -13,6 +13,7 @@ public class PowerupsPage : MenuPage
 	public string DefaultText;
 	public string ClickToBuyText;
 	public string NotEnoughCoinsText;
+	public string MaxItemsText;
 
 	PowerupData selected = null;
 	
@@ -31,7 +32,23 @@ public class PowerupsPage : MenuPage
 		Message.text = DefaultText;
 		MessageBuy.text = "";
 	}
-	
+
+	public void UpdateMessage()
+	{
+		if(selected.GetCount() >= 9)
+		{
+			MessageBuy.text = MaxItemsText;
+		}
+		else if(selected.price > PlayerData.Instance.Coins)
+		{
+			MessageBuy.text = NotEnoughCoinsText;
+		}
+		else
+		{
+			MessageBuy.text = ClickToBuyText;
+		}
+	}
+
 	public void Select(PowerupData _powerup)
 	{
 		if(selected)
@@ -40,15 +57,8 @@ public class PowerupsPage : MenuPage
 		}
 		selected = _powerup;
 		selected.Select(Message);
-		
-		if(selected.price > PlayerData.Instance.Coins)
-		{
-			MessageBuy.text = NotEnoughCoinsText;
-		}
-		else
-		{
-			MessageBuy.text = ClickToBuyText;
-		}
+
+		UpdateMessage();
 	}
 	
 	public override void OnUpdate () 
@@ -59,13 +69,12 @@ public class PowerupsPage : MenuPage
 			{
 				if(selected == powerup)
 				{
-					if(PlayerData.Instance.Coins >= powerup.price)
+					if(PlayerData.Instance.Coins >= powerup.price && powerup.GetCount() < 9)
 					{
 						powerup.Buy();
 						PlayerData.Instance.Coins -= powerup.price;
-						powerup.UpdateVisual();
-
 						PlayerData.Instance.Save();
+						UpdateMessage();
 					}
 				}
 				else

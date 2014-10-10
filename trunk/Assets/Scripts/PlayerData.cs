@@ -67,7 +67,21 @@ public class PlayerData
 		}
 		set
 		{
+			//Update spent coins
+			if(value < coins)
+			{
+				spentCoins += (coins - value);
+			}
+
+			//Update total coins
+			if(value > coins)
+			{
+				totalCoins += (value - coins);
+			}
+
 			coins = value;
+
+			//Update counter
 			if(CoinsCounter.Instance)
 			{
 				CoinsCounter.Instance.UpdateCoins();

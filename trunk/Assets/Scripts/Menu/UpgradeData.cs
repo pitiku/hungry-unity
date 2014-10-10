@@ -101,5 +101,8 @@ public class UpgradeData : MonoBehaviour {
 			PlayerData.Instance.upgrade_rainbowplusplus = true;
 			break;
 		}
+
+		tick.enabled = true;
+		priceText.gameObject.SetActive(false);
 	}
 }
