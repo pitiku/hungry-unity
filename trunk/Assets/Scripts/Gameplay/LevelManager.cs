@@ -8,6 +8,10 @@ public class LevelManager : MonoBehaviour
 
 	public GameObject foodPosition;
 
+	Baby[] currentBabies;
+	Food currentFood;
+	Baby selectedBaby;
+
 	enum LevelState
 	{
 		INIT,

@@ -3,13 +3,27 @@ using System.Collections;
 
 public class Rainbow : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+	private static Rainbow _Instance;
+	
+	public static Rainbow Instance
+	{
+		get
+		{
+			if(!_Instance)
+			{
+				_Instance = FindObjectOfType<Rainbow>();
+			}
+			return _Instance;
+		}
+	}
+
+	void Start () 
+	{
 	
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
 	
 	}
 }

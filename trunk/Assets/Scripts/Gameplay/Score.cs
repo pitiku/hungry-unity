@@ -1,0 +1,96 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class Score : MonoBehaviour {
+
+	#region Singleton
+	private static Score _Instance;
+
+	public static Score Instance
+	{
+		get
+		{
+			if(!_Instance)
+			{
+				_Instance = FindObjectOfType<Score>();
+			}
+			return _Instance;
+		}
+	}
+	#endregion
+
+	public TextMesh BabiesFedText;
+	public TextMesh BabiesFedText_shadow;
+	public TextMesh CoinsText;
+	public TextMesh CoinsText_shadow;
+	public TextMesh ChainText;
+	public TextMesh ChainText_shadow;
+
+	Animator animator;
+
+	int coins = 0;
+	int babiesFed = 0;
+	int chain = 1;
+
+	void Awake()
+	{
+		animator = GetComponent<Animator>();
+	}
+
+	void Start () 
+	{
+		BabiesFedText.text = "0";
+		BabiesFedText_shadow.text = "0";
+		CoinsText.text = "0";
+		CoinsText_shadow.text = "0";
+		ChainText.text = "x1";
+		ChainText_shadow.text = "x1";
+	}
+	
+	void Update () 
+	{
+	
+	}
+
+	void BabyFed(int coins)
+	{
+		coins += coins * chain;
+		babiesFed++;
+		chain++;
+		
+		animator.SetTrigger("IncCoins");
+		animator.SetTrigger("IncBaby");
+		animator.SetTrigger("IncChain");
+	}
+	
+	void PrizeCollected(int coins)
+	{
+		coins += coins * chain;
+
+		animator.SetTrigger("IncCoins");
+	}
+	
+	void Fail()
+	{
+		animator.SetTrigger("ResetChain");
+		chain = 1;
+	}
+
+	public void UpdateCoins()
+	{
+		CoinsText.text = "" + coins;
+		CoinsText_shadow.text = "" + coins;
+	}
+
+	public void UpdateBabiesFed()
+	{
+		BabiesFedText.text = "" + babiesFed;
+		BabiesFedText_shadow.text = "" + babiesFed;
+	}
+
+	public void UpdateChain()
+	{
+		ChainText.text = "x" + chain;
+		ChainText_shadow.text = "x" + chain;
+	}
+}
