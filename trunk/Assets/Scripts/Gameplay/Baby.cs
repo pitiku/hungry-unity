@@ -8,6 +8,7 @@ public class Baby : MonoBehaviour {
 	public Animator childAnimator;
 
 	Animator animator;
+	bool bEating = false;
 
 	void Awake() 
 	{
@@ -20,6 +21,7 @@ public class Baby : MonoBehaviour {
 
 	public void Idle()
 	{
+		bEating = false;
 		animator.SetTrigger("Idle");
 		if(childAnimator)
 		{
@@ -29,6 +31,7 @@ public class Baby : MonoBehaviour {
 
 	public void Eat(bool _bSuccess)
 	{
+		bEating = true;
 		if(_bSuccess)
 		{
 			animator.SetTrigger("Eat_Success");
@@ -45,6 +48,16 @@ public class Baby : MonoBehaviour {
 				childAnimator.SetTrigger("Eat_Fail");
 			}
 		}
+	}
+
+	public void FinishEating()
+	{
+		bEating = false;
+	}
+
+	public bool IsEating()
+	{
+		return bEating;
 	}
 
 	public bool IsUnlocked()
