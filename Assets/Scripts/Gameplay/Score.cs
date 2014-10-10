@@ -58,9 +58,7 @@ public class Score : MonoBehaviour {
 		babiesFed++;
 		chain++;
 		
-		animator.SetTrigger("IncCoins");
-		animator.SetTrigger("IncBaby");
-		animator.SetTrigger("IncChain");
+		animator.SetTrigger("BabyFed");
 	}
 	
 	void PrizeCollected(int coins)
