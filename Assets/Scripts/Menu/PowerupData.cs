@@ -75,4 +75,7 @@ public class PowerupData : MonoBehaviour
 			PlayerData.Instance.powerup_megaChainBoost++;
 			break;
 		}
-	}}
+
+		countText.text = "" + GetCount();
+	}
+}
