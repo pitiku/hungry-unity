@@ -5,7 +5,8 @@ public class LevelManager : MonoBehaviour
 {
 	public GameObject[] babies;
 	public GameObject[] clouds;
-
+	public GameObject[] clouds_babylink;
+	public GameObject[] food;
 	public GameObject foodPosition;
 
 	Baby[] currentBabies;
