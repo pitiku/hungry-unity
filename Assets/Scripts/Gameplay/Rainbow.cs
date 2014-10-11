@@ -20,6 +20,11 @@ public class Rainbow : MonoBehaviour {
 	#endregion
 
 	public float currentValue = 1.0f;
+	public Transform stars;
+
+	public Transform left;
+	public Transform center;
+	public Transform right;
 
 	void Awake()
 	{
@@ -34,7 +39,17 @@ public class Rainbow : MonoBehaviour {
 	void Update () 
 	{
 		currentValue -= (Time.deltaTime * 0.2f);
-		//renderer.material.SetFloat("_Width", currentValue);
+		currentValue = Mathf.Clamp(currentValue, 0, 1);
+		renderer.material.SetFloat("_Width", currentValue);
+
+		if(currentValue > 0.5f)
+		{
+			stars.position = center.position + (left.position - center.position) * (currentValue - 0.5f) * 2;
+		}
+		else
+		{
+			stars.position = right.position + (center.position - right.position) * currentValue * 2;
+		}
 	}
 
 	public void AnimateIn()
