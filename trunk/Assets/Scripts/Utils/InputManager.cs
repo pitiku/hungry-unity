@@ -3,6 +3,7 @@ using System.Collections;
 
 public class InputManager : MonoBehaviour {
 
+	#region Singleton
 	private static InputManager _Instance;
 
 	public static InputManager Instance
@@ -16,10 +17,10 @@ public class InputManager : MonoBehaviour {
 			return _Instance;
 		}
 	}
+	#endregion
 
 	public bool IsTouch = false;
 	public Vector3 TouchPosition;
-	public TextMesh text;
 
 	void Awake()
 	{
@@ -35,7 +36,6 @@ public class InputManager : MonoBehaviour {
 			{
 				IsTouch = true;
 				TouchPosition = Camera.main.ScreenToWorldPoint(touch.position);
-				//text.text = TouchPosition.x + ", " + TouchPosition.y;
 				break;
 			}
 		}
@@ -44,7 +44,6 @@ public class InputManager : MonoBehaviour {
 		{
 			IsTouch = true;
 			TouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-			//text.text = TouchPosition.x + ", " + TouchPosition.y;
 		}
 	}
 }

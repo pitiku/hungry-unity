@@ -4,7 +4,6 @@ using System.Collections;
 public class MenuItem : MonoBehaviour 
 {
 	//MenuPage page;
-	bool m_bJustPressed = false;
 	BoxCollider2D box;
 
 	void Awake()
@@ -17,41 +16,21 @@ public class MenuItem : MonoBehaviour
 		//page = _page;
 	}
 
-	void Update()
+	public bool IsJustPressed()
 	{
-		if(InputManager.Instance.IsTouch)
+		if(InputManager.Instance && InputManager.Instance.IsTouch)
 		{
 			Vector3 touch = InputManager.Instance.TouchPosition;
 			touch.z = box.bounds.center.z;
 			if(box.bounds.Contains(touch))
 			{
-				m_bJustPressed = true;
+				return true;
 			}
 		}
-	}
-
-	//void OnMouseDown()
-	//{
-	//	m_bJustPressed = true;
-	//	OnJustPressed();
-	//}
-
-	public bool IsJustPressed()
-	{
-		bool bJustPressed = m_bJustPressed;
-		m_bJustPressed = false;
-		return bJustPressed;
+		return false;
 	}
 
 	void OnJustPressed()
 	{
-	}
-
-	public void ResetPressed()
-	{
-		if(m_bJustPressed)
-		{
-			//m_bJustPressed = false;
-		}
 	}
 }

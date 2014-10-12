@@ -19,12 +19,18 @@ public class Rainbow : MonoBehaviour {
 	}
 	#endregion
 
+	public enum eState
+	{
+	};
+
 	public float currentValue = 1.0f;
 	public Transform stars;
 
 	public Transform left;
 	public Transform center;
 	public Transform right;
+
+	bool bStarted = false;
 
 	void Awake()
 	{
