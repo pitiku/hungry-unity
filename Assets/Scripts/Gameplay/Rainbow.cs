@@ -19,18 +19,15 @@ public class Rainbow : MonoBehaviour {
 	}
 	#endregion
 
-	public enum eState
-	{
-	};
-
-	public float currentValue = 1.0f;
-	public Transform stars;
+	public ParticleSystem stars;
 
 	public Transform left;
 	public Transform center;
 	public Transform right;
 
-	bool bStarted = false;
+	public float wantedValue;
+	public float currentValue = 0.0f;
+	public float speed = 1.0f;
 
 	void Awake()
 	{
@@ -39,30 +36,44 @@ public class Rainbow : MonoBehaviour {
 
 	void Start () 
 	{
-		AnimateIn();
+		SetValue(0.0f, true);
+		SetValue(1.0f);
+
+		stars.Play();
 	}
 	
 	void Update () 
 	{
-		currentValue -= (Time.deltaTime * 0.2f);
-		currentValue = Mathf.Clamp(currentValue, 0, 1);
+		if((wantedValue - currentValue) > 0.01f)
+		{
+			currentValue = currentValue + (wantedValue > currentValue ? 1 : -1) * speed * Time.deltaTime;
+
+			UpdateRainbow();
+		}
+	}
+
+	public void SetValue(float _value, bool _instant = false)
+	{
+		wantedValue = _value;
+
+		if(_instant)
+		{
+			currentValue = _value;
+			UpdateRainbow();
+		}
+	}
+
+	void UpdateRainbow()
+	{
 		renderer.material.SetFloat("_Width", currentValue);
 
 		if(currentValue > 0.5f)
 		{
-			stars.position = center.position + (left.position - center.position) * (currentValue - 0.5f) * 2;
+			stars.transform.position = center.position + (left.position - center.position) * (currentValue - 0.5f) * 2;
 		}
 		else
 		{
-			stars.position = right.position + (center.position - right.position) * currentValue * 2;
+			stars.transform.position = right.position + (center.position - right.position) * currentValue * 2;
 		}
-	}
-
-	public void AnimateIn()
-	{
-	}
-
-	public void AnimationFinished()
-	{
 	}
 }
