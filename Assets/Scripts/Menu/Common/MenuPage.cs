@@ -45,14 +45,6 @@ public class MenuPage : MonoBehaviour
 		menu = _menu;
 	}
 
-	void LateUpdate()
-	{
-		foreach(MenuItem item in items)
-		{
-			item.ResetPressed();
-		}
-	}
-
 	public void Animate(string _name)
 	{
 		if(animator)
