@@ -157,6 +157,19 @@ public class Gameplay : MonoBehaviour
 			int babyLinkIndex = GetBabyLinkIndex(i);
 			currentBabies[i].transform.parent = babyLink[babyLinkIndex];
 			currentBabies[i].transform.localPosition = Vector3.zero;
+			if(babyLinkIndex == 0)
+			{
+				Vector3 scale = currentBabies[i].transform.localScale;
+				scale.x = -1;
+				currentBabies[i].transform.localScale = scale;
+			}
+			else
+			{
+				Vector3 scale = currentBabies[i].transform.localScale;
+				scale.x = 1;
+				currentBabies[i].transform.localScale = scale;
+			}
+
 			clouds[babyLinkIndex].StartAnimation("In");
 		}
 
