@@ -68,6 +68,7 @@ public class Gameplay : MonoBehaviour
 
 			if(bFinished)
 			{
+				foodLink.StopAnimator();
 				SetState(eState.WAIT_INPUT);
 			}
 			break;

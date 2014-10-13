@@ -15,9 +15,15 @@ public class AnimatedObject : MonoBehaviour {
 	{
 		if(animator)
 		{
+			animator.enabled = true;
 			animating = true;
 			animator.SetTrigger(_animation);
 		}
+	}
+
+	public void StopAnimator()
+	{
+		animator.enabled = false;
 	}
 
 	void AnimationFinished()
