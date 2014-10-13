@@ -35,8 +35,6 @@ public class Rainbow : MonoBehaviour {
 
 		SetValue(0.0f, true);
 		SetValue(1.0f);
-
-		stars.Play();
 	}
 	
 	void Update () 
@@ -47,6 +45,11 @@ public class Rainbow : MonoBehaviour {
 
 			UpdateRainbow();
 		}
+	}
+
+	public void EnableStars()
+	{
+		stars.Play();
 	}
 
 	public void SetValue(float _value, bool _instant = false)
