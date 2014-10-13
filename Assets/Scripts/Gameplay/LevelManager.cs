@@ -3,15 +3,7 @@ using System.Collections;
 
 public class LevelManager : MonoBehaviour 
 {
-	public GameObject[] babies;
-	public GameObject[] clouds;
-	public GameObject[] clouds_babylink;
-	public GameObject[] food;
-	public GameObject foodPosition;
-
-	Baby[] currentBabies;
-	Food currentFood;
-	Baby selectedBaby;
+	public Gameplay gameplay;
 
 	enum LevelState
 	{
@@ -93,6 +85,7 @@ public class LevelManager : MonoBehaviour
 		case LevelState.POWERUPS_INITIAL:
 			break;
 		case LevelState.READY:
+			gameplay.StartGameplay();
 			break;
 		case LevelState.GAMEPLAY:
 			break;
