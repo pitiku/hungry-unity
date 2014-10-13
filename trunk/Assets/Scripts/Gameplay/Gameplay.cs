@@ -18,14 +18,17 @@ public class Gameplay : MonoBehaviour
 	public LevelManager levelManager;
 
 	Baby[] currentBabies;
+	AnimatedObject[] currentClouds;
 	Food currentFood;
+	int fedBaby;
 
 	enum eState
 	{
 		IDLE,
 		CLOUDS_IN,
 		WAIT_INPUT,
-		FEED_BABY
+		FEED_BABY,
+		CLOUD_OUT
 	};
 
 	eState state;
@@ -54,6 +57,7 @@ public class Gameplay : MonoBehaviour
 		switch(state)
 		{
 		case eState.CLOUDS_IN:
+		{
 			bool bFinished = true;
 			for(int i=0; i<clouds.Length; ++i)
 			{
@@ -67,19 +71,41 @@ public class Gameplay : MonoBehaviour
 				SetState(eState.WAIT_INPUT);
 			}
 			break;
+		}
+
 		case eState.WAIT_INPUT:
 			for(int i=0; i<currentBabies.Length; ++i)
 			{
 				if(currentBabies[i].GetComponent<MenuItem>().IsJustPressed())
 				{
+					fedBaby = i;
+					currentBabies[fedBaby].Eat(currentBabies[i].baby == currentFood.foodType);
 					SetState(eState.FEED_BABY);
 					break;
 				}
 			}
 			break;
+
 		case eState.FEED_BABY:
-			SetState(eState.CLOUDS_IN);
+		{
+			if(!currentBabies[fedBaby].IsEating())
+			{
+				currentClouds[fedBaby].StartAnimation("Out");
+				SetState(eState.CLOUD_OUT);
+			}
 			break;
+		}
+
+		case eState.CLOUD_OUT:
+		{
+			if(currentClouds[fedBaby].IsFinished())
+			{
+				currentBabies[fedBaby].transform.parent = null;
+				currentBabies[fedBaby] = null;
+				SetState(eState.CLOUDS_IN);
+			}
+			break;
+		}
 		}
 	}
 	
@@ -93,6 +119,8 @@ public class Gameplay : MonoBehaviour
 		case eState.WAIT_INPUT:
 			break;
 		case eState.FEED_BABY:
+			break;
+		case eState.CLOUD_OUT:
 			break;
 		}
 		
@@ -109,6 +137,8 @@ public class Gameplay : MonoBehaviour
 			break;
 		case eState.FEED_BABY:
 			break;
+		case eState.CLOUD_OUT:
+			break;
 		}
 	}
 	
@@ -120,6 +150,7 @@ public class Gameplay : MonoBehaviour
 	public void StartGameplay()
 	{
 		currentBabies = new Baby[NumBabies];
+		currentClouds = new AnimatedObject[NumBabies];
 
 		SetState(eState.CLOUDS_IN);
 	}
@@ -145,33 +176,32 @@ public class Gameplay : MonoBehaviour
 						}
 					}
 				}
+
+				currentBabies[i].Idle();
+				
+				int babyLinkIndex = GetBabyLinkIndex(i);
+				currentBabies[i].transform.parent = babyLink[babyLinkIndex];
+				currentBabies[i].transform.localPosition = Vector3.zero;
+				if(babyLinkIndex == 0)
+				{
+					Vector3 scale = currentBabies[i].transform.localScale;
+					scale.x = -1;
+					currentBabies[i].transform.localScale = scale;
+				}
+				else
+				{
+					Vector3 scale = currentBabies[i].transform.localScale;
+					scale.x = 1;
+					currentBabies[i].transform.localScale = scale;
+				}
+				
+				currentClouds[i] = clouds[babyLinkIndex];
+				clouds[babyLinkIndex].StartAnimation("In");
 			}
 		}
 
 		//Set food
 		currentFood = GetFood(currentBabies[Random.Range(0, NumBabies)].baby);
-
-		//Link babies and food
-		for(int i=0; i<NumBabies; ++i)
-		{
-			int babyLinkIndex = GetBabyLinkIndex(i);
-			currentBabies[i].transform.parent = babyLink[babyLinkIndex];
-			currentBabies[i].transform.localPosition = Vector3.zero;
-			if(babyLinkIndex == 0)
-			{
-				Vector3 scale = currentBabies[i].transform.localScale;
-				scale.x = -1;
-				currentBabies[i].transform.localScale = scale;
-			}
-			else
-			{
-				Vector3 scale = currentBabies[i].transform.localScale;
-				scale.x = 1;
-				currentBabies[i].transform.localScale = scale;
-			}
-
-			clouds[babyLinkIndex].StartAnimation("In");
-		}
 
 		currentFood.transform.parent = foodLink.transform;
 		currentFood.transform.localPosition = Vector3.zero;
