@@ -6,15 +6,14 @@ public class Gameplay : MonoBehaviour
 	[Range(1,3)]
 	public int NumBabies = 2;
 	public bool DiscardAllowed = false;
-	public bool AllowRepeated = true;
 
 	public Baby[] babies;
 	public Food[] food;
 	public Prize[] prizes;
 	
-	public GameObject[] clouds;
-	public GameObject[] babyLink;
-	public GameObject foodLink;
+	public AnimatedObject[] clouds;
+	public Transform[] babyLink;
+	public AnimatedObject foodLink;
 
 	public LevelManager levelManager;
 
@@ -55,7 +54,18 @@ public class Gameplay : MonoBehaviour
 		switch(state)
 		{
 		case eState.CLOUDS_IN:
-			SetState(eState.WAIT_INPUT);
+			bool bFinished = true;
+			for(int i=0; i<clouds.Length; ++i)
+			{
+				bFinished = bFinished && clouds[i].IsFinished();
+			}
+
+			bFinished = bFinished && foodLink.IsFinished();
+
+			if(bFinished)
+			{
+				SetState(eState.WAIT_INPUT);
+			}
 			break;
 		case eState.WAIT_INPUT:
 			for(int i=0; i<currentBabies.Length; ++i)
@@ -121,7 +131,20 @@ public class Gameplay : MonoBehaviour
 		{
 			if(currentBabies[i] == null)
 			{
-				currentBabies[i] = babies[Random.Range(0, NumBabies-1)];
+				bool done = false;
+				while(!done)
+				{
+					currentBabies[i] = babies[Random.Range(0, babies.Length-1)];
+					done = true;
+					for(int j=0; j<NumBabies; ++j)
+					{
+						if(i != j && currentBabies[j] && currentBabies[j].baby == currentBabies[i].baby)
+						{
+							done = false;
+							break;
+						}
+					}
+				}
 			}
 		}
 
@@ -131,11 +154,15 @@ public class Gameplay : MonoBehaviour
 		//Link babies and food
 		for(int i=0; i<NumBabies; ++i)
 		{
-			currentBabies[i].transform.parent = GetBabyLink(i);
+			int babyLinkIndex = GetBabyLinkIndex(i);
+			currentBabies[i].transform.parent = babyLink[babyLinkIndex];
 			currentBabies[i].transform.localPosition = Vector3.zero;
+			clouds[babyLinkIndex].StartAnimation("In");
 		}
 
 		currentFood.transform.parent = foodLink.transform;
+		currentFood.transform.localPosition = Vector3.zero;
+		foodLink.StartAnimation("In");
 	}
 
 	public Food GetFood(GameConstants.eBabies _foodType)
@@ -150,20 +177,20 @@ public class Gameplay : MonoBehaviour
 		return null;
 	}
 
-	public Transform GetBabyLink(int _index)
+	public int GetBabyLinkIndex(int _index)
 	{
 		switch(NumBabies)
 		{
 		case 1:
-			return babyLink[1].transform;
+			return 1;
 		case 2:
 			if(_index == 0)
-				return babyLink[0].transform;
+				return 0;
 			else
-				return babyLink[2].transform;
+				return 2;
 		case 3:
-			return babyLink[_index].transform;
+		default:
+			return _index;
 		}
-		return null;
 	}
 }
