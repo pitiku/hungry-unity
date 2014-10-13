@@ -29,13 +29,10 @@ public class Rainbow : MonoBehaviour {
 	public float currentValue = 0.0f;
 	public float speed = 1.0f;
 
-	void Awake()
-	{
-		renderer.material.SetFloat("_Width", 0.0f);
-	}
-
 	void Start () 
 	{
+		transform.localScale *= (Screen.width * 480.0f) / (Screen.height * 320.0f);
+
 		SetValue(0.0f, true);
 		SetValue(1.0f);
 
