@@ -5,6 +5,13 @@ public class LevelManager : MonoBehaviour
 {
 	public Gameplay gameplay;
 
+	public SpriteRenderer[] BeforeItems;
+	public SpriteRenderer[] DuringItems;
+	public SpriteRenderer ExtraRainbow;
+
+	public AnimatedObject TextReady;
+	public AnimatedObject TextFeed;
+
 	enum LevelState
 	{
 		INIT,
