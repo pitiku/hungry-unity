@@ -27,13 +27,18 @@ public class Gameplay : MonoBehaviour
 		IDLE,
 		CLOUDS_IN,
 		WAIT_INPUT,
+		LAUNCH_FOOD,
 		FEED_BABY,
 		CLOUD_OUT
 	};
 
 	eState state;
 	float stateTimeStart;
-	
+
+	bool babyFed;
+	Vector3 foodDest;
+	Vector3 foodSrc;
+
 	void Awake() 
 	{
 		
@@ -80,12 +85,36 @@ public class Gameplay : MonoBehaviour
 				if(currentBabies[i].GetComponent<MenuItem>().IsJustPressed())
 				{
 					fedBaby = i;
-					currentBabies[fedBaby].Eat(currentBabies[i].baby == currentFood.foodType);
-					SetState(eState.FEED_BABY);
+					babyFed = false;
+					foodSrc = foodLink.transform.position;
+					foodDest = currentBabies[fedBaby].mouth.transform.position;
+					SetState(eState.LAUNCH_FOOD);
 					break;
 				}
 			}
 			break;
+			
+		case eState.LAUNCH_FOOD:
+		{
+			if(GetStateTime() > 0.0f && !babyFed)
+			{
+				babyFed = true;
+				currentBabies[fedBaby].Eat(currentBabies[fedBaby].baby == currentFood.foodType);
+			}
+
+			float fPerc = Mathf.Min(1.0f, GetStateTime() / 0.3f);
+
+			foodLink.transform.position = foodSrc + (foodDest - foodSrc) * fPerc;
+			foodLink.transform.localScale = Vector3.one * Mathf.Pow((1-fPerc), 0.3f);
+
+			if(fPerc >= 1.0f)
+			{
+				currentFood.transform.parent = null;
+				currentFood.gameObject.SetActive(false);
+				SetState(eState.FEED_BABY);
+			}
+			break;
+		}
 
 		case eState.FEED_BABY:
 		{
@@ -166,7 +195,7 @@ public class Gameplay : MonoBehaviour
 				bool done = false;
 				while(!done)
 				{
-					currentBabies[i] = babies[Random.Range(0, babies.Length-1)];
+					currentBabies[i] = babies[Random.Range(0, babies.Length)];
 					done = true;
 					for(int j=0; j<NumBabies; ++j)
 					{
@@ -206,6 +235,8 @@ public class Gameplay : MonoBehaviour
 
 		currentFood.transform.parent = foodLink.transform;
 		currentFood.transform.localPosition = Vector3.zero;
+		currentFood.transform.localScale = Vector3.one;
+		currentFood.gameObject.SetActive(true);
 		foodLink.StartAnimation("In");
 	}
 
