@@ -47,7 +47,6 @@ public class Gameplay : MonoBehaviour
 	void Start() 
 	{
 		state = eState.IDLE;
-		StartGameplay();
 	}
 	
 	
