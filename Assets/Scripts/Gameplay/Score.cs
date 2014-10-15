@@ -95,4 +95,14 @@ public class Score : MonoBehaviour {
 		ChainText.text = "x" + chain;
 		ChainText_shadow.text = "x" + chain;
 	}
+	
+	public void AnimateIn()
+	{
+		animator.SetTrigger("In");
+	}
+	
+	public void AnimateOut()
+	{
+		animator.SetTrigger("Out");
+	}
 }

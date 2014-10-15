@@ -24,6 +24,12 @@ public class InputManager : MonoBehaviour {
 
 	void Awake()
 	{
+		if(FindObjectsOfType<InputManager>().Length > 1)
+		{
+			Destroy(gameObject);
+			return;
+		}
+
 		DontDestroyOnLoad(gameObject);
 	}
 
