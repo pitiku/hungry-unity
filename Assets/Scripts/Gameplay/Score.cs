@@ -32,7 +32,7 @@ public class Score : AnimatedObject {
 
 	public int GetCoins() { return coins; }
 	public int GetBabiesFed() { return babiesFed; }
-	public int GetChain() { return coins; }
+	public int GetChain() { return chain; }
 
 	void Start () 
 	{
@@ -49,7 +49,14 @@ public class Score : AnimatedObject {
 	
 	}
 
-	void BabyFed(int coins)
+	public void ChainBoost(int _chain)
+	{
+		chain = _chain;
+
+		animator.SetTrigger("ChainBoost");
+	}
+
+	public void BabyFed(int coins)
 	{
 		coins += coins * chain;
 		babiesFed++;
@@ -58,14 +65,14 @@ public class Score : AnimatedObject {
 		animator.SetTrigger("BabyFed");
 	}
 	
-	void PrizeCollected(int coins)
+	public void PrizeCollected(int coins)
 	{
 		coins += coins * chain;
 
 		animator.SetTrigger("IncCoins");
 	}
 	
-	void Fail()
+	public void Fail()
 	{
 		animator.SetTrigger("ResetChain");
 		chain = 1;
