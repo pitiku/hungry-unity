@@ -3,7 +3,7 @@ using System.Collections;
 
 public class AnimatedObject : MonoBehaviour {
 
-	Animator animator;
+	protected Animator animator;
 	bool animating = false;
 
 	void Awake()
