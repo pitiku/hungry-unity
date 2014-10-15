@@ -5,9 +5,14 @@ public class LevelManager : MonoBehaviour
 {
 	public Gameplay gameplay;
 
-	public SpriteRenderer[] BeforeItems;
-	public SpriteRenderer[] DuringItems;
-	public SpriteRenderer ExtraRainbow;
+	public AnimatedObject Items;
+	public MenuItem ChainBoost;
+	public MenuItem DoubleCoins;
+	public MenuItem PrizeSeason;
+	public MenuItem MegaChainBoost;
+	public MenuItem BoletTime;
+	public MenuItem FeederGloves;
+	public MenuItem ExtraRainbow;
 
 	public AnimatedObject TextReady;
 	public AnimatedObject TextFeed;
@@ -18,6 +23,7 @@ public class LevelManager : MonoBehaviour
 		TUTORIAL,
 		POWERUPS_INITIAL,
 		READY,
+		FEED,
 		GAMEPLAY,
 		POWERUPS_FINAL,
 		RESULTS,
@@ -39,62 +45,163 @@ public class LevelManager : MonoBehaviour
 			Application.Quit(); 
 		}
 
-		//Update state
-		switch(state)
+		//Update current state
+		SendMessage("Update_" + state.ToString());
+	}
+
+	#region INIT
+	void Enter_INIT()
+	{
+		Rainbow.Instance.SetValue(1.0f);
+	}
+
+	void Update_INIT()
+	{
+		if(GetStateTime() > 0.5f)
 		{
-		case LevelState.INIT:
 			SetState(LevelState.TUTORIAL);
-			break;
-		case LevelState.TUTORIAL:
-			SetState(LevelState.POWERUPS_INITIAL);
-			break;
-		case LevelState.POWERUPS_INITIAL:
+		}
+	}
+	#endregion
+
+	#region TUTORIAL
+	void Enter_TUTORIAL()
+	{
+	}
+
+	void Update_TUTORIAL()
+	{
+		SetState(LevelState.POWERUPS_INITIAL);
+	}
+	#endregion
+
+	#region POWERUPS_INITIAL
+	void Enter_POWERUPS_INITIAL()
+	{
+		Score.Instance.AnimateIn();
+		Items.StartAnimation("In");
+		
+		ChainBoost.gameObject.SetActive(PlayerData.Instance.powerup_chainBoost > 0);
+		MegaChainBoost.gameObject.SetActive(PlayerData.Instance.powerup_megaChainBoost > 0);
+		DoubleCoins.gameObject.SetActive(PlayerData.Instance.powerup_doubleCoins > 0);
+		PrizeSeason.gameObject.SetActive(PlayerData.Instance.powerup_prizeSeason > 0);
+	}
+
+	void Update_POWERUPS_INITIAL()
+	{
+		if(ChainBoost.IsJustPressed())
+		{
+			PlayerData.Instance.powerup_chainBoost -= 1;
+			Score.Instance.ChainBoost(10);
+		}
+		if(MegaChainBoost.IsJustPressed())
+		{
+			PlayerData.Instance.powerup_megaChainBoost -= 1;
+			Score.Instance.ChainBoost(30);
+		}
+		if(DoubleCoins.IsJustPressed())
+		{
+			PlayerData.Instance.powerup_doubleCoins -= 1;
+			Score.Instance.ChainBoost(10);
+		}
+		if(PrizeSeason.IsJustPressed())
+		{
+			PlayerData.Instance.powerup_prizeSeason -= 1;
+			Score.Instance.ChainBoost(10);
+		}
+
+		if(GetStateTime() > 2.0f)
+		{
+			Items.StartAnimation("Out");
 			SetState(LevelState.READY);
-			break;
-		case LevelState.READY:
-			if(TextReady.IsFinished())
-			{
-				SetState(LevelState.GAMEPLAY);
-			}
-			break;
-		case LevelState.GAMEPLAY:
-			if(gameplay.IsFinished())
-			{
-				SetState(LevelState.POWERUPS_FINAL);
-			}
-			break;
-		case LevelState.POWERUPS_FINAL:
-			SetState(LevelState.RESULTS);
-			break;
-		case LevelState.RESULTS:
-			SetState(LevelState.FINISHED);
-			break;
-		case LevelState.FINISHED:
-			break;
 		}
 	}
 
-	void SetState(LevelState _state)
+	void End_POWERUPS_INITIAL()
 	{
-		gameObject.SendMessage("Exit_" + state.ToString(), SendMessageOptions.DontRequireReceiver);
-
-		state = _state;
-		stateTimeStart = Time.time;
-
-		gameObject.SendMessage("Enter_" + state.ToString(), SendMessageOptions.DontRequireReceiver);
+		PlayerData.Instance.Save();
 	}
+	#endregion
 
+	#region READY
 	void Enter_READY()
 	{
 		TextReady.StartAnimation("In");
-		Rainbow.Instance.SetValue(1.0f);
-		Score.Instance.AnimateIn();
 	}
-	
-	void Enter_GAMEPLAY()
+
+	void Update_READY()
+	{
+		if(TextReady.IsFinished())
+		{
+			SetState(LevelState.FEED);
+		}
+	}
+	#endregion
+
+	#region FEED
+	void Enter_FEED()
 	{
 		TextFeed.StartAnimation("In");
+	}
+
+	void Update_FEED()
+	{
+		if(TextFeed.IsFinished())
+		{
+			SetState(LevelState.GAMEPLAY);
+		}
+	}
+	#endregion
+
+	#region GAMEPLAY
+	void Enter_GAMEPLAY()
+	{
 		gameplay.StartGameplay();
+	}
+
+	void Update_GAMEPLAY()
+	{
+		if(gameplay.IsFinished())
+		{
+			SetState(LevelState.POWERUPS_FINAL);
+		}
+	}
+	
+	void Exit_()
+	{
+	}
+	#endregion
+
+	#region POWERUPS_FINAL
+	void Update_POWERUPS_FINAL()
+	{
+		SetState(LevelState.RESULTS);
+	}
+	#endregion
+
+	#region RESULTS
+	void Update_RESULTS()
+	{
+		SetState(LevelState.FINISHED);
+	}
+	#endregion
+
+	#region FINISHED
+	void Update_FINISHED()
+	{
+	}
+	#endregion
+	
+	void SetState(LevelState _state)
+	{
+		//Exit current state
+		gameObject.SendMessage("Exit_" + state.ToString(), SendMessageOptions.DontRequireReceiver);
+		
+		state = _state;
+		stateTimeStart = Time.time;
+		
+		//Enter new state
+		gameObject.SendMessage("Enter_" + state.ToString(), SendMessageOptions.DontRequireReceiver);
 	}
 	
 	float GetStateTime()
