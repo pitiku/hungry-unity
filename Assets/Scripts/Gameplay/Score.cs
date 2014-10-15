@@ -32,6 +32,10 @@ public class Score : MonoBehaviour {
 	int babiesFed = 0;
 	int chain = 1;
 
+	public int GetCoins() { return coins; }
+	public int GetBabiesFed() { return babiesFed; }
+	public int GetChain() { return coins; }
+
 	void Awake()
 	{
 		animator = GetComponent<Animator>();

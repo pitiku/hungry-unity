@@ -22,6 +22,8 @@ public class Gameplay : MonoBehaviour
 	Food currentFood;
 	int fedBaby;
 
+	public float timeLeft;
+
 	enum eState
 	{
 		IDLE,
@@ -29,7 +31,8 @@ public class Gameplay : MonoBehaviour
 		WAIT_INPUT,
 		LAUNCH_FOOD,
 		FEED_BABY,
-		CLOUD_OUT
+		CLOUD_OUT,
+		FINISHED
 	};
 
 	eState state;
@@ -176,15 +179,7 @@ public class Gameplay : MonoBehaviour
 		return Time.time - stateTimeStart;
 	}
 
-	public void StartGameplay()
-	{
-		currentBabies = new Baby[NumBabies];
-		currentClouds = new AnimatedObject[NumBabies];
-
-		SetState(eState.CLOUDS_IN);
-	}
-
-	public void SetBabiesAndFood()
+	void SetBabiesAndFood()
 	{
 		//Set babies
 		for(int i=0; i<NumBabies; ++i)
@@ -239,7 +234,7 @@ public class Gameplay : MonoBehaviour
 		foodLink.StartAnimation("In");
 	}
 
-	public Food GetFood(GameConstants.eBabies _foodType)
+	Food GetFood(GameConstants.eBabies _foodType)
 	{
 		for(int i=0; i<food.Length; ++i)
 		{
@@ -251,7 +246,7 @@ public class Gameplay : MonoBehaviour
 		return null;
 	}
 
-	public int GetBabyLinkIndex(int _index)
+	int GetBabyLinkIndex(int _index)
 	{
 		switch(NumBabies)
 		{
@@ -266,5 +261,18 @@ public class Gameplay : MonoBehaviour
 		default:
 			return _index;
 		}
+	}
+
+	public void StartGameplay()
+	{
+		currentBabies = new Baby[NumBabies];
+		currentClouds = new AnimatedObject[NumBabies];
+		
+		SetState(eState.CLOUDS_IN);
+	}
+	
+	public bool IsFinished()
+	{
+		return state == eState.FINISHED;
 	}
 }

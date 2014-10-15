@@ -48,8 +48,16 @@ public class LevelManager : MonoBehaviour
 		case LevelState.POWERUPS_INITIAL:
 			break;
 		case LevelState.READY:
+			if(TextReady.IsFinished())
+			{
+				SetState(LevelState.GAMEPLAY);
+			}
 			break;
 		case LevelState.GAMEPLAY:
+			if(gameplay.IsFinished())
+			{
+				SetState(LevelState.POWERUPS_FINAL);
+			}
 			break;
 		case LevelState.POWERUPS_FINAL:
 			break;
@@ -92,9 +100,11 @@ public class LevelManager : MonoBehaviour
 		case LevelState.POWERUPS_INITIAL:
 			break;
 		case LevelState.READY:
-			gameplay.StartGameplay();
+			TextReady.StartAnimation("In");
 			break;
 		case LevelState.GAMEPLAY:
+			TextFeed.StartAnimation("In");
+			gameplay.StartGameplay();
 			break;
 		case LevelState.POWERUPS_FINAL:
 			break;
