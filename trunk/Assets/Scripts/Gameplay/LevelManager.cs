@@ -76,51 +76,27 @@ public class LevelManager : MonoBehaviour
 
 	void SetState(LevelState _state)
 	{
-		//Exit state
-		switch(state)
-		{
-		case LevelState.INIT:
-			break;
-		case LevelState.TUTORIAL:
-			break;
-		case LevelState.POWERUPS_INITIAL:
-			break;
-		case LevelState.READY:
-			break;
-		case LevelState.GAMEPLAY:
-			break;
-		case LevelState.POWERUPS_FINAL:
-			break;
-		case LevelState.RESULTS:
-			break;
-		}
+		gameObject.SendMessage("Exit_" + state.ToString(), SendMessageOptions.DontRequireReceiver);
 
 		state = _state;
 		stateTimeStart = Time.time;
 
-		//Enter state
-		switch(state)
-		{
-		case LevelState.INIT:
-			break;
-		case LevelState.TUTORIAL:
-			break;
-		case LevelState.POWERUPS_INITIAL:
-			break;
-		case LevelState.READY:
-			TextReady.StartAnimation("In");
-			break;
-		case LevelState.GAMEPLAY:
-			TextFeed.StartAnimation("In");
-			gameplay.StartGameplay();
-			break;
-		case LevelState.POWERUPS_FINAL:
-			break;
-		case LevelState.RESULTS:
-			break;
-		}
+		gameObject.SendMessage("Enter_" + state.ToString(), SendMessageOptions.DontRequireReceiver);
 	}
 
+	void Enter_READY()
+	{
+		TextReady.StartAnimation("In");
+		Rainbow.Instance.SetValue(1.0f);
+		Score.Instance.AnimateIn();
+	}
+	
+	void Enter_GAMEPLAY()
+	{
+		TextFeed.StartAnimation("In");
+		gameplay.StartGameplay();
+	}
+	
 	float GetStateTime()
 	{
 		return Time.time - stateTimeStart;

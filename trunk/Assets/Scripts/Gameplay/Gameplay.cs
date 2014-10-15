@@ -143,37 +143,17 @@ public class Gameplay : MonoBehaviour
 	
 	void SetState(eState _state)
 	{
-		//Exit state
-		switch(state)
-		{
-		case eState.CLOUDS_IN:
-			break;
-		case eState.WAIT_INPUT:
-			break;
-		case eState.FEED_BABY:
-			break;
-		case eState.CLOUD_OUT:
-			break;
-		}
-		
+		gameObject.SendMessage("Exit_" + state.ToString(), SendMessageOptions.DontRequireReceiver);
 		state = _state;
 		stateTimeStart = Time.time;
-		
-		//Enter state
-		switch(state)
-		{
-		case eState.CLOUDS_IN:
-			SetBabiesAndFood();
-			break;
-		case eState.WAIT_INPUT:
-			break;
-		case eState.FEED_BABY:
-			break;
-		case eState.CLOUD_OUT:
-			break;
-		}
+		gameObject.SendMessage("Enter_" + state.ToString(), SendMessageOptions.DontRequireReceiver);
 	}
-	
+
+	void Enter_CLOUDS_IN()
+	{
+		SetBabiesAndFood();
+	}
+
 	float GetStateTime()
 	{
 		return Time.time - stateTimeStart;
@@ -267,7 +247,7 @@ public class Gameplay : MonoBehaviour
 	{
 		currentBabies = new Baby[NumBabies];
 		currentClouds = new AnimatedObject[NumBabies];
-		
+
 		SetState(eState.CLOUDS_IN);
 	}
 	
