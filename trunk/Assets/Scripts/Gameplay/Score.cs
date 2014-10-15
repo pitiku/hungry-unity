@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Score : MonoBehaviour {
+public class Score : AnimatedObject {
 
 	#region Singleton
 	private static Score _Instance;
@@ -26,8 +26,6 @@ public class Score : MonoBehaviour {
 	public TextMesh ChainText;
 	public TextMesh ChainText_shadow;
 
-	Animator animator;
-
 	int coins = 0;
 	int babiesFed = 0;
 	int chain = 1;
@@ -35,11 +33,6 @@ public class Score : MonoBehaviour {
 	public int GetCoins() { return coins; }
 	public int GetBabiesFed() { return babiesFed; }
 	public int GetChain() { return coins; }
-
-	void Awake()
-	{
-		animator = GetComponent<Animator>();
-	}
 
 	void Start () 
 	{
