@@ -20,7 +20,8 @@ public class LevelManager : MonoBehaviour
 		READY,
 		GAMEPLAY,
 		POWERUPS_FINAL,
-		RESULTS
+		RESULTS,
+		FINISHED
 	};
 
 	LevelState state;
@@ -42,10 +43,13 @@ public class LevelManager : MonoBehaviour
 		switch(state)
 		{
 		case LevelState.INIT:
+			SetState(LevelState.TUTORIAL);
 			break;
 		case LevelState.TUTORIAL:
+			SetState(LevelState.POWERUPS_INITIAL);
 			break;
 		case LevelState.POWERUPS_INITIAL:
+			SetState(LevelState.READY);
 			break;
 		case LevelState.READY:
 			if(TextReady.IsFinished())
@@ -60,8 +64,12 @@ public class LevelManager : MonoBehaviour
 			}
 			break;
 		case LevelState.POWERUPS_FINAL:
+			SetState(LevelState.RESULTS);
 			break;
 		case LevelState.RESULTS:
+			SetState(LevelState.FINISHED);
+			break;
+		case LevelState.FINISHED:
 			break;
 		}
 	}
