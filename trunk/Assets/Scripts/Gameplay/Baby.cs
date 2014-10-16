@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Baby : MonoBehaviour {
-
+public class Baby : MonoBehaviour 
+{
 	public GameConstants.eBabies baby;
 	public Transform mouth;
 	public Animator childAnimator;

@@ -5,20 +5,18 @@ public class Gameplay : MonoBehaviour
 {
 	[Range(1,3)]
 	public int NumBabies = 2;
-	public bool DiscardAllowed = false;
+	public bool AllowDiscard = false;
+	public bool AllowRepeat = false;
 
-	public Baby[] babies;
-	public Food[] food;
-	public Prize[] prizes;
-	
-	public AnimatedObject[] clouds;
-	public Transform[] babyLink;
+	public BabyData[] babyData;
+
+	public AnimatedObject[] cloudLinks;
 	public AnimatedObject foodLink;
 
 	public LevelManager levelManager;
 
 	Baby[] currentBabies;
-	AnimatedObject[] currentClouds;
+	CloudForBaby[] currentClouds;
 	Food currentFood;
 	int fedBaby;
 
@@ -42,123 +40,131 @@ public class Gameplay : MonoBehaviour
 	Vector3 foodDest;
 	Vector3 foodSrc;
 
-	void Awake() 
-	{
-		
-	}
-	
 	void Start() 
 	{
-		state = eState.IDLE;
+		SetState(eState.IDLE);
 	}
-	
-	
+		
 	void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Escape)) 
 		{
 			Application.Quit(); 
 		}
-		
+
 		//Update state
-		switch(state)
-		{
-		case eState.CLOUDS_IN:
-		{
-			bool bFinished = true;
-			for(int i=0; i<clouds.Length; ++i)
-			{
-				bFinished = bFinished && clouds[i].IsFinished();
-			}
-
-			bFinished = bFinished && foodLink.IsFinished();
-
-			if(bFinished)
-			{
-				foodLink.StopAnimator();
-				SetState(eState.WAIT_INPUT);
-			}
-			break;
-		}
-
-		case eState.WAIT_INPUT:
-			for(int i=0; i<currentBabies.Length; ++i)
-			{
-				if(currentBabies[i].GetComponent<MenuItem>().IsJustPressed())
-				{
-					fedBaby = i;
-					babyFed = false;
-					foodSrc = foodLink.transform.position;
-					foodDest = currentBabies[fedBaby].mouth.transform.position;
-					SetState(eState.LAUNCH_FOOD);
-					break;
-				}
-			}
-			break;
-			
-		case eState.LAUNCH_FOOD:
-		{
-			if(GetStateTime() > 0.0f && !babyFed)
-			{
-				babyFed = true;
-				currentBabies[fedBaby].Eat(currentBabies[fedBaby].baby == currentFood.foodType);
-			}
-
-			float fPerc = Mathf.Min(1.0f, GetStateTime() / 0.3f);
-
-			foodLink.transform.position = foodSrc + (foodDest - foodSrc) * fPerc;
-			foodLink.transform.localScale = Vector3.one * Mathf.Pow((1-fPerc), 0.3f);
-
-			if(fPerc >= 1.0f)
-			{
-				currentFood.transform.parent = null;
-				currentFood.gameObject.SetActive(false);
-				SetState(eState.FEED_BABY);
-			}
-			break;
-		}
-
-		case eState.FEED_BABY:
-		{
-			if(!currentBabies[fedBaby].IsEating())
-			{
-				currentClouds[fedBaby].StartAnimation("Out");
-				SetState(eState.CLOUD_OUT);
-			}
-			break;
-		}
-
-		case eState.CLOUD_OUT:
-		{
-			if(currentClouds[fedBaby].IsFinished())
-			{
-				currentBabies[fedBaby].transform.parent = null;
-				currentBabies[fedBaby] = null;
-				SetState(eState.CLOUDS_IN);
-			}
-			break;
-		}
-		}
+		SendMessage("Update_" + state);
 	}
-	
-	void SetState(eState _state)
+
+	#region IDLE
+	void Update_IDLE()
 	{
-		gameObject.SendMessage("Exit_" + state.ToString(), SendMessageOptions.DontRequireReceiver);
-		state = _state;
-		stateTimeStart = Time.time;
-		gameObject.SendMessage("Enter_" + state.ToString(), SendMessageOptions.DontRequireReceiver);
 	}
-
+	#endregion
+	
+	#region CLOUDS_IN
 	void Enter_CLOUDS_IN()
 	{
 		SetBabiesAndFood();
 	}
 
-	float GetStateTime()
+	void Update_CLOUDS_IN()
 	{
-		return Time.time - stateTimeStart;
+		bool bFinished = true;
+		foreach(AnimatedObject cloud in cloudLinks)
+		{
+			bFinished = bFinished && cloud.IsFinished();
+		}
+		
+		bFinished = bFinished && foodLink.IsFinished();
+		
+		if(bFinished)
+		{
+			foodLink.StopAnimator();
+			SetState(eState.WAIT_INPUT);
+		}
 	}
+	#endregion
 
+	#region WAIT_INPUT
+	void Update_WAIT_INPUT()
+	{
+		for(int i=0; i<currentBabies.Length; ++i)
+		{
+			if(currentBabies[i].GetComponent<MenuItem>().IsJustPressed())
+			{
+				fedBaby = i;
+				babyFed = false;
+				foodSrc = foodLink.transform.position;
+				foodDest = currentBabies[fedBaby].mouth.transform.position;
+				SetState(eState.LAUNCH_FOOD);
+				break;
+			}
+		}
+	}
+	#endregion
+
+	#region LAUNCH_FOOD
+	void Update_LAUNCH_FOOD()
+	{
+		if(GetStateTime() > 0.0f && !babyFed)
+		{
+			babyFed = true;
+			currentBabies[fedBaby].Eat(currentBabies[fedBaby].baby == currentFood.foodType);
+		}
+		
+		float fPerc = Mathf.Min(1.0f, GetStateTime() / 0.3f);
+		
+		foodLink.transform.position = foodSrc + (foodDest - foodSrc) * fPerc;
+		foodLink.transform.localScale = Vector3.one * Mathf.Pow((1-fPerc), 0.3f);
+		
+		if(fPerc >= 1.0f)
+		{
+			BabiesPool.Instance.AddObject(currentFood.transform);
+			SetState(eState.FEED_BABY);
+		}
+	}
+	#endregion
+
+	#region FEED_BABY
+	void Update_FEED_BABY()
+	{
+		if(!currentBabies[fedBaby].IsEating())
+		{
+			cloudLinks[GetCloudLinkIndex(fedBaby)].StartAnimation("Out");
+			SetState(eState.CLOUD_OUT);
+		}
+	}
+	#endregion
+
+	#region CLOUD_OUT
+	void Update_CLOUD_OUT()
+	{
+		if(cloudLinks[GetCloudLinkIndex(fedBaby)].IsFinished())
+		{
+			cloudLinks[GetCloudLinkIndex(fedBaby)].transform.localScale = Vector3.one;
+			BabiesPool.Instance.AddObject(currentBabies[fedBaby].transform);
+			CloudPool.Instance.AddObject(currentClouds[fedBaby].transform);
+			currentBabies[fedBaby] = null;
+			SetState(eState.CLOUDS_IN);
+		}
+	}
+	#endregion
+
+	#region FINISHED
+	void Update_FINISHED()
+	{
+	}
+	#endregion
+	
+	public void StartGameplay()
+	{
+		currentBabies = new Baby[NumBabies];
+		currentClouds = new CloudForBaby[NumBabies];
+		
+		SetState(eState.CLOUDS_IN);
+	}
+	
 	void SetBabiesAndFood()
 	{
 		//Set babies
@@ -166,46 +172,31 @@ public class Gameplay : MonoBehaviour
 		{
 			if(currentBabies[i] == null)
 			{
-				bool done = false;
-				while(!done)
+				//Get random baby
+				GameConstants.eBabies babyType = GetRandomBabyType();
+				currentBabies[i] = BabiesPool.Instance.GetBaby(babyType);
+				currentBabies[i].Idle();
+
+				//Link a cloud
+				int cloudLinkIndex = GetCloudLinkIndex(i);
+				currentClouds[i] = CloudPool.Instance.GetCloud();
+				currentClouds[i].transform.parent = cloudLinks[cloudLinkIndex].transform;
+				currentClouds[i].transform.localPosition = Vector3.zero;
+
+				//Link baby to cloud
+				currentBabies[i].transform.parent = currentClouds[i].babyLink;
+				currentBabies[i].transform.localPosition = Vector3.zero;
+				if(cloudLinkIndex == 0)
 				{
-					currentBabies[i] = babies[Random.Range(0, babies.Length)];
-					done = true;
-					for(int j=0; j<NumBabies; ++j)
-					{
-						if(i != j && currentBabies[j] && currentBabies[j].baby == currentBabies[i].baby)
-						{
-							done = false;
-							break;
-						}
-					}
+					cloudLinks[cloudLinkIndex].transform.localScale = new Vector3(-1, 1, 1);
 				}
 
-				currentBabies[i].Idle();
-				
-				int babyLinkIndex = GetBabyLinkIndex(i);
-				currentBabies[i].transform.parent = babyLink[babyLinkIndex];
-				currentBabies[i].transform.localPosition = Vector3.zero;
-				if(babyLinkIndex == 0)
-				{
-					Vector3 scale = currentBabies[i].transform.localScale;
-					scale.x = -1;
-					currentBabies[i].transform.localScale = scale;
-				}
-				else
-				{
-					Vector3 scale = currentBabies[i].transform.localScale;
-					scale.x = 1;
-					currentBabies[i].transform.localScale = scale;
-				}
-				
-				currentClouds[i] = clouds[babyLinkIndex];
-				clouds[babyLinkIndex].StartAnimation("In");
+				cloudLinks[cloudLinkIndex].StartAnimation("In");
 			}
 		}
 
 		//Set food
-		currentFood = GetFood(currentBabies[Random.Range(0, NumBabies)].baby);
+		currentFood = BabiesPool.Instance.GetFood(currentBabies[Random.Range(0, NumBabies)].baby);
 
 		currentFood.transform.parent = foodLink.transform;
 		currentFood.transform.localPosition = Vector3.zero;
@@ -214,19 +205,49 @@ public class Gameplay : MonoBehaviour
 		foodLink.StartAnimation("In");
 	}
 
-	Food GetFood(GameConstants.eBabies _foodType)
+	GameConstants.eBabies GetRandomBabyType()
 	{
-		for(int i=0; i<food.Length; ++i)
+		float totalProbability = 0.0f;
+		foreach(BabyData data in babyData)
 		{
-			if(food[i].foodType == _foodType)
+			if(data.IsAvailable() && (AllowRepeat || !IsPlaying(data.BabyType)))
 			{
-				return food[i];
+				totalProbability += data.GetProbability();
 			}
 		}
-		return null;
+
+		float fRand = Random.Range(0.0f, totalProbability);
+		totalProbability = 0.0f;
+		for(int i=0; i<babyData.Length; ++i)
+		{
+			if(babyData[i].IsAvailable() && (AllowRepeat || !IsPlaying(babyData[i].BabyType)))
+			{
+				if(fRand <= totalProbability + babyData[i].GetProbability())
+				{
+					return babyData[i].BabyType;
+				}
+				totalProbability += babyData[i].GetProbability();
+			}
+		}
+
+		//Error
+		Debug.LogError("ERROR: GetRandomBabyType");
+		return GameConstants.eBabies.ANTEATER;
+	}
+	
+	bool IsPlaying(GameConstants.eBabies _babyType)
+	{
+		foreach(Baby baby in currentBabies)
+		{
+			if(baby && baby.baby == _babyType)
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
-	int GetBabyLinkIndex(int _index)
+	int GetCloudLinkIndex(int _index)
 	{
 		switch(NumBabies)
 		{
@@ -243,16 +264,21 @@ public class Gameplay : MonoBehaviour
 		}
 	}
 
-	public void StartGameplay()
-	{
-		currentBabies = new Baby[NumBabies];
-		currentClouds = new AnimatedObject[NumBabies];
-
-		SetState(eState.CLOUDS_IN);
-	}
-	
 	public bool IsFinished()
 	{
 		return state == eState.FINISHED;
+	}
+
+	void SetState(eState _state)
+	{
+		gameObject.SendMessage("Exit_" + state.ToString(), SendMessageOptions.DontRequireReceiver);
+		state = _state;
+		stateTimeStart = Time.time;
+		gameObject.SendMessage("Enter_" + state.ToString(), SendMessageOptions.DontRequireReceiver);
+	}
+	
+	float GetStateTime()
+	{
+		return Time.time - stateTimeStart;
 	}
 }
