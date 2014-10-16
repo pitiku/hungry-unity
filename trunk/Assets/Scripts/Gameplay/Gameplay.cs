@@ -28,6 +28,7 @@ public class Gameplay : MonoBehaviour
 		CLOUDS_IN,
 		WAIT_INPUT,
 		LAUNCH_FOOD,
+		DISCARD_FOOD,
 		FEED_BABY,
 		CLOUD_OUT,
 		FINISHED
@@ -98,8 +99,14 @@ public class Gameplay : MonoBehaviour
 				foodSrc = foodLink.transform.position;
 				foodDest = currentBabies[fedBaby].mouth.transform.position;
 				SetState(eState.LAUNCH_FOOD);
-				break;
+				return;
 			}
+		}
+
+		if(currentFood.GetComponent<MenuItem>().IsJustPressed())
+		{
+			foodLink.StartAnimation("Discard");
+			SetState(eState.DISCARD_FOOD);
 		}
 	}
 	#endregion
@@ -125,7 +132,18 @@ public class Gameplay : MonoBehaviour
 		}
 	}
 	#endregion
-
+	
+	#region DISCARD_FOOD
+	void Update_DISCARD_FOOD()
+	{
+		if(foodLink.IsFinished())
+		{
+			BabiesPool.Instance.AddObject(currentFood.transform);
+			SetState(eState.CLOUDS_IN);
+		}
+	}
+	#endregion
+	
 	#region FEED_BABY
 	void Update_FEED_BABY()
 	{
