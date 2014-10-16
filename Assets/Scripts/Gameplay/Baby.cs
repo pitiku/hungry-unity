@@ -10,6 +10,8 @@ public class Baby : MonoBehaviour
 	Animator animator;
 	bool bEating = false;
 
+	public int hunger = 1;
+
 	void Awake() 
 	{
 		animator = GetComponent<Animator>();
@@ -26,6 +28,15 @@ public class Baby : MonoBehaviour
 		if(childAnimator)
 		{
 			childAnimator.SetTrigger("Idle");
+		}
+	}
+
+	public void JustEat()
+	{
+		animator.SetTrigger("Eat");
+		if(childAnimator)
+		{
+			childAnimator.SetTrigger("Eat");
 		}
 	}
 

@@ -44,7 +44,7 @@ public class Gameplay : MonoBehaviour
 	{
 		SetState(eState.IDLE);
 	}
-		
+
 	void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Escape)) 

@@ -81,10 +81,10 @@ public class LevelManager : MonoBehaviour
 		Score.Instance.AnimateIn();
 		Items.StartAnimation("In");
 		
-		ChainBoost.gameObject.SetActive(PlayerData.Instance.powerup_chainBoost > 0);
-		MegaChainBoost.gameObject.SetActive(PlayerData.Instance.powerup_megaChainBoost > 0);
-		DoubleCoins.gameObject.SetActive(PlayerData.Instance.powerup_doubleCoins > 0);
-		PrizeSeason.gameObject.SetActive(PlayerData.Instance.powerup_prizeSeason > 0);
+		ChainBoost.enabled = PlayerData.Instance.powerup_chainBoost > 0;
+		MegaChainBoost.enabled = PlayerData.Instance.powerup_megaChainBoost > 0;
+		DoubleCoins.enabled = PlayerData.Instance.powerup_doubleCoins > 0;
+		PrizeSeason.enabled = PlayerData.Instance.powerup_prizeSeason > 0;
 	}
 
 	void Update_POWERUPS_INITIAL()
