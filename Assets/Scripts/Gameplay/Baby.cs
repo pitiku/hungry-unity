@@ -43,21 +43,28 @@ public class Baby : MonoBehaviour
 	public void Eat(bool _bSuccess)
 	{
 		bEating = true;
+		string trigger = "";
 		if(_bSuccess)
 		{
-			animator.SetTrigger("Eat_Success");
-			if(childAnimator)
+			hunger--;
+			if(hunger <= 0)
 			{
-				childAnimator.SetTrigger("Eat_Success");
+				trigger = "Eat_Success";
+			}
+			else
+			{
+				trigger = "Eat";
 			}
 		}
 		else
 		{
-			animator.SetTrigger("Eat_Fail");
-			if(childAnimator)
-			{
-				childAnimator.SetTrigger("Eat_Fail");
-			}
+			trigger = "Eat_Fail";
+		}
+
+		animator.SetTrigger(trigger);
+		if(childAnimator)
+		{
+			childAnimator.SetTrigger(trigger);
 		}
 	}
 

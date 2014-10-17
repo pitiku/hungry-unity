@@ -30,6 +30,10 @@ public class Score : AnimatedObject {
 	int babiesFed = 0;
 	int chain = 1;
 
+	bool ChainBoostActive = false;
+	bool MegaChainBoostActive = false;
+	bool DoubleCoinsActive = false;
+
 	public int GetCoins() { return coins; }
 	public int GetBabiesFed() { return babiesFed; }
 	public int GetChain() { return chain; }
@@ -49,48 +53,79 @@ public class Score : AnimatedObject {
 	
 	}
 
-	public void ChainBoost(int _chain)
+	public void ChainBoost()
 	{
-		chain = _chain;
-
+		ChainBoostActive = true;
 		animator.SetTrigger("ChainBoost");
 	}
-
-	public void BabyFed(int coins)
+	
+	public void MegaChainBoost()
 	{
-		coins += coins * chain;
+		MegaChainBoostActive = true;
+		animator.SetTrigger("MegaChainBoost");
+	}
+	
+	public void DoubleCoins()
+	{
+		DoubleCoinsActive = true;
+		animator.SetTrigger("DoubleCoins");
+	}
+	
+	public void BabyFed(int _coins)
+	{
+		coins += _coins * chain * (DoubleCoinsActive ? 2 : 1);
 		babiesFed++;
-		chain++;
-		
-		animator.SetTrigger("BabyFed");
+		if(MegaChainBoostActive)
+		{
+			chain += 3;
+		}
+		else if(ChainBoostActive)
+		{
+			chain += 2;
+		}
+		else
+		{
+			chain++;
+		}
+
+		UpdateCoins();
+		UpdateChain();
+		UpdateBabiesFed();
+
+		//animator.SetTrigger("BabyFed");
 	}
 	
 	public void PrizeCollected(int coins)
 	{
 		coins += coins * chain;
 
-		animator.SetTrigger("IncCoins");
+		UpdateCoins();
+
+		//animator.SetTrigger("IncCoins");
 	}
 	
 	public void Fail()
 	{
-		animator.SetTrigger("ResetChain");
 		chain = 1;
+
+		UpdateChain();
+
+		//animator.SetTrigger("ResetChain");
 	}
 
-	public void UpdateCoins()
+	void UpdateCoins()
 	{
 		CoinsText.text = "" + coins;
 		CoinsText_shadow.text = "" + coins;
 	}
 
-	public void UpdateBabiesFed()
+	void UpdateBabiesFed()
 	{
 		BabiesFedText.text = "" + babiesFed;
 		BabiesFedText_shadow.text = "" + babiesFed;
 	}
 
-	public void UpdateChain()
+	void UpdateChain()
 	{
 		ChainText.text = "x" + chain;
 		ChainText_shadow.text = "x" + chain;
