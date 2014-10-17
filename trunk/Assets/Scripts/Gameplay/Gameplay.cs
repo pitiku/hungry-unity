@@ -15,6 +15,8 @@ public class Gameplay : MonoBehaviour
 
 	public LevelManager levelManager;
 
+	bool PrizeSeasonActive = false;
+
 	Baby[] currentBabies;
 	CloudForBaby[] currentClouds;
 	Food currentFood;
@@ -90,6 +92,7 @@ public class Gameplay : MonoBehaviour
 	#region WAIT_INPUT
 	void Update_WAIT_INPUT()
 	{
+		//Any baby pressed
 		for(int i=0; i<currentBabies.Length; ++i)
 		{
 			if(currentBabies[i].GetComponent<MenuItem>().IsJustPressed())
@@ -103,6 +106,7 @@ public class Gameplay : MonoBehaviour
 			}
 		}
 
+		//Food pressed
 		if(currentFood.GetComponent<MenuItem>().IsJustPressed())
 		{
 			foodLink.StartAnimation("Discard");
@@ -121,7 +125,7 @@ public class Gameplay : MonoBehaviour
 		}
 		
 		float fPerc = Mathf.Min(1.0f, GetStateTime() / 0.3f);
-		
+
 		foodLink.transform.position = foodSrc + (foodDest - foodSrc) * fPerc;
 		foodLink.transform.localScale = Vector3.one * Mathf.Pow((1-fPerc), 0.3f);
 		
@@ -149,8 +153,30 @@ public class Gameplay : MonoBehaviour
 	{
 		if(!currentBabies[fedBaby].IsEating())
 		{
-			cloudLinks[GetCloudLinkIndex(fedBaby)].StartAnimation("Out");
-			SetState(eState.CLOUD_OUT);
+			if(currentBabies[fedBaby].baby != currentFood.foodType)
+			{
+				Score.Instance.Fail();
+
+				cloudLinks[GetCloudLinkIndex(fedBaby)].StartAnimation("Out");
+				SetState(eState.CLOUD_OUT);
+			}
+			else if(currentBabies[fedBaby].hunger <= 0)
+			{
+				Score.Instance.BabyFed(1);
+
+				if(Random.Range(0.0f, 1.0f) < (GetBabyData(currentBabies[fedBaby].baby).GetPrizeProbability() * (PrizeSeasonActive ? 2.0f : 1.0f)))
+				{
+					//Prize
+				}
+
+				cloudLinks[GetCloudLinkIndex(fedBaby)].StartAnimation("Out");
+				SetState(eState.CLOUD_OUT);
+			}
+			else
+			{
+				//Baby is still hungry
+				SetState(eState.CLOUDS_IN);
+			}
 		}
 	}
 	#endregion
@@ -252,7 +278,22 @@ public class Gameplay : MonoBehaviour
 		Debug.LogError("ERROR: GetRandomBabyType");
 		return GameConstants.eBabies.ANTEATER;
 	}
-	
+
+	public BabyData GetBabyData(GameConstants.eBabies _babyType)
+	{
+		foreach(BabyData data in babyData)
+		{
+			if(data.BabyType == _babyType)
+			{
+				return data;
+			}
+		}
+
+		//Error
+		Debug.LogError("ERROR: GetBabyData");
+		return null;
+	}
+
 	bool IsPlaying(GameConstants.eBabies _babyType)
 	{
 		foreach(Baby baby in currentBabies)
@@ -280,6 +321,11 @@ public class Gameplay : MonoBehaviour
 		default:
 			return _index;
 		}
+	}
+
+	public void PrizeSeason()
+	{
+		PrizeSeasonActive = true;
 	}
 
 	public bool IsFinished()
