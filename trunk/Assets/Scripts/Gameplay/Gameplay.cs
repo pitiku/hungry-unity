@@ -164,9 +164,12 @@ public class Gameplay : MonoBehaviour
 			{
 				Score.Instance.BabyFed(1);
 
-				if(Random.Range(0.0f, 1.0f) < (GetBabyData(currentBabies[fedBaby].baby).GetPrizeProbability() * (PrizeSeasonActive ? 2.0f : 1.0f)))
+				float fRand = Random.Range(0.0f, 1.0f);
+				float fProb = (GetBabyData(currentBabies[fedBaby].baby).GetPrizeProbability() * (PrizeSeasonActive ? 2.0f : 1.0f));
+				if(fRand < fProb || true)
 				{
 					//Prize
+					BabiesPool.Instance.GetPrize(currentBabies[fedBaby].baby).Dropped(currentBabies[fedBaby].transform.position * 0.9f);
 				}
 
 				cloudLinks[GetCloudLinkIndex(fedBaby)].StartAnimation("Out");
