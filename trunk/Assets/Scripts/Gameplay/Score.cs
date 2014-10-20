@@ -25,6 +25,8 @@ public class Score : AnimatedObject {
 	public TextMesh CoinsText_shadow;
 	public TextMesh ChainText;
 	public TextMesh ChainText_shadow;
+	public Transform ChainTransform;
+	public Transform CoinsTransform;
 
 	int m_coins = 0;
 	int m_babiesFed = 0;
@@ -168,5 +170,17 @@ public class Score : AnimatedObject {
 	public void AnimateOut()
 	{
 		animator.SetTrigger("Out");
+	}
+
+	public Vector3 GetCoinsDest()
+	{
+		if(Chain > 1)
+		{
+			return ChainTransform.position;
+		}
+		else
+		{
+			return CoinsTransform.position;
+		}
 	}
 }

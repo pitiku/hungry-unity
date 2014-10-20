@@ -13,11 +13,16 @@ public class Living : MonoBehaviour
 
 	void Start () 
 	{
-		scaleInit = transform.localScale;
+		Reset();
 	}
 	
 	void Update () 
 	{
 		transform.localScale = scaleInit + new Vector2(scaleFactorX * Mathf.Sin(Time.time * scaleSpeedX), scaleFactorY * Mathf.Sin((Time.time + scaleDelay) * scaleSpeedY));
+	}
+
+	public void Reset()
+	{
+		scaleInit = transform.localScale;
 	}
 }

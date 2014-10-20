@@ -169,7 +169,7 @@ public class Gameplay : MonoBehaviour
 				float fProb = (GetBabyData(currentBabies[fedBaby].baby).GetPrizeProbability() * (PrizeSeasonActive ? 2.0f : 1.0f));
 				if(fRand < fProb || true)
 				{
-					BabiesPool.Instance.GetPrize(currentBabies[fedBaby].baby).Dropped(currentBabies[fedBaby].transform.position * 0.9f);
+					BabiesPool.Instance.GetPrize(currentBabies[fedBaby].baby).Dropped(currentBabies[fedBaby].transform.position);
 				}
 
 				cloudLinks[GetCloudLinkIndex(fedBaby)].StartAnimation("Out");
