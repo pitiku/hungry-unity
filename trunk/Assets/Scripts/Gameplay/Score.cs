@@ -26,17 +26,39 @@ public class Score : AnimatedObject {
 	public TextMesh ChainText;
 	public TextMesh ChainText_shadow;
 
-	int coins = 0;
-	int babiesFed = 0;
-	int chain = 1;
+	int m_coins = 0;
+	int m_babiesFed = 0;
+	int m_chain = 0;
+	bool chainVisible = false;
 
 	bool ChainBoostActive = false;
 	bool MegaChainBoostActive = false;
 	bool DoubleCoinsActive = false;
 
-	public int GetCoins() { return coins; }
-	public int GetBabiesFed() { return babiesFed; }
-	public int GetChain() { return chain; }
+	public int GetCoins() { return m_coins; }
+	public int GetBabiesFed() { return m_babiesFed; }
+
+	public int Chain
+	{ 
+		get
+		{
+			return m_chain;
+		}
+		set
+		{
+			m_chain = value;
+			if(m_chain > 1 && !chainVisible)
+			{
+				chainVisible = true;
+				animator.SetTrigger("Chain_In");
+			}
+			else if(m_chain <= 1 && chainVisible)
+			{
+				chainVisible = false;
+				animator.SetTrigger("Chain_Out");
+			}
+		}
+	}
 
 	void Start () 
 	{
@@ -73,19 +95,26 @@ public class Score : AnimatedObject {
 	
 	public void BabyFed(int _coins)
 	{
-		coins += _coins * chain * (DoubleCoinsActive ? 2 : 1);
-		babiesFed++;
-		if(MegaChainBoostActive)
+		if(Chain > 1)
 		{
-			chain += 3;
-		}
-		else if(ChainBoostActive)
-		{
-			chain += 2;
+			m_coins += _coins * Chain * (DoubleCoinsActive ? 2 : 1);
 		}
 		else
 		{
-			chain++;
+			m_coins += _coins * (DoubleCoinsActive ? 2 : 1);
+		}
+		m_babiesFed++;
+		if(MegaChainBoostActive)
+		{
+			Chain += 3;
+		}
+		else if(ChainBoostActive)
+		{
+			Chain += 2;
+		}
+		else
+		{
+			Chain++;
 		}
 
 		UpdateCoins();
@@ -95,9 +124,9 @@ public class Score : AnimatedObject {
 		//animator.SetTrigger("BabyFed");
 	}
 	
-	public void PrizeCollected(int coins)
+	public void PrizeCollected(int _coins)
 	{
-		coins += coins * chain;
+		m_coins += _coins * Chain;
 
 		UpdateCoins();
 
@@ -106,7 +135,7 @@ public class Score : AnimatedObject {
 	
 	public void Fail()
 	{
-		chain = 1;
+		Chain = 0;
 
 		UpdateChain();
 
@@ -115,20 +144,20 @@ public class Score : AnimatedObject {
 
 	void UpdateCoins()
 	{
-		CoinsText.text = "" + coins;
-		CoinsText_shadow.text = "" + coins;
+		CoinsText.text = "" + m_coins;
+		CoinsText_shadow.text = "" + m_coins;
 	}
 
 	void UpdateBabiesFed()
 	{
-		BabiesFedText.text = "" + babiesFed;
-		BabiesFedText_shadow.text = "" + babiesFed;
+		BabiesFedText.text = "" + m_babiesFed;
+		BabiesFedText_shadow.text = "" + m_babiesFed;
 	}
 
 	void UpdateChain()
 	{
-		ChainText.text = "x" + chain;
-		ChainText_shadow.text = "x" + chain;
+		ChainText.text = "x" + Chain;
+		ChainText_shadow.text = "x" + Chain;
 	}
 	
 	public void AnimateIn()
