@@ -54,9 +54,13 @@ public class Prize : MonoBehaviour
 		{
 			animator.SetTrigger("Collected");
 		}
+		else
+		{
+			transform.localPosition = Vector3.zero;
+		}
 		
 		Score.Instance.PrizeCollected(coins);
-		
+
 		Vacuum.Instance.RemovePrize(this);
 
 		ToPool();
