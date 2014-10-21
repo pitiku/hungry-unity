@@ -160,6 +160,10 @@ public class Score : MonoBehaviour {
 
 	void UpdateChain()
 	{
+		if(Chain > 2)
+		{
+			ChainAnimator.SetTrigger("IncChain");
+		}
 		ChainText.text = "x" + Chain;
 		ChainText_shadow.text = "x" + Chain;
 	}
