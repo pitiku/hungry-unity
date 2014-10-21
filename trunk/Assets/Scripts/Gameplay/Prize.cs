@@ -72,6 +72,11 @@ public class Prize : MonoBehaviour
 			{
 				Collected();
 			}
+			else if(GetStateTime() > 2.0f)
+			{
+				Discarded();
+			}
+
 			break;
 		
 		case eState.COLLECTED:
@@ -130,7 +135,17 @@ public class Prize : MonoBehaviour
 		menuItem.enabled = false;
 		living.enabled = false;
 	}
+	
+	public void Discarded()
+	{
+		menuItem.enabled = false;
+		living.enabled = false;
 
+		Vacuum.Instance.RemovePrize(this);
+		
+		ToPool();
+	}
+	
 	public void ToPool()
 	{
 		SetState(eState.OUT);

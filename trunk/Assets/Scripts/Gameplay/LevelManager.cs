@@ -188,10 +188,6 @@ public class LevelManager : MonoBehaviour
 			SetState(LevelState.POWERUPS_FINAL);
 		}
 	}
-	
-	void Exit_()
-	{
-	}
 	#endregion
 
 	#region POWERUPS_FINAL

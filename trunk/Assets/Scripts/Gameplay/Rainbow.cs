@@ -60,9 +60,17 @@ public class Rainbow : MonoBehaviour
 		}
 	}
 
-	public void EnableStars()
+	public void EnableStars(bool _bValue = true)
 	{
-		stars.Play();
+		if(_bValue)
+		{
+			stars.Play();
+		}
+		else
+		{
+			stars.Stop();
+			stars.Clear();
+		}
 	}
 
 	public void SetValue(float _value, bool _instant = false)
