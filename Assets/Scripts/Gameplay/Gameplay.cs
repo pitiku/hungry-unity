@@ -22,7 +22,8 @@ public class Gameplay : MonoBehaviour
 	Food currentFood;
 	int fedBaby;
 
-	public float timeLeft;
+	float timeLeft;
+	float totalTime;
 
 	enum eState
 	{
@@ -53,6 +54,12 @@ public class Gameplay : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Escape)) 
 		{
 			Application.Quit(); 
+		}
+
+		if(state != eState.IDLE && state != eState.FINISHED)
+		{
+			timeLeft -= Time.deltaTime;
+			Rainbow.Instance.SetValue(timeLeft / totalTime);
 		}
 
 		//Update state
@@ -163,11 +170,12 @@ public class Gameplay : MonoBehaviour
 			else if(currentBabies[fedBaby].hunger <= 0)
 			{
 				Score.Instance.BabyFed(1);
+				timeLeft = Mathf.Min(totalTime, timeLeft + 2.0f);
 
 				//Drop prize
 				float fRand = Random.Range(0.0f, 1.0f);
 				float fProb = (GetBabyData(currentBabies[fedBaby].baby).GetPrizeProbability() * (PrizeSeasonActive ? 2.0f : 1.0f));
-				if(fRand < fProb || true)
+				if(fRand < fProb)
 				{
 					if(BabiesPool.Instance.GetPrize(currentBabies[fedBaby].baby))
 					{
@@ -211,7 +219,20 @@ public class Gameplay : MonoBehaviour
 	{
 		currentBabies = new Baby[NumBabies];
 		currentClouds = new CloudForBaby[NumBabies];
-		
+
+		totalTime = 10.0f;
+		if(PlayerData.Instance.upgrade_rainbowplusplus)
+		{
+			totalTime *= 2.0f;
+		}
+		else if(PlayerData.Instance.upgrade_rainbowplus)
+		{
+			totalTime *= 1.5f;
+		}
+		timeLeft = totalTime;
+
+		Rainbow.Instance.EnableStars();
+
 		SetState(eState.CLOUDS_IN);
 	}
 	
