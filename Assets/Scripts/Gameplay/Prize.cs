@@ -8,7 +8,7 @@ public class Prize : MonoBehaviour
 
 	public float speed = 0.1f;
 	Vector3 src;
-	Vector3 dest = new Vector3(0.0f, -0.5f, -3.0f);
+	Vector3 dest;
 
 	Animator animator;
 	MenuItem menuItem;
@@ -19,7 +19,6 @@ public class Prize : MonoBehaviour
 		OUT,
 		DROPPED,
 		IDLE,
-		VACUUMED,
 		COLLECTED
 	};
 
@@ -75,15 +74,13 @@ public class Prize : MonoBehaviour
 			}
 			break;
 		
-		case eState.VACUUMED:
-			break;
-		
 		case eState.COLLECTED:
 		{
 			float fPerc = GetStateTime() / 0.3f;
 			
 			transform.position = src + (dest - src) * fPerc;
-			transform.localScale = Vector3.one * (1.0f - fPerc);
+			float scale = (0.6f - fPerc * 0.4f);
+			transform.localScale = Vector3.one * scale;
 			
 			if(fPerc >= 1.0f)
 			{
@@ -103,6 +100,7 @@ public class Prize : MonoBehaviour
 		transform.position = _pos;
 		transform.localScale = 0.5f * Vector3.one;
 		src = transform.position;
+		dest = new Vector3(0.0f, -0.5f, -3.0f);
 
 		enabled = true;
 
@@ -117,14 +115,20 @@ public class Prize : MonoBehaviour
 		dest = Score.Instance.GetCoinsDest();
 
 		menuItem.enabled = false;
+		living.enabled = false;
 
 		Vacuum.Instance.RemovePrize(this);
 	}
 	
-	public void Vacuummed()
+	public void Vacuummed(Vector3 _dest)
 	{
-		SetState(eState.VACUUMED);
+		SetState(eState.COLLECTED);
+		
+		src = transform.position;
+		dest = _dest;
+		
 		menuItem.enabled = false;
+		living.enabled = false;
 	}
 
 	public void ToPool()

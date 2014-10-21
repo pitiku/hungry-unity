@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Score : AnimatedObject {
+public class Score : MonoBehaviour {
 
 	#region Singleton
 	private static Score _Instance;
@@ -25,6 +25,12 @@ public class Score : AnimatedObject {
 	public TextMesh CoinsText_shadow;
 	public TextMesh ChainText;
 	public TextMesh ChainText_shadow;
+
+	public Animator ChainAnimator;
+	public Animator CoinsAnimator;
+	public Animator DiaperAnimator;
+	public Animator TopHUDAnimator;
+
 	public Transform ChainTransform;
 	public Transform CoinsTransform;
 
@@ -52,12 +58,12 @@ public class Score : AnimatedObject {
 			if(m_chain > 1 && !chainVisible)
 			{
 				chainVisible = true;
-				animator.SetTrigger("Chain_In");
+				ChainAnimator.SetTrigger("In");
 			}
 			else if(m_chain <= 1 && chainVisible)
 			{
 				chainVisible = false;
-				animator.SetTrigger("Chain_Out");
+				ChainAnimator.SetTrigger("Out");
 			}
 		}
 	}
@@ -80,19 +86,19 @@ public class Score : AnimatedObject {
 	public void ChainBoost()
 	{
 		ChainBoostActive = true;
-		animator.SetTrigger("ChainBoost");
+		ChainAnimator.SetTrigger("Boost");
 	}
 	
 	public void MegaChainBoost()
 	{
 		MegaChainBoostActive = true;
-		animator.SetTrigger("MegaChainBoost");
+		ChainAnimator.SetTrigger("MegaBoost");
 	}
 	
 	public void DoubleCoins()
 	{
 		DoubleCoinsActive = true;
-		animator.SetTrigger("DoubleCoins");
+		CoinsAnimator.SetTrigger("DoubleCoins");
 	}
 	
 	public void BabyFed(int _coins)
@@ -122,8 +128,6 @@ public class Score : AnimatedObject {
 		UpdateCoins();
 		UpdateChain();
 		UpdateBabiesFed();
-
-		//animator.SetTrigger("BabyFed");
 	}
 	
 	public void PrizeCollected(int _coins)
@@ -131,8 +135,6 @@ public class Score : AnimatedObject {
 		m_coins += _coins * Chain;
 
 		UpdateCoins();
-
-		//animator.SetTrigger("IncCoins");
 	}
 	
 	public void Fail()
@@ -140,18 +142,18 @@ public class Score : AnimatedObject {
 		Chain = 0;
 
 		UpdateChain();
-
-		//animator.SetTrigger("ResetChain");
 	}
 
 	void UpdateCoins()
 	{
+		CoinsAnimator.SetTrigger("IncCoins");
 		CoinsText.text = "" + m_coins;
 		CoinsText_shadow.text = "" + m_coins;
 	}
 
 	void UpdateBabiesFed()
 	{
+		DiaperAnimator.SetTrigger("BabyFed");
 		BabiesFedText.text = "" + m_babiesFed;
 		BabiesFedText_shadow.text = "" + m_babiesFed;
 	}
@@ -164,12 +166,12 @@ public class Score : AnimatedObject {
 	
 	public void AnimateIn()
 	{
-		animator.SetTrigger("In");
+		TopHUDAnimator.SetTrigger("In");
 	}
 	
 	public void AnimateOut()
 	{
-		animator.SetTrigger("Out");
+		TopHUDAnimator.SetTrigger("Out");
 	}
 
 	public Vector3 GetCoinsDest()
