@@ -11,9 +11,10 @@ public class LevelManager : MonoBehaviour
 	public PowerUp_Level PrizeSeason;
 	public PowerUp_Level MegaChainBoost;
 
-	public MenuItem BoletTime;
+	public PowerUp_Level BoletTime;
 	public MenuItem FeederGloves;
-	public MenuItem ExtraRainbow;
+
+	public PowerUp_Level ExtraRainbow;
 
 	public AnimatedObject TextReady;
 	public AnimatedObject TextFeed;
@@ -148,6 +149,8 @@ public class LevelManager : MonoBehaviour
 	#region READY
 	void Enter_READY()
 	{
+		Rainbow.Instance.SetValue(1.0f);
+
 		TextReady.StartAnimation("In");
 	}
 
@@ -191,10 +194,37 @@ public class LevelManager : MonoBehaviour
 	#endregion
 
 	#region POWERUPS_FINAL
+	void Enter_POWERUPS_FINAL()
+	{
+		Score.Instance.AnimateIn();
+		Items.StartAnimation("FinalIn");
+		
+		ExtraRainbow.SetCount(PlayerData.Instance.powerup_extraRainbow);
+		ExtraRainbow.SetEnabled(PlayerData.Instance.powerup_extraRainbow > 0);
+	}
+
 	void Update_POWERUPS_FINAL()
 	{
-		SetState(LevelState.RESULTS);
+		if(ExtraRainbow.menuItem.IsJustPressed())
+		{
+			PlayerData.Instance.powerup_extraRainbow -= 1;
+			PlayerData.Instance.Save();
+			ExtraRainbow.SetCount(PlayerData.Instance.powerup_extraRainbow);
+			ExtraRainbow.SetEnabled(false);
+
+			SetState(LevelState.READY);
+		}
+		else if(GetStateTime() > 2.0f)
+		{
+			SetState(LevelState.RESULTS);
+		}
 	}
+
+	void Exit_POWERUPS_FINAL()
+	{
+		Items.StartAnimation("FinalOut");
+	}
+
 	#endregion
 
 	#region RESULTS
