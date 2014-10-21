@@ -25,7 +25,7 @@ public class Gameplay : MonoBehaviour
 	float timeLeft;
 	float totalTime;
 
-	enum eState
+	public enum eState
 	{
 		IDLE,
 		CLOUDS_IN,
@@ -34,11 +34,14 @@ public class Gameplay : MonoBehaviour
 		DISCARD_FOOD,
 		FEED_BABY,
 		CLOUD_OUT,
+		FINISHING,
 		FINISHED
 	};
 
-	eState state;
+	public eState state;
 	float stateTimeStart;
+
+	bool inPlay = false;
 
 	bool babyFed;
 	Vector3 foodDest;
@@ -56,10 +59,15 @@ public class Gameplay : MonoBehaviour
 			Application.Quit(); 
 		}
 
-		if(state != eState.IDLE && state != eState.FINISHED)
+		if(inPlay)
 		{
 			timeLeft -= Time.deltaTime;
 			Rainbow.Instance.SetValue(timeLeft / totalTime);
+
+			if(timeLeft <= 0.0f)
+			{
+				SetState(eState.FINISHING);
+			}
 		}
 
 		//Update state
@@ -209,7 +217,62 @@ public class Gameplay : MonoBehaviour
 	}
 	#endregion
 
+	#region FINISHING
+	void Enter_FINISHING()
+	{
+		Rainbow.Instance.EnableStars(false);
+
+		inPlay = false;
+
+		foodLink.StartAnimation("Discard");
+		foreach(AnimatedObject cloud  in cloudLinks)
+		{
+			cloud.StartAnimation("Out");
+		}
+	}
+	
+	void Update_FINISHING()
+	{
+		bool finished = foodLink.IsFinished();
+
+		foreach(AnimatedObject cloud in cloudLinks)
+		{
+			finished = finished && cloud.IsFinished();
+		}
+
+		if(finished)
+		{
+			SetState(eState.FINISHED);
+		}
+	}
+	#endregion
+	
 	#region FINISHED
+	void Enter_FINISHED()
+	{
+		BabiesPool.Instance.AddObject(currentFood.transform);
+
+		foreach(AnimatedObject cloud in cloudLinks)
+		{
+			cloud.transform.localScale = Vector3.one;
+		}
+		
+		foreach(Baby baby in currentBabies)
+		{
+			BabiesPool.Instance.AddObject(baby.transform);
+		}
+		
+		foreach(CloudForBaby cloud in currentClouds)
+		{
+			CloudPool.Instance.AddObject(cloud.transform);
+		}
+		
+		for(int i=0; i<NumBabies; ++i)
+		{
+			currentBabies[i] = null;
+		}
+	}
+	
 	void Update_FINISHED()
 	{
 	}
@@ -220,7 +283,7 @@ public class Gameplay : MonoBehaviour
 		currentBabies = new Baby[NumBabies];
 		currentClouds = new CloudForBaby[NumBabies];
 
-		totalTime = 10.0f;
+		totalTime = 1.0f;
 		if(PlayerData.Instance.upgrade_rainbowplusplus)
 		{
 			totalTime *= 2.0f;
@@ -230,6 +293,7 @@ public class Gameplay : MonoBehaviour
 			totalTime *= 1.5f;
 		}
 		timeLeft = totalTime;
+		inPlay = true;
 
 		Rainbow.Instance.EnableStars();
 
