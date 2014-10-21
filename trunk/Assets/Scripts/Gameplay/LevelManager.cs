@@ -5,6 +5,8 @@ public class LevelManager : MonoBehaviour
 {
 	public Gameplay gameplay;
 
+	public AnimatedObject Clouds;
+
 	public AnimatedObject Items;
 	public PowerUp_Level ChainBoost;
 	public PowerUp_Level DoubleCoins;
@@ -38,6 +40,7 @@ public class LevelManager : MonoBehaviour
 	void Start()
 	{
 		SetState(LevelState.INIT);
+		Clouds.StartAnimation("In");
 	}
 	
 	void Update()
@@ -196,7 +199,6 @@ public class LevelManager : MonoBehaviour
 	#region POWERUPS_FINAL
 	void Enter_POWERUPS_FINAL()
 	{
-		Score.Instance.AnimateIn();
 		Items.StartAnimation("FinalIn");
 		
 		ExtraRainbow.SetCount(PlayerData.Instance.powerup_extraRainbow);
@@ -228,6 +230,11 @@ public class LevelManager : MonoBehaviour
 	#endregion
 
 	#region RESULTS
+	void Enter_RESULTS()
+	{
+		Score.Instance.AnimateOut();
+	}
+
 	void Update_RESULTS()
 	{
 		SetState(LevelState.FINISHED);
@@ -235,8 +242,17 @@ public class LevelManager : MonoBehaviour
 	#endregion
 
 	#region FINISHED
+	void Enter_FINISHED()
+	{
+		Clouds.StartAnimation("Out");
+	}
+
 	void Update_FINISHED()
 	{
+		if(Clouds.IsFinished())
+		{
+			Application.LoadLevel("MainMenu");
+		}
 	}
 	#endregion
 	
