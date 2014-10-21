@@ -184,15 +184,32 @@ public class LevelManager : MonoBehaviour
 	#region GAMEPLAY
 	void Enter_GAMEPLAY()
 	{
+		Items.StartAnimation("GameplayIn");
+
 		gameplay.StartGameplay();
 	}
 
 	void Update_GAMEPLAY()
 	{
+		if(FeederGloves.IsJustPressed())
+		{
+
+		}
+
+		if(BoletTime.menuItem.IsJustPressed())
+		{
+
+		}
+
 		if(gameplay.IsFinished())
 		{
 			SetState(LevelState.POWERUPS_FINAL);
 		}
+	}
+
+	void Exit_GAMEPLAY()
+	{
+		Items.StartAnimation("GameplayOut");
 	}
 	#endregion
 
