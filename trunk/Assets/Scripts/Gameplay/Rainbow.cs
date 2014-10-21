@@ -37,9 +37,10 @@ public class Rainbow : MonoBehaviour
 	
 	void Update () 
 	{
-		if((wantedValue - currentValue) > 0.01f)
+		if(Mathf.Abs(wantedValue - currentValue) > 0.001f)
 		{
-			currentValue = currentValue + (wantedValue > currentValue ? 1 : -1) * speed * Time.deltaTime;
+			float inc = Mathf.Min(speed * Time.deltaTime, Mathf.Abs(wantedValue - currentValue));
+			currentValue = currentValue + (wantedValue > currentValue ? 1 : -1) * inc;
 
 			UpdateRainbow();
 		}

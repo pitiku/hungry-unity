@@ -38,10 +38,17 @@ public class Vacuum : MonoBehaviour
 
 	eState state;
 
+	void Awake()
+	{
+		Vacuum.Instance.enabled = true;
+	}
+
 	void Start () 
 	{
 		state = eState.HIDDEN;
 		transform.position = HiddenPosition.transform.position;
+
+		gameObject.SetActive(PlayerData.Instance.upgrade_vacuum);
 	}
 	
 	void Update () 
