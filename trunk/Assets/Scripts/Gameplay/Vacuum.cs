@@ -71,6 +71,17 @@ public class Vacuum : MonoBehaviour
 
 		case eState.VACUUMING:
 			transform.position = VacuumingPosition.position + 0.01f * Vector3.up * Mathf.Sin(Time.time * 40);
+
+			foreach(Prize p in prizes)
+			{
+				p.Vacuummed(Hole.position);
+			}
+			prizes.Clear();
+
+			if(prizes.Count <= 0)
+			{
+				state = eState.GOING_IN;
+			}
 			break;
 
 		case eState.GOING_IN:
