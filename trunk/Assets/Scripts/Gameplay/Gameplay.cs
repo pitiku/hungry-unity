@@ -283,7 +283,7 @@ public class Gameplay : MonoBehaviour
 		currentBabies = new Baby[NumBabies];
 		currentClouds = new CloudForBaby[NumBabies];
 
-		totalTime = 1.0f;
+		totalTime = 10.0f;
 		if(PlayerData.Instance.upgrade_rainbowplusplus)
 		{
 			totalTime *= 2.0f;
