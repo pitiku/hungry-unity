@@ -3,23 +3,39 @@ using System.Collections;
 
 public class BabyInShop : MonoBehaviour 
 {
-	public Baby baby;
+	Baby baby;
+	MenuItem menuItem;
+
 	public SpriteRenderer halo;
-	public TextMesh priceText;
-	public TextMesh priceText_shadow;
-	public MenuItem menuItem;
+	public GameObject priceVisual;
 	public int Price;
 
-	public void ShowPrice(int _price)
+	void Awake()
 	{
-		priceText.gameObject.SetActive(true);
-		priceText.text = "" + _price;
-		priceText_shadow.text = "" + _price;
+		baby = GetComponentInChildren<Baby>();
+		menuItem = GetComponentInChildren<MenuItem>();
+		SetSelected(false);
+	}
+
+	public Baby GetBaby()
+	{
+		return baby;
+	}
+	
+	public MenuItem GetMenuItem()
+	{
+		return menuItem;
+	}
+	
+	public void ShowPrice()
+	{
+		priceVisual.SetActive(true);
 	}
 
 	public void SetShadowed(bool _bValue)
 	{
 		baby.GetComponent<SpriteRenderer>().color = _bValue ? Color.black : Color.white;
+		menuItem.enabled = !_bValue;
 	}
 
 	public void SetSelected(bool _bValue)
