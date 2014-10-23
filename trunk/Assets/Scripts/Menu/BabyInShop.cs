@@ -7,6 +7,8 @@ public class BabyInShop : MonoBehaviour
 	public SpriteRenderer halo;
 	public TextMesh priceText;
 	public TextMesh priceText_shadow;
+	public MenuItem menuItem;
+	public int Price;
 
 	public void ShowPrice(int _price)
 	{
@@ -17,7 +19,7 @@ public class BabyInShop : MonoBehaviour
 
 	public void SetShadowed(bool _bValue)
 	{
-
+		baby.GetComponent<SpriteRenderer>().color = _bValue ? Color.black : Color.white;
 	}
 
 	public void SetSelected(bool _bValue)

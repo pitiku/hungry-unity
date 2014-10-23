@@ -9,7 +9,7 @@ public class BabyData : MonoBehaviour
 
 	public bool IsAvailable()
 	{
-		return PlayerData.Instance.babies[(int)BabyType];
+		return PlayerData.Instance.babyUnlocked[(int)BabyType];
 	}
 	
 	public float GetProbability()
