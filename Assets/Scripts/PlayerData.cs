@@ -57,7 +57,8 @@ public class PlayerData
 	public int powerup_prizeSeason = 0;
 
 	//Babies
-	public bool[] babies;
+	public bool[] babyUnlocked;
+	public bool[] babyBought;
 
 	public int Coins
 	{
@@ -100,7 +101,10 @@ public class PlayerData
 
 		//Uncomment to reset
 		//PlayerPrefs.DeleteKey("music");
-		
+
+		babyUnlocked = new bool[(int)GameConstants.eBabies.NUM_BABIES];
+		babyBought = new bool[(int)GameConstants.eBabies.NUM_BABIES];
+
 		//Check is there is saved data
 		if(PlayerPrefs.HasKey("music"))
 		{
@@ -134,20 +138,24 @@ public class PlayerData
 			powerup_megaChainBoost = PlayerPrefs.GetInt("powerup_megaChainBoost");
 			powerup_prizeSeason = PlayerPrefs.GetInt("powerup_prizeSeason");
 
-			babies = new bool[(int)GameConstants.eBabies.NUM_BABIES];
 			for(int i=0; i < (int)GameConstants.eBabies.NUM_BABIES; ++i)
 			{
-				babies[i] = GetBool("baby"+i);
+				babyUnlocked[i] = GetBool("babyUnlocked"+i);
+				babyBought[i] = GetBool("babyBought"+i);
 			}
 		}
 		else
 		{
 			//Unlock default babies
-			babies = new bool[(int)GameConstants.eBabies.NUM_BABIES];
-			babies[(int)GameConstants.eBabies.HUMAN] = true;
-			babies[(int)GameConstants.eBabies.CAT] = true;
-			babies[(int)GameConstants.eBabies.DOG] = true;
-			babies[(int)GameConstants.eBabies.BIRD] = true;
+			babyUnlocked[(int)GameConstants.eBabies.HUMAN] = true;
+			babyUnlocked[(int)GameConstants.eBabies.CAT] = true;
+			babyUnlocked[(int)GameConstants.eBabies.DOG] = true;
+			babyUnlocked[(int)GameConstants.eBabies.BIRD] = true;
+
+			babyBought[(int)GameConstants.eBabies.HUMAN] = true;
+			babyBought[(int)GameConstants.eBabies.CAT] = true;
+			babyBought[(int)GameConstants.eBabies.DOG] = true;
+			babyBought[(int)GameConstants.eBabies.BIRD] = true;
 
 			Save();
 		}
@@ -192,7 +200,8 @@ public class PlayerData
 
 		for(int i=0; i < (int)GameConstants.eBabies.NUM_BABIES; ++i)
 		{
-			SetBool("baby"+i, babies[i]);
+			SetBool("babyUnlocked"+i, babyUnlocked[i]);
+			SetBool("babyBought"+i, babyBought[i]);
 		}
 
 		PlayerPrefs.Save();

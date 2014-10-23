@@ -77,9 +77,14 @@ public class Baby : MonoBehaviour
 	{
 		return bEating;
 	}
-
+	
 	public bool IsUnlocked()
 	{
-		return PlayerData.Instance.babies[(int)baby];
+		return PlayerData.Instance.babyUnlocked[(int)baby];
+	}
+	
+	public bool IsBought()
+	{
+		return PlayerData.Instance.babyBought[(int)baby];
 	}
 }
