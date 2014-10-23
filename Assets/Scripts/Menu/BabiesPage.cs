@@ -17,6 +17,15 @@ public class BabiesPage : MenuPage
 		CoinsCounter.Instance.AnimateIn();
 
 		Select(null);
+
+		foreach(BabyInShop b in babies)
+		{
+			b.SetShadowed(!b.GetBaby().IsUnlocked() || !b.GetBaby().IsBought());
+			if(!b.GetBaby().IsUnlocked())
+			{
+				b.GetBaby().StopAnimation();
+			}
+		}
 	}
 
 	void Select(BabyInShop _baby)
@@ -36,7 +45,7 @@ public class BabiesPage : MenuPage
 	{
 		foreach(BabyInShop baby in babies)
 		{
-			if(baby.menuItem.IsJustPressed())
+			if(baby.GetMenuItem().IsJustPressed())
 			{
 				Select(baby);
 			}

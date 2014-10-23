@@ -21,21 +21,34 @@ public class Baby : MonoBehaviour
 	{
 	}
 
+	public void StopAnimation()
+	{
+		animator.enabled = false;
+		if(childAnimator)
+		{
+			childAnimator.enabled = false;
+		}
+	}
+
 	public void Idle()
 	{
 		bEating = false;
+		animator.enabled = true;
 		animator.SetTrigger("Idle");
 		if(childAnimator)
 		{
+			childAnimator.enabled = true;
 			childAnimator.SetTrigger("Idle");
 		}
 	}
 
 	public void JustEat()
 	{
+		animator.enabled = true;
 		animator.SetTrigger("Eat");
 		if(childAnimator)
 		{
+			childAnimator.enabled = true;
 			childAnimator.SetTrigger("Eat");
 		}
 	}
@@ -61,9 +74,11 @@ public class Baby : MonoBehaviour
 			trigger = "Eat_Fail";
 		}
 
+		animator.enabled = true;
 		animator.SetTrigger(trigger);
 		if(childAnimator)
 		{
+			childAnimator.enabled = true;
 			childAnimator.SetTrigger(trigger);
 		}
 	}

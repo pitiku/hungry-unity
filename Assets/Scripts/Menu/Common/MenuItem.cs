@@ -18,6 +18,11 @@ public class MenuItem : MonoBehaviour
 
 	public bool IsJustPressed()
 	{
+		if(!enabled)
+		{
+			return false;
+		}
+
 		if(InputManager.Instance && InputManager.Instance.IsTouch)
 		{
 			Vector3 touch = InputManager.Instance.TouchPosition;
