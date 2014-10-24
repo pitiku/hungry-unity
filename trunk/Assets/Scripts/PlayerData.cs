@@ -226,4 +226,17 @@ public class PlayerData
 	{
 		return PlayerPrefs.GetInt(_key)==1 ? true : false;
 	}
+	
+	public void UnlockBaby(int _baby)
+	{
+		babyUnlocked[_baby] = true;
+		Save();
+	}
+	
+	public void BuyBaby(int _baby, int _price)
+	{
+		Coins -= _price;
+		babyBought[_baby] = true;
+		Save();
+	}
 }

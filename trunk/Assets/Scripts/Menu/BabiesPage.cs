@@ -104,7 +104,18 @@ public class BabiesPage : MenuPage
 		{
 			if(baby.GetMenuItem().IsJustPressed())
 			{
-				Select(baby);
+				if(currentBaby == baby)
+				{
+					//Buy
+					if(!currentBaby.GetBaby().IsBought() && PlayerData.Instance.Coins >= currentBaby.Price)
+					{
+						PlayerData.Instance.BuyBaby((int)currentBaby.GetBaby().baby, currentBaby.Price);
+					}
+				}
+				else
+				{
+					Select(baby);
+				}
 			}
 		}
 
