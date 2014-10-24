@@ -7,9 +7,19 @@ public class BabiesPage : MenuPage
 
 	public BabyInShop[] babies;
 	BabyInShop currentBaby = null;
-	
+
+	public MeshRenderer DefaultText;
+	public MeshRenderer UnlockInGameText;
+	public MeshRenderer ClickToBuyText;
+	public MeshRenderer NotEnoughCoinsText;
+
+	public MeshRenderer HiddenMessageText;
+
+	MeshRenderer CurrentText;
+
 	public override void OnStart () 
 	{
+		CurrentText = DefaultText;
 	}
 
 	public override void OnSetPage()
@@ -20,6 +30,7 @@ public class BabiesPage : MenuPage
 
 		foreach(BabyInShop b in babies)
 		{
+			b.ShowPrice(b.GetBaby().IsUnlocked() && !b.GetBaby().IsBought());
 			b.SetShadowed(!b.GetBaby().IsUnlocked() || !b.GetBaby().IsBought());
 			if(!b.GetBaby().IsUnlocked())
 			{
@@ -33,11 +44,57 @@ public class BabiesPage : MenuPage
 		if(currentBaby)
 		{
 			currentBaby.SetSelected(false);
+			currentBaby.message.enabled = false;
+			HiddenMessageText.enabled = false;
 		}
 		currentBaby = _baby;
 		if(currentBaby)
 		{
 			currentBaby.SetSelected(true);
+
+			if(currentBaby.GetBaby().IsBought())
+			{
+				SetMessage(null);
+				HiddenMessageText.enabled = false;
+				currentBaby.message.enabled = true;
+			}
+			else if(currentBaby.GetBaby().IsUnlocked())
+			{
+				HiddenMessageText.enabled = true;
+				if(PlayerData.Instance.Coins >= currentBaby.Price)
+				{
+					SetMessage(ClickToBuyText);
+				}
+				else
+				{
+					SetMessage(NotEnoughCoinsText);
+				}
+			}
+			else
+			{
+				HiddenMessageText.enabled = true;
+				SetMessage(UnlockInGameText);
+			}
+		}
+		else
+		{
+			SetMessage(DefaultText);
+		}
+	}
+
+	void SetMessage(MeshRenderer _message)
+	{
+		if(_message != CurrentText)
+		{
+			if(CurrentText)
+			{
+				CurrentText.enabled = false;
+			}
+			CurrentText = _message; 
+			if(CurrentText)
+			{
+				CurrentText.enabled = true;
+			}
 		}
 	}
 

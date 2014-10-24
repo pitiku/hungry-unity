@@ -9,6 +9,7 @@ public class BabyInShop : MonoBehaviour
 	public SpriteRenderer halo;
 	public GameObject priceVisual;
 	public int Price;
+	public MeshRenderer message;
 
 	void Awake()
 	{
@@ -27,15 +28,14 @@ public class BabyInShop : MonoBehaviour
 		return menuItem;
 	}
 	
-	public void ShowPrice()
+	public void ShowPrice(bool _bValue)
 	{
-		priceVisual.SetActive(true);
+		priceVisual.SetActive(_bValue);
 	}
 
 	public void SetShadowed(bool _bValue)
 	{
 		baby.GetComponent<SpriteRenderer>().color = _bValue ? Color.black : Color.white;
-		menuItem.enabled = !_bValue;
 	}
 
 	public void SetSelected(bool _bValue)
