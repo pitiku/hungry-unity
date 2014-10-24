@@ -7,7 +7,7 @@ public class CoinsCounter : SingletonMonoBehaviour<CoinsCounter> {
 	public TextMesh text_shadow;
 	Animator animator;
 
-	void Awake()
+	protected override void OnAwake() 
 	{
 		animator = GetComponent<Animator>();
 	}
