@@ -94,6 +94,6 @@ public class FadeManager : SingletonMonoBehaviour<FadeManager>
 
 	public bool IsFaded()
 	{
-		return fadeIn;
+		return !fadeIn;
 	}
 }
