@@ -29,6 +29,7 @@ public class LevelManager : MonoBehaviour
 		READY,
 		FEED,
 		GAMEPLAY,
+		AFTER_GAMEPLAY,
 		POWERUPS_FINAL,
 		RESULTS,
 		FINISHED
@@ -203,13 +204,24 @@ public class LevelManager : MonoBehaviour
 
 		if(gameplay.IsFinished())
 		{
-			SetState(LevelState.POWERUPS_FINAL);
+			SetState(LevelState.AFTER_GAMEPLAY);
 		}
 	}
 
 	void Exit_GAMEPLAY()
 	{
 		Items.StartAnimation("GameplayOut");
+		Score.Instance.Fail();
+	}
+	#endregion
+
+	#region AFTER_GAMEPLAY
+	void Update_AFTER_GAMEPLAY()
+	{
+		if(Items.IsFinished())
+		{
+			SetState(LevelState.POWERUPS_FINAL);
+		}
 	}
 	#endregion
 

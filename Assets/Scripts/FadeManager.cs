@@ -1,22 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FadeManager : MonoBehaviour {
-
-	private static FadeManager s_Instance;
-	
-	public static FadeManager Instance
-	{
-		get
-		{
-			if (!s_Instance)
-			{
-				s_Instance = GameObject.FindObjectOfType<FadeManager>();
-			}
-			return s_Instance;
-		}
-	}
-
+public class FadeManager : SingletonMonoBehaviour<FadeManager>
+{
 	bool finished = true;
 	bool fadeIn = true;
 	float duration = 0.2f;
@@ -104,5 +90,10 @@ public class FadeManager : MonoBehaviour {
 	public bool IsFinished()
 	{
 		return finished;
+	}
+
+	public bool IsFaded()
+	{
+		return fadeIn;
 	}
 }

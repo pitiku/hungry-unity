@@ -36,7 +36,7 @@ public class MenuManager : Menu
 	{
 		base.Start();
 
-		if(FadeManager.Instance)
+		if(FadeManager.Instance && FadeManager.Instance.IsFaded())
 		{
 			FadeManager.Instance.FadeIn(0.2f);
 		}

@@ -9,10 +9,12 @@ public class CinematicManager : SingletonMonoBehaviour<CinematicManager>
 	protected override void OnAwake() 
 	{
 		animator = GetComponent<Animator>();
+		animator.enabled = false;
 	}
 
 	public void CinematicFinished()
 	{
+		animator.enabled = false;
 		finished = true;
 	}
 
@@ -24,6 +26,7 @@ public class CinematicManager : SingletonMonoBehaviour<CinematicManager>
 	public void StartCinematic(string _cinematic)
 	{
 		finished = false;
+		animator.enabled = true;
 		animator.SetTrigger(_cinematic);
 	}
 }

@@ -82,7 +82,22 @@ public class Baby : MonoBehaviour
 			childAnimator.SetTrigger(trigger);
 		}
 	}
-
+	
+	public void PlaySuccess()
+	{
+		AudioManager.Instance.PlaySuccess();
+	}
+	
+	public void PlayFail()
+	{
+		AudioManager.Instance.PlayFail();
+	}
+	
+	public void PlayEat()
+	{
+		AudioManager.Instance.PlayEat();
+	}
+	
 	public void FinishEating()
 	{
 		bEating = false;
