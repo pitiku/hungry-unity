@@ -100,7 +100,7 @@ public class PlayerData
 		loaded = true;
 
 		//Uncomment to reset
-		//PlayerPrefs.DeleteKey("music");
+		PlayerPrefs.DeleteKey("music");
 
 		babyUnlocked = new bool[(int)GameConstants.eBabies.NUM_BABIES];
 		babyBought = new bool[(int)GameConstants.eBabies.NUM_BABIES];
