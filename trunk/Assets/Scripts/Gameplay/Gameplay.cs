@@ -62,6 +62,7 @@ public class Gameplay : MonoBehaviour
 		if(inPlay)
 		{
 			timeLeft -= Time.deltaTime;
+			if(timeLeft < 0) timeLeft = 0;
 			Rainbow.Instance.SetValue(timeLeft / totalTime);
 
 			if(timeLeft <= 0.0f)
@@ -117,6 +118,9 @@ public class Gameplay : MonoBehaviour
 				foodSrc = foodLink.transform.position;
 				foodDest = currentBabies[fedBaby].mouth.transform.position;
 				SetState(eState.LAUNCH_FOOD);
+				
+				AudioManager.Instance.PlayLaunch();
+
 				return;
 			}
 		}
@@ -178,7 +182,7 @@ public class Gameplay : MonoBehaviour
 			else if(currentBabies[fedBaby].hunger <= 0)
 			{
 				Score.Instance.BabyFed(1);
-				timeLeft = Mathf.Min(totalTime, timeLeft + 2.0f);
+				timeLeft = Mathf.Min(totalTime, timeLeft + 2.5f);
 
 				//Drop prize
 				float fRand = Random.Range(0.0f, 1.0f);

@@ -21,9 +21,7 @@ public class Rainbow : MonoBehaviour
 
 	public ParticleSystem stars;
 
-	public Transform left;
-	public Transform center;
-	public Transform right;
+	public Transform[] points;
 
 	float wantedValue;
 	float currentValue = 0.0f;
@@ -39,9 +37,7 @@ public class Rainbow : MonoBehaviour
 	{
 		if(Mathf.Abs(wantedValue - currentValue) > 0.001f)
 		{
-			float inc = Mathf.Min(speed * Time.deltaTime, Mathf.Abs(wantedValue - currentValue));
-			currentValue = currentValue + (wantedValue > currentValue ? 1 : -1) * inc;
-
+			currentValue = Mathf.MoveTowards(currentValue, wantedValue, speed * Time.deltaTime);
 			UpdateRainbow();
 		}
 	}
@@ -49,15 +45,12 @@ public class Rainbow : MonoBehaviour
 	void UpdateRainbow()
 	{
 		renderer.material.SetFloat("_Width", currentValue);
-		
-		if(currentValue > 0.5f)
-		{
-			stars.transform.position = center.position + (left.position - center.position) * (currentValue - 0.5f) * 2;
-		}
-		else
-		{
-			stars.transform.position = right.position + (center.position - right.position) * currentValue * 2;
-		}
+
+		float fValue = currentValue * (points.Length - 1);
+		int iFloor = (int)Mathf.Floor(fValue);
+		int iCeil = (int)Mathf.Ceil(fValue);
+		float fPerc = fValue - iFloor;
+		stars.transform.position = points[iFloor].position * (1-fPerc) + points[iCeil].position * fPerc;
 	}
 
 	public void EnableStars(bool _bValue = true)

@@ -123,6 +123,8 @@ public class Prize : MonoBehaviour
 		living.enabled = false;
 
 		Vacuum.Instance.RemovePrize(this);
+
+		AudioManager.Instance.PlayPrize();
 	}
 	
 	public void Vacuummed(Vector3 _dest)
