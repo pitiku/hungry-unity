@@ -13,6 +13,12 @@ public class Gameplay : MonoBehaviour
 	public AnimatedObject[] cloudLinks;
 	public AnimatedObject foodLink;
 
+	public MenuItem PauseButton;
+	public GameObject PauseScreen;
+	bool bPaused = false;
+	public MenuItem ResumeButton;
+	public MenuItem ExitButton;
+
 	public LevelManager levelManager;
 
 	bool PrizeSeasonActive = false;
@@ -39,7 +45,7 @@ public class Gameplay : MonoBehaviour
 	};
 
 	public eState state;
-	float stateTimeStart;
+	float stateTime;
 
 	bool inPlay = false;
 
@@ -49,14 +55,57 @@ public class Gameplay : MonoBehaviour
 
 	void Start() 
 	{
+		currentBabies = new Baby[NumBabies];
+		currentClouds = new CloudForBaby[NumBabies];
+		
 		SetState(eState.IDLE);
+
+		PauseScreen.SetActive(false);
+	}
+
+	void Pause(bool _bValue)
+	{
+		PauseScreen.SetActive(_bValue);
+		bPaused = _bValue;
+		Time.timeScale = _bValue ? 0 : 1;
 	}
 
 	void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Escape)) 
 		{
-			Application.Quit(); 
+			if(bPaused)
+			{
+				Pause(false);
+			}
+			else
+			{
+				Application.Quit(); 
+			}
+		}
+
+		if(PauseButton.IsJustPressed())
+		{
+			Pause(true);
+		}
+
+		if(bPaused)
+		{
+			if(ResumeButton.IsJustPressed())
+			{
+				Pause(false);
+			}
+			else if(ExitButton.IsJustPressed())
+			{
+				Pause(false);
+				SetState(eState.FINISHING);
+				levelManager.ExitFromPause();
+				Rainbow.Instance.SetValue(0);
+			}
+			else
+			{
+				return;
+			}
 		}
 
 		if(inPlay)
@@ -70,6 +119,8 @@ public class Gameplay : MonoBehaviour
 				SetState(eState.FINISHING);
 			}
 		}
+
+		stateTime += Time.deltaTime;
 
 		//Update state
 		SendMessage("Update_" + state);
@@ -254,23 +305,32 @@ public class Gameplay : MonoBehaviour
 	#region FINISHED
 	void Enter_FINISHED()
 	{
-		BabiesPool.Instance.AddObject(currentFood.transform);
+		if(currentFood)
+		{
+			BabiesPool.Instance.AddObject(currentFood.transform);
+		}
 
 		foreach(AnimatedObject cloud in cloudLinks)
 		{
 			cloud.transform.localScale = Vector3.one;
 		}
-		
+
 		foreach(Baby baby in currentBabies)
 		{
-			BabiesPool.Instance.AddObject(baby.transform);
+			if(baby)
+			{
+				BabiesPool.Instance.AddObject(baby.transform);
+			}
 		}
-		
+
 		foreach(CloudForBaby cloud in currentClouds)
 		{
-			CloudPool.Instance.AddObject(cloud.transform);
+			if(cloud)
+			{
+				CloudPool.Instance.AddObject(cloud.transform);
+			}
 		}
-		
+
 		for(int i=0; i<NumBabies; ++i)
 		{
 			currentBabies[i] = null;
@@ -284,9 +344,6 @@ public class Gameplay : MonoBehaviour
 	
 	public void StartGameplay()
 	{
-		currentBabies = new Baby[NumBabies];
-		currentClouds = new CloudForBaby[NumBabies];
-
 		totalTime = 10.0f;
 		if(PlayerData.Instance.upgrade_rainbowplusplus)
 		{
@@ -432,12 +489,12 @@ public class Gameplay : MonoBehaviour
 	{
 		gameObject.SendMessage("Exit_" + state.ToString(), SendMessageOptions.DontRequireReceiver);
 		state = _state;
-		stateTimeStart = Time.time;
+		stateTime = 0;
 		gameObject.SendMessage("Enter_" + state.ToString(), SendMessageOptions.DontRequireReceiver);
 	}
 	
 	float GetStateTime()
 	{
-		return Time.time - stateTimeStart;
+		return stateTime;
 	}
 }

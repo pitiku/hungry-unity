@@ -139,13 +139,13 @@ public class LevelManager : MonoBehaviour
 
 		if(GetStateTime() > 2.0f)
 		{
-			Items.StartAnimation("Out");
 			SetState(LevelState.READY);
 		}
 	}
 
-	void End_POWERUPS_INITIAL()
+	void Exit_POWERUPS_INITIAL()
 	{
+		Items.StartAnimation("Out");
 		PlayerData.Instance.Save();
 	}
 	#endregion
@@ -284,7 +284,13 @@ public class LevelManager : MonoBehaviour
 		}
 	}
 	#endregion
-	
+
+	public void ExitFromPause()
+	{
+		Score.Instance.AnimateOut();
+		SetState(LevelState.FINISHED);
+	}
+
 	void SetState(LevelState _state)
 	{
 		//Exit current state
