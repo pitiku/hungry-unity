@@ -17,6 +17,7 @@ public class LevelManager : MonoBehaviour
 	public MenuItem FeederGloves;
 
 	public PowerUp_Level ExtraRainbow;
+	bool bExtraRainbowUsed = false;
 
 	public AnimatedObject TextReady;
 	public AnimatedObject TextFeed;
@@ -220,7 +221,14 @@ public class LevelManager : MonoBehaviour
 	{
 		if(Items.IsFinished())
 		{
-			SetState(LevelState.POWERUPS_FINAL);
+			if(!bExtraRainbowUsed && PlayerData.Instance.powerup_extraRainbow > 0)
+			{
+				SetState(LevelState.POWERUPS_FINAL);
+			}
+			else
+			{
+				SetState(LevelState.RESULTS);
+			}
 		}
 	}
 	#endregion
@@ -243,6 +251,8 @@ public class LevelManager : MonoBehaviour
 			ExtraRainbow.SetCount(PlayerData.Instance.powerup_extraRainbow);
 			ExtraRainbow.SetEnabled(false);
 
+			bExtraRainbowUsed = true;
+
 			SetState(LevelState.READY);
 		}
 		else if(GetStateTime() > 2.0f)
@@ -262,11 +272,20 @@ public class LevelManager : MonoBehaviour
 	void Enter_RESULTS()
 	{
 		Score.Instance.AnimateOut();
+		ResultsScreen.Instance.Show();
 	}
 
 	void Update_RESULTS()
 	{
-		SetState(LevelState.FINISHED);
+		if(Input.anyKeyDown)
+		{
+			SetState(LevelState.FINISHED);
+		}
+	}
+
+	void Exit_RESULTS()
+	{
+		ResultsScreen.Instance.Hide();
 	}
 	#endregion
 

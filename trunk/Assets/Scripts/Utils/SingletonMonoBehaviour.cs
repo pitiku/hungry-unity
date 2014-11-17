@@ -23,11 +23,11 @@ public class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
 		if(s_Instance && s_Instance != this)
 		{
 			Destroy(gameObject);
+			return;
 		}
-		else
-		{
-			OnAwake();
-		}
+
+		//We do it this way to have the Instance set
+		Instance.SendMessage("OnAwake");
 	}
 
 	protected virtual void OnAwake()
