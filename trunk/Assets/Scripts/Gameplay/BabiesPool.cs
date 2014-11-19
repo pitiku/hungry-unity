@@ -66,7 +66,7 @@ public class BabiesPool : MonoBehaviour
 		return null;
 	}
 	
-	public void AddObject(Transform _transform)
+	public void ReturnToPool(Transform _transform)
 	{
 		_transform.parent = transform;
 		_transform.localPosition = Vector3.zero;

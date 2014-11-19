@@ -2,24 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Vacuum : MonoBehaviour 
+public class Vacuum : SingletonMonoBehaviour<Vacuum> 
 {
-	#region Singleton
-	private static Vacuum _Instance;
-	
-	public static Vacuum Instance
-	{
-		get
-		{
-			if(!_Instance)
-			{
-				_Instance = FindObjectOfType<Vacuum>();
-			}
-			return _Instance;
-		}
-	}
-	#endregion
-
 	public Transform HiddenPosition;
 	public Transform VacuumingPosition;
 	public Transform Hole;
@@ -37,11 +21,6 @@ public class Vacuum : MonoBehaviour
 	};
 
 	eState state;
-
-	void Awake()
-	{
-		Vacuum.Instance.enabled = true;
-	}
 
 	void Start () 
 	{

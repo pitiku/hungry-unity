@@ -1,22 +1,10 @@
 using UnityEngine;
 using System.Collections;
 
-public class LevelManager : MonoBehaviour 
+public class LevelManager : SingletonMonoBehaviour<LevelManager> 
 {
-	public Gameplay gameplay;
-
 	public AnimatedObject Clouds;
 
-	public AnimatedObject Items;
-	public PowerUp_Level ChainBoost;
-	public PowerUp_Level DoubleCoins;
-	public PowerUp_Level PrizeSeason;
-	public PowerUp_Level MegaChainBoost;
-
-	public PowerUp_Level BoletTime;
-	public Pushable FeederGloves;
-
-	public PowerUp_Level ExtraRainbow;
 	bool bExtraRainbowUsed = false;
 
 	public AnimatedObject TextReady;
@@ -86,57 +74,13 @@ public class LevelManager : MonoBehaviour
 	void Enter_POWERUPS_INITIAL()
 	{
 		Score.Instance.AnimateIn();
-		Items.StartAnimation("In");
 
-		ChainBoost.SetCount(PlayerData.Instance.powerup_chainBoost);
-		ChainBoost.SetEnabled(PlayerData.Instance.powerup_chainBoost > 0);
-
-		MegaChainBoost.SetCount(PlayerData.Instance.powerup_megaChainBoost);
-		MegaChainBoost.SetEnabled(PlayerData.Instance.powerup_megaChainBoost > 0);
-
-		DoubleCoins.SetCount(PlayerData.Instance.powerup_doubleCoins);
-		DoubleCoins.SetEnabled(PlayerData.Instance.powerup_doubleCoins > 0);
-
-		PrizeSeason.SetCount(PlayerData.Instance.powerup_prizeSeason);
-		PrizeSeason.SetEnabled(PlayerData.Instance.powerup_prizeSeason > 0);
+		Items.Instance.ShowInitial();
 	}
 
 	void Update_POWERUPS_INITIAL()
 	{
-		if(ChainBoost.menuItem.IsJustPressed())
-		{
-			PlayerData.Instance.powerup_chainBoost -= 1;
-			PlayerData.Instance.Save();
-			ChainBoost.SetCount(PlayerData.Instance.powerup_chainBoost);
-			ChainBoost.SetEnabled(false);
-			MegaChainBoost.SetEnabled(false);
-			Score.Instance.ChainBoost();
-		}
-		if(MegaChainBoost.menuItem.IsJustPressed())
-		{
-			PlayerData.Instance.powerup_megaChainBoost -= 1;
-			PlayerData.Instance.Save();
-			MegaChainBoost.SetCount(PlayerData.Instance.powerup_megaChainBoost);
-			MegaChainBoost.SetEnabled(false);
-			ChainBoost.SetEnabled(false);
-			Score.Instance.MegaChainBoost();
-		}
-		if(DoubleCoins.menuItem.IsJustPressed())
-		{
-			PlayerData.Instance.powerup_doubleCoins -= 1;
-			PlayerData.Instance.Save();
-			DoubleCoins.SetCount(PlayerData.Instance.powerup_doubleCoins);
-			DoubleCoins.SetEnabled(false);
-			Score.Instance.DoubleCoins();
-		}
-		if(PrizeSeason.menuItem.IsJustPressed())
-		{
-			PlayerData.Instance.powerup_prizeSeason -= 1;
-			PlayerData.Instance.Save();
-			PrizeSeason.SetCount(PlayerData.Instance.powerup_prizeSeason);
-			PrizeSeason.SetEnabled(false);
-			gameplay.PrizeSeason();
-		}
+		Items.Instance.CheckInitialInput();
 
 		if(GetStateTime() > 2.0f)
 		{
@@ -146,7 +90,8 @@ public class LevelManager : MonoBehaviour
 
 	void Exit_POWERUPS_INITIAL()
 	{
-		Items.StartAnimation("Out");
+		Items.Instance.HideInitial();
+
 		PlayerData.Instance.Save();
 	}
 	#endregion
@@ -186,24 +131,16 @@ public class LevelManager : MonoBehaviour
 	#region GAMEPLAY
 	void Enter_GAMEPLAY()
 	{
-		Items.StartAnimation("GameplayIn");
+		Items.Instance.ShowGameplay();
 
-		gameplay.StartGameplay();
+		Gameplay.Instance.StartGameplay();
 	}
 
 	void Update_GAMEPLAY()
 	{
-		if(FeederGloves.IsJustPressed())
-		{
+		Items.Instance.CheckGameplayInput();
 
-		}
-
-		if(BoletTime.menuItem.IsJustPressed())
-		{
-
-		}
-
-		if(gameplay.IsFinished())
+		if(Gameplay.Instance.IsFinished())
 		{
 			SetState(LevelState.AFTER_GAMEPLAY);
 		}
@@ -211,7 +148,7 @@ public class LevelManager : MonoBehaviour
 
 	void Exit_GAMEPLAY()
 	{
-		Items.StartAnimation("GameplayOut");
+		Items.Instance.HideGameplay();
 		Score.Instance.Fail();
 	}
 	#endregion
@@ -219,7 +156,7 @@ public class LevelManager : MonoBehaviour
 	#region AFTER_GAMEPLAY
 	void Update_AFTER_GAMEPLAY()
 	{
-		if(Items.IsFinished())
+		if(Items.Instance.IsFinished())
 		{
 			if(!bExtraRainbowUsed && PlayerData.Instance.powerup_extraRainbow > 0)
 			{
@@ -236,21 +173,13 @@ public class LevelManager : MonoBehaviour
 	#region POWERUPS_FINAL
 	void Enter_POWERUPS_FINAL()
 	{
-		Items.StartAnimation("FinalIn");
-		
-		ExtraRainbow.SetCount(PlayerData.Instance.powerup_extraRainbow);
-		ExtraRainbow.SetEnabled(PlayerData.Instance.powerup_extraRainbow > 0);
+		Items.Instance.ShowFinal();
 	}
 
 	void Update_POWERUPS_FINAL()
 	{
-		if(ExtraRainbow.menuItem.IsJustPressed())
+		if(Items.Instance.CheckFinalInput())
 		{
-			PlayerData.Instance.powerup_extraRainbow -= 1;
-			PlayerData.Instance.Save();
-			ExtraRainbow.SetCount(PlayerData.Instance.powerup_extraRainbow);
-			ExtraRainbow.SetEnabled(false);
-
 			bExtraRainbowUsed = true;
 
 			SetState(LevelState.READY);
@@ -263,7 +192,7 @@ public class LevelManager : MonoBehaviour
 
 	void Exit_POWERUPS_FINAL()
 	{
-		Items.StartAnimation("FinalOut");
+		Items.Instance.HideFinal();
 	}
 
 	#endregion

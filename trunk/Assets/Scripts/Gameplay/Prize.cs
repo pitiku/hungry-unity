@@ -152,7 +152,7 @@ public class Prize : MonoBehaviour
 	{
 		SetState(eState.OUT);
 
-		BabiesPool.Instance.AddObject(transform);
+		BabiesPool.Instance.ReturnToPool(transform);
 		transform.localPosition = Vector3.zero;
 	}
 
