@@ -1,9 +1,9 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class StatsPage : MenuPage 
 {
-	public MenuItem backButton;
+	public Pushable backButton;
 
 	public TextMesh maxBabies;
 	public TextMesh totalBabies;

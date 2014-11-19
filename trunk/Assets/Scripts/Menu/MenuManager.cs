@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class MenuManager : Menu 
 {
+	#region Singleton
 	private static MenuManager s_Instance;
 	
 	public static MenuManager Instance
@@ -17,15 +18,19 @@ public class MenuManager : Menu
 			return s_Instance;
 		}
 	}
+	#endregion
 
 	public MenuPage mainPage;
 	public MenuPage optionsPage;
+	public MenuPage statsPage;
 	public MenuPage shopPage;
-	public MenuPage museumPage;
 	public MenuPage babiesPage;
 	public MenuPage upgradesPage;
 	public MenuPage powerupsPage;
-	public MenuPage statsPage;
+	public MenuPage museumPage;
+
+	bool bMusicFading = false;
+	float fMusicFadeSpeed = 2.0f;
 
 	void Awake()
 	{
@@ -49,5 +54,15 @@ public class MenuManager : Menu
 	public override void Update () 
 	{
 		base.Update();
+
+		if(bMusicFading)
+		{
+			GetComponent<AudioSource>().volume -= Time.deltaTime * fMusicFadeSpeed;
+		}
+	}
+
+	public void MusicFadeOut()
+	{
+		bMusicFading = GetComponent<AudioSource>().enabled;
 	}
 }

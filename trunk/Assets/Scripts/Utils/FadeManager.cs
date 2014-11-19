@@ -9,16 +9,12 @@ public class FadeManager : SingletonMonoBehaviour<FadeManager>
 	float startTime;
 	SpriteRenderer sprite;
 
-	void Awake()
+	protected override void OnAwake()
 	{
 		DontDestroyOnLoad (transform.gameObject);
 		sprite = GetComponent<SpriteRenderer> ();
 	}
 
-	void Start () 
-	{
-	}
-	
 	void Update () 
 	{
 		if (!finished) 

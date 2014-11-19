@@ -1,20 +1,20 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
-public class OptionsMenu : MenuPage 
+public class OptionsPage : MenuPage 
 {
-	public MenuItem musicItem;
+	public Pushable musicItem;
 	public SpriteRenderer musicCheckbox;
-	public MenuItem soundItem;
+	public Pushable soundItem;
 	public SpriteRenderer soundCheckbox;
-	public MenuItem accelerometerItem;
+	public Pushable accelerometerItem;
 	public SpriteRenderer accelerometerCheckbox;
-	public MenuItem statsItem;
+	public Pushable statsItem;
 
 	public TextMesh accelerometerText;
 	public TextMesh accelerometerText_shadow;
 
-	public MenuItem backButton;
+	public Pushable backButton;
 
 	public override void OnStart () 
 	{

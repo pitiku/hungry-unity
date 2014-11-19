@@ -1,19 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MenuItem : MonoBehaviour 
+public class Pushable : MonoBehaviour 
 {
-	//MenuPage page;
 	BoxCollider2D box;
 
 	void Awake()
 	{
 		box = GetComponent<BoxCollider2D>();
-	}
-
-	public void SetPage(MenuPage _page)
-	{
-		//page = _page;
 	}
 
 	public bool IsJustPressed()
@@ -33,9 +27,5 @@ public class MenuItem : MonoBehaviour
 			}
 		}
 		return false;
-	}
-
-	void OnJustPressed()
-	{
 	}
 }

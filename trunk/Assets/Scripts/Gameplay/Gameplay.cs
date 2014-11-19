@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Gameplay : MonoBehaviour 
@@ -13,11 +13,11 @@ public class Gameplay : MonoBehaviour
 	public AnimatedObject[] cloudLinks;
 	public AnimatedObject foodLink;
 
-	public MenuItem PauseButton;
+	public Pushable PauseButton;
 	public GameObject PauseScreen;
 	bool bPaused = false;
-	public MenuItem ResumeButton;
-	public MenuItem ExitButton;
+	public Pushable ResumeButton;
+	public Pushable ExitButton;
 
 	public LevelManager levelManager;
 
@@ -162,7 +162,7 @@ public class Gameplay : MonoBehaviour
 		//Any baby pressed
 		for(int i=0; i<currentBabies.Length; ++i)
 		{
-			if(currentBabies[i].GetComponent<MenuItem>().IsJustPressed())
+			if(currentBabies[i].GetComponent<Pushable>().IsJustPressed())
 			{
 				fedBaby = i;
 				babyFed = false;
@@ -177,7 +177,7 @@ public class Gameplay : MonoBehaviour
 		}
 
 		//Food pressed
-		if(currentFood.GetComponent<MenuItem>().IsJustPressed())
+		if(currentFood.GetComponent<Pushable>().IsJustPressed())
 		{
 			foodLink.StartAnimation("Discard");
 			SetState(eState.DISCARD_FOOD);

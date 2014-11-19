@@ -1,12 +1,12 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class ShopPage : MenuPage 
 {
-	public MenuItem babies;
-	public MenuItem upgrades;
-	public MenuItem powerups;
-	public MenuItem backButton;
+	public Pushable babies;
+	public Pushable upgrades;
+	public Pushable powerups;
+	public Pushable backButton;
 	
 	public override void OnStart () 
 	{

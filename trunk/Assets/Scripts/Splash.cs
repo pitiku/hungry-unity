@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Splash : MonoBehaviour {
-
+public class Splash : MonoBehaviour 
+{
 	enum SplashState
 	{
 		INIT,
