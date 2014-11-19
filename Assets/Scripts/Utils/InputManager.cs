@@ -1,35 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class InputManager : MonoBehaviour {
-
-	#region Singleton
-	private static InputManager _Instance;
-
-	public static InputManager Instance
-	{
-		get
-		{
-			if(!_Instance)
-			{
-				_Instance = FindObjectOfType<InputManager>();
-			}
-			return _Instance;
-		}
-	}
-	#endregion
-
+public class InputManager : SingletonMonoBehaviour<InputManager>
+{
 	public bool IsTouch = false;
 	public Vector3 TouchPosition;
 
-	void Awake()
+	protected override void OnAwake()
 	{
-		if(FindObjectsOfType<InputManager>().Length > 1)
-		{
-			Destroy(gameObject);
-			return;
-		}
-
 		DontDestroyOnLoad(gameObject);
 	}
 

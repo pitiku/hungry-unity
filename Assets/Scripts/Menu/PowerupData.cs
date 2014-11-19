@@ -7,7 +7,7 @@ public class PowerupData : MonoBehaviour
 	public int price;
 	public string text;
 	
-	public MenuItem item;
+	public Pushable item;
 	public TextMesh countText;
 	public TextMesh priceText;
 	public TextMesh priceText_shadow;

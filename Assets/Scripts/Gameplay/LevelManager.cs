@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class LevelManager : MonoBehaviour 
@@ -14,7 +14,7 @@ public class LevelManager : MonoBehaviour
 	public PowerUp_Level MegaChainBoost;
 
 	public PowerUp_Level BoletTime;
-	public MenuItem FeederGloves;
+	public Pushable FeederGloves;
 
 	public PowerUp_Level ExtraRainbow;
 	bool bExtraRainbowUsed = false;

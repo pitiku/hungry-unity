@@ -1,9 +1,9 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class PowerUp_Level : MonoBehaviour 
 {
-	public MenuItem menuItem;
+	public Pushable menuItem;
 	public SpriteRenderer sprite;
 	public SpriteRenderer textBG;
 	public TextMesh text;

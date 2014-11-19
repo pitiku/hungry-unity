@@ -1,9 +1,9 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class BabiesPage : MenuPage 
 {
-	public MenuItem backButton;
+	public Pushable backButton;
 
 	public BabyInShop[] babies;
 	BabyInShop currentBaby = null;

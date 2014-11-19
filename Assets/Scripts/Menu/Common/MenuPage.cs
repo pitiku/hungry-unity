@@ -4,7 +4,7 @@ using System.Collections;
 public class MenuPage : MonoBehaviour 
 {
 	protected Menu menu;
-	MenuItem[] items;
+	Pushable[] items;
 	bool animating = false;
 
 	Animator animator;
@@ -19,12 +19,6 @@ public class MenuPage : MonoBehaviour
 
 	void Start ()
 	{
-		items = FindObjectsOfType<MenuItem>();
-		foreach(MenuItem item in items)
-		{
-			item.SetPage(this);
-		}
-
 		OnStart();
 	}
 

@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class UpgradeData : MonoBehaviour {
-
+public class UpgradeData : MonoBehaviour 
+{
 	public GameConstants.eUpgrades upgrade;
 	public int price;
 
-	public MenuItem item;
+	public Pushable item;
 	public SpriteRenderer tick;
 	public TextMesh priceText;
 	public TextMesh priceText_shadow;

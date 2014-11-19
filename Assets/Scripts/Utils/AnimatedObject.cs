@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AnimatedObject : MonoBehaviour {
-
-	protected Animator animator;
+public class AnimatedObject : MonoBehaviour 
+{
+	Animator animator;
 	bool animating = false;
 
 	void Awake()
@@ -23,12 +23,16 @@ public class AnimatedObject : MonoBehaviour {
 
 	public void StopAnimator()
 	{
-		animator.enabled = false;
+		if(animator)
+		{
+			animator.enabled = false;
+		}
 	}
 
 	void AnimationFinished()
 	{
 		animating = false;
+		StopAnimator();
 	}
 
 	public bool IsFinished()

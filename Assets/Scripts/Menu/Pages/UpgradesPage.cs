@@ -1,9 +1,9 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class UpgradesPage : MenuPage 
 {
-	public MenuItem backButton;
+	public Pushable backButton;
 
 	public UpgradeData[] upgrades;
 

@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Cloud : MonoBehaviour {
-
+public class Cloud : MonoBehaviour 
+{
 	public float minY = 1;
 	public float maxY = 4;
 	public float minSpeed = 0.05f;

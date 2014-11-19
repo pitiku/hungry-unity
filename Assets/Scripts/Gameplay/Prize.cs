@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Prize : MonoBehaviour 
@@ -11,7 +11,7 @@ public class Prize : MonoBehaviour
 	Vector3 dest;
 
 	Animator animator;
-	MenuItem menuItem;
+	Pushable menuItem;
 	Living living;
 
 	enum eState
@@ -27,7 +27,7 @@ public class Prize : MonoBehaviour
 
 	void Awake()
 	{
-		menuItem = GetComponent<MenuItem>();
+		menuItem = GetComponent<Pushable>();
 		living = GetComponent<Living>();
 		enabled = false;
 		menuItem.enabled = false;

@@ -1,12 +1,12 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class MainMenu : MenuPage 
 {
-	public MenuItem playButton;
-	public MenuItem optionsButton;
-	public MenuItem shopButton;
-	public MenuItem pedestalButton;
+	public Pushable playButton;
+	public Pushable optionsButton;
+	public Pushable shopButton;
+	public Pushable pedestalButton;
 
 	bool PlayPressed = false;
 
@@ -34,6 +34,7 @@ public class MainMenu : MenuPage
 		if(playButton.IsJustPressed())
 		{
 			Animate("StartGame");
+			MenuManager.Instance.MusicFadeOut();
 			PlayPressed = true;
 		}
 		else if(optionsButton.IsJustPressed())

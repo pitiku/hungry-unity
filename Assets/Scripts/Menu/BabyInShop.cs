@@ -1,10 +1,10 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class BabyInShop : MonoBehaviour 
 {
 	Baby baby;
-	MenuItem menuItem;
+	Pushable menuItem;
 
 	public SpriteRenderer halo;
 	public GameObject priceVisual;
@@ -14,7 +14,7 @@ public class BabyInShop : MonoBehaviour
 	void Awake()
 	{
 		baby = GetComponentInChildren<Baby>();
-		menuItem = GetComponentInChildren<MenuItem>();
+		menuItem = GetComponentInChildren<Pushable>();
 		SetSelected(false);
 	}
 
@@ -23,7 +23,7 @@ public class BabyInShop : MonoBehaviour
 		return baby;
 	}
 	
-	public MenuItem GetMenuItem()
+	public Pushable GetMenuItem()
 	{
 		return menuItem;
 	}
