@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Gameplay : MonoBehaviour 
+public class Gameplay : SingletonMonoBehaviour<Gameplay> 
 {
 	[Range(1,3)]
 	public int NumBabies = 2;
@@ -18,8 +18,6 @@ public class Gameplay : MonoBehaviour
 	bool bPaused = false;
 	public Pushable ResumeButton;
 	public Pushable ExitButton;
-
-	public LevelManager levelManager;
 
 	bool PrizeSeasonActive = false;
 
@@ -99,7 +97,7 @@ public class Gameplay : MonoBehaviour
 			{
 				Pause(false);
 				SetState(eState.FINISHING);
-				levelManager.ExitFromPause();
+				LevelManager.Instance.ExitFromPause();
 				Rainbow.Instance.SetValue(0);
 			}
 			else
@@ -201,7 +199,7 @@ public class Gameplay : MonoBehaviour
 		
 		if(fPerc >= 1.0f)
 		{
-			BabiesPool.Instance.AddObject(currentFood.transform);
+			BabiesPool.Instance.ReturnToPool(currentFood.transform);
 			SetState(eState.FEED_BABY);
 		}
 	}
@@ -212,7 +210,7 @@ public class Gameplay : MonoBehaviour
 	{
 		if(foodLink.IsFinished())
 		{
-			BabiesPool.Instance.AddObject(currentFood.transform);
+			BabiesPool.Instance.ReturnToPool(currentFood.transform);
 			SetState(eState.CLOUDS_IN);
 		}
 	}
@@ -264,7 +262,7 @@ public class Gameplay : MonoBehaviour
 		if(cloudLinks[GetCloudLinkIndex(fedBaby)].IsFinished())
 		{
 			cloudLinks[GetCloudLinkIndex(fedBaby)].transform.localScale = Vector3.one;
-			BabiesPool.Instance.AddObject(currentBabies[fedBaby].transform);
+			BabiesPool.Instance.ReturnToPool(currentBabies[fedBaby].transform);
 			CloudPool.Instance.AddObject(currentClouds[fedBaby].transform);
 			currentBabies[fedBaby] = null;
 			SetState(eState.CLOUDS_IN);
@@ -307,7 +305,7 @@ public class Gameplay : MonoBehaviour
 	{
 		if(currentFood)
 		{
-			BabiesPool.Instance.AddObject(currentFood.transform);
+			BabiesPool.Instance.ReturnToPool(currentFood.transform);
 		}
 
 		foreach(AnimatedObject cloud in cloudLinks)
@@ -319,7 +317,7 @@ public class Gameplay : MonoBehaviour
 		{
 			if(baby)
 			{
-				BabiesPool.Instance.AddObject(baby.transform);
+				BabiesPool.Instance.ReturnToPool(baby.transform);
 			}
 		}
 
