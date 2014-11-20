@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Gameplay : SingletonMonoBehaviour<Gameplay> 
+public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal> 
 {
 	[Range(1,3)]
 	public int NumBabies = 2;
@@ -12,12 +12,6 @@ public class Gameplay : SingletonMonoBehaviour<Gameplay>
 
 	public AnimatedObject[] cloudLinks;
 	public AnimatedObject foodLink;
-
-	public Pushable PauseButton;
-	public GameObject PauseScreen;
-	bool bPaused = false;
-	public Pushable ResumeButton;
-	public Pushable ExitButton;
 
 	bool PrizeSeasonActive = false;
 
@@ -57,53 +51,18 @@ public class Gameplay : SingletonMonoBehaviour<Gameplay>
 		currentClouds = new CloudForBaby[NumBabies];
 		
 		SetState(eState.IDLE);
-
-		PauseScreen.SetActive(false);
-	}
-
-	void Pause(bool _bValue)
-	{
-		PauseScreen.SetActive(_bValue);
-		bPaused = _bValue;
-		Time.timeScale = _bValue ? 0 : 1;
 	}
 
 	void Update()
 	{
+		if(PauseManager.Instance.IsPaused())
+		{
+			return;
+		}
+
 		if (Input.GetKeyDown(KeyCode.Escape)) 
 		{
-			if(bPaused)
-			{
-				Pause(false);
-			}
-			else
-			{
-				Application.Quit(); 
-			}
-		}
-
-		if(PauseButton.IsJustPressed())
-		{
-			Pause(true);
-		}
-
-		if(bPaused)
-		{
-			if(ResumeButton.IsJustPressed())
-			{
-				Pause(false);
-			}
-			else if(ExitButton.IsJustPressed())
-			{
-				Pause(false);
-				SetState(eState.FINISHING);
-				LevelManager.Instance.ExitFromPause();
-				Rainbow.Instance.SetValue(0);
-			}
-			else
-			{
-				return;
-			}
+			Application.Quit(); 
 		}
 
 		if(inPlay)
@@ -481,6 +440,11 @@ public class Gameplay : SingletonMonoBehaviour<Gameplay>
 	public bool IsFinished()
 	{
 		return state == eState.FINISHED;
+	}
+
+	public void ExitFromPause()
+	{
+		SetState(eState.FINISHING);
 	}
 
 	void SetState(eState _state)

@@ -10,6 +10,8 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
 	public AnimatedObject TextReady;
 	public AnimatedObject TextFeed;
 
+	public Pushable PauseButton;
+
 	enum LevelState
 	{
 		INIT,
@@ -35,9 +37,19 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
 	
 	void Update()
 	{
+		if(PauseManager.Instance.IsPaused())
+		{
+			return;
+		}
+		
 		if (Input.GetKeyDown(KeyCode.Escape)) 
 		{
 			Application.Quit(); 
+		}
+
+		if(PauseButton.IsJustPressed())
+		{
+			PauseManager.Instance.Pause(true);
 		}
 
 		//Update current state
@@ -133,14 +145,14 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
 	{
 		Items.Instance.ShowGameplay();
 
-		Gameplay.Instance.StartGameplay();
+		Gameplay_Normal.Instance.StartGameplay();
 	}
 
 	void Update_GAMEPLAY()
 	{
 		Items.Instance.CheckGameplayInput();
 
-		if(Gameplay.Instance.IsFinished())
+		if(Gameplay_Normal.Instance.IsFinished())
 		{
 			SetState(LevelState.AFTER_GAMEPLAY);
 		}
