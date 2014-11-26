@@ -35,11 +35,16 @@ public class Rainbow : MonoBehaviour
 	
 	void Update () 
 	{
-		if(Mathf.Abs(wantedValue - currentValue) > 0.001f)
+		if(IsAnimating())
 		{
 			currentValue = Mathf.MoveTowards(currentValue, wantedValue, speed * Time.deltaTime);
 			UpdateRainbow();
 		}
+	}
+
+	public bool IsAnimating()
+	{
+		return Mathf.Abs(wantedValue - currentValue) > 0.001f;
 	}
 
 	void UpdateRainbow()
