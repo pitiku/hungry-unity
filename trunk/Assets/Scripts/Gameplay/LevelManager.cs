@@ -27,7 +27,7 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
 	};
 
 	LevelState state;
-	float stateTimeStart;
+	float stateTime;
 
 	void Start()
 	{
@@ -53,6 +53,7 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
 		}
 
 		//Update current state
+		stateTime += Time.deltaTime;
 		SendMessage("Update_" + state.ToString());
 	}
 
@@ -78,7 +79,14 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
 
 	void Update_TUTORIAL()
 	{
-		SetState(LevelState.POWERUPS_INITIAL);
+		if(PlayerData.Instance.AnyInitialPowerUp())
+		{
+			SetState(LevelState.POWERUPS_INITIAL);
+		}
+		else
+		{
+			SetState(LevelState.READY);
+		}
 	}
 	#endregion
 
@@ -257,7 +265,7 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
 		gameObject.SendMessage("Exit_" + state.ToString(), SendMessageOptions.DontRequireReceiver);
 		
 		state = _state;
-		stateTimeStart = Time.time;
+		stateTime = 0;
 		
 		//Enter new state
 		gameObject.SendMessage("Enter_" + state.ToString(), SendMessageOptions.DontRequireReceiver);
@@ -265,6 +273,6 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
 	
 	float GetStateTime()
 	{
-		return Time.time - stateTimeStart;
+		return stateTime;
 	}
 }

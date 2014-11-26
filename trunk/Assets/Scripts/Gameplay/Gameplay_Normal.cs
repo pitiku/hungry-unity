@@ -7,6 +7,10 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 	public int NumBabies = 2;
 	public bool AllowDiscard = false;
 	public bool AllowRepeat = false;
+	public float gameplayTime = 10.0f;
+	public float gameplayTime_rainbowplus = 15.0f;
+	public float gameplayTime_rainbowplusplus = 20.0f;
+	public float successTimeIncrement = 2.5f;
 
 	public BabyData[] babyData;
 
@@ -47,9 +51,6 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 
 	void Start() 
 	{
-		currentBabies = new Baby[NumBabies];
-		currentClouds = new CloudForBaby[NumBabies];
-		
 		SetState(eState.IDLE);
 	}
 
@@ -60,26 +61,22 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 			return;
 		}
 
+		//Remove this at some point
 		if (Input.GetKeyDown(KeyCode.Escape)) 
 		{
 			Application.Quit(); 
 		}
 
+		//Update time left
 		if(inPlay)
 		{
 			timeLeft -= Time.deltaTime;
 			if(timeLeft < 0) timeLeft = 0;
 			Rainbow.Instance.SetValue(timeLeft / totalTime);
-
-			if(timeLeft <= 0.0f)
-			{
-				SetState(eState.FINISHING);
-			}
 		}
 
-		stateTime += Time.deltaTime;
-
 		//Update state
+		stateTime += Time.deltaTime;
 		SendMessage("Update_" + state);
 	}
 
@@ -92,11 +89,13 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 	#region CLOUDS_IN
 	void Enter_CLOUDS_IN()
 	{
+		//Decide babies and food
 		SetBabiesAndFood();
 	}
 
 	void Update_CLOUDS_IN()
 	{
+		//Check for clouds and food to be in place
 		bool bFinished = true;
 		foreach(AnimatedObject cloud in cloudLinks)
 		{
@@ -104,7 +103,7 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 		}
 		
 		bFinished = bFinished && foodLink.IsFinished();
-		
+
 		if(bFinished)
 		{
 			foodLink.StopAnimator();
@@ -116,6 +115,13 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 	#region WAIT_INPUT
 	void Update_WAIT_INPUT()
 	{
+		//Check if we run out of time
+		if(timeLeft <= 0.0f)
+		{
+			SetState(eState.FINISHING);
+			return;
+		}
+
 		//Any baby pressed
 		for(int i=0; i<currentBabies.Length; ++i)
 		{
@@ -186,6 +192,11 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 
 				cloudLinks[GetCloudLinkIndex(fedBaby)].StartAnimation("Out");
 				SetState(eState.CLOUD_OUT);
+
+				if(timeLeft <= 0.0f)
+				{
+					SetState(eState.FINISHING);
+				}
 			}
 			else if(currentBabies[fedBaby].hunger <= 0)
 			{
@@ -208,8 +219,15 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 			}
 			else
 			{
-				//Baby is still hungry
-				SetState(eState.CLOUDS_IN);
+				if(timeLeft <= 0.0f)
+				{
+					SetState(eState.FINISHING);
+				}
+				else
+				{
+					//Baby is still hungry
+					SetState(eState.CLOUDS_IN);
+				}
 			}
 		}
 	}
@@ -301,14 +319,20 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 	
 	public void StartGameplay()
 	{
-		totalTime = 10.0f;
+		currentBabies = new Baby[NumBabies];
+		currentClouds = new CloudForBaby[NumBabies];
+
 		if(PlayerData.Instance.upgrade_rainbowplusplus)
 		{
-			totalTime *= 2.0f;
+			totalTime = gameplayTime_rainbowplusplus;
 		}
 		else if(PlayerData.Instance.upgrade_rainbowplus)
 		{
-			totalTime *= 1.5f;
+			totalTime = gameplayTime_rainbowplus;
+		}
+		else
+		{
+			totalTime = gameplayTime;
 		}
 		timeLeft = totalTime;
 		inPlay = true;
