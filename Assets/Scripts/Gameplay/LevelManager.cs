@@ -65,7 +65,7 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
 
 	void Update_INIT()
 	{
-		if(GetStateTime() > 0.5f)
+		if(GetStateTime() > 0.5f && !Rainbow.Instance.IsAnimating())
 		{
 			SetState(LevelState.TUTORIAL);
 		}
@@ -88,13 +88,16 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
 			SetState(LevelState.READY);
 		}
 	}
+
+	void Exit_TUTORIAL()
+	{
+		Score.Instance.AnimateIn();
+	}
 	#endregion
 
 	#region POWERUPS_INITIAL
 	void Enter_POWERUPS_INITIAL()
 	{
-		Score.Instance.AnimateIn();
-
 		Items.Instance.ShowInitial();
 	}
 

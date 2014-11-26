@@ -76,6 +76,9 @@ public class Items : SingletonMonoBehaviour<Items>
 
 	public void ShowGameplay()
 	{
+		BoletTime.gameObject.SetActive(PlayerData.Instance.powerup_boletTime > 0);
+		FeederGloves.gameObject.SetActive(PlayerData.Instance.upgrade_gloves);
+
 		ItemsAnimation.StartAnimation("GameplayIn");		
 	}
 
