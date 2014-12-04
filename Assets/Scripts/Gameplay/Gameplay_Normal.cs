@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal> 
 {
+	const int MAX_BABIES = 3;
+
 	[Range(1,3)]
 	public int NumBabies = 2;
 	public bool AllowDiscard = false;
@@ -123,7 +125,7 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 		}
 
 		//Any baby pressed
-		for(int i=0; i<currentBabies.Length; ++i)
+		for(int i=0; i<NumBabies; ++i)
 		{
 			if(currentBabies[i].GetComponent<Pushable>().IsJustPressed())
 			{
@@ -242,6 +244,10 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 			BabiesPool.Instance.ReturnToPool(currentBabies[fedBaby].transform);
 			CloudPool.Instance.AddObject(currentClouds[fedBaby].transform);
 			currentBabies[fedBaby] = null;
+
+			//NumBabies++;
+			//if(NumBabies > 3) NumBabies = 3;
+
 			SetState(eState.CLOUDS_IN);
 		}
 	}
@@ -306,7 +312,7 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 			}
 		}
 
-		for(int i=0; i<NumBabies; ++i)
+		for(int i=0; i<currentBabies.Length; ++i)
 		{
 			currentBabies[i] = null;
 		}
@@ -319,8 +325,8 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 	
 	public void StartGameplay()
 	{
-		currentBabies = new Baby[NumBabies];
-		currentClouds = new CloudForBaby[NumBabies];
+		currentBabies = new Baby[MAX_BABIES];
+		currentClouds = new CloudForBaby[MAX_BABIES];
 
 		if(PlayerData.Instance.upgrade_rainbowplusplus)
 		{
@@ -441,18 +447,23 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 
 	int GetCloudLinkIndex(int _index)
 	{
-		switch(NumBabies)
+		if(NumBabies == 1)
 		{
-		case 1:
 			return 1;
-		case 2:
-			if(_index == 0)
+		}
+		else
+		{
+			switch(_index)
+			{
+			case 0:
 				return 0;
-			else
+			case 1:
 				return 2;
-		case 3:
-		default:
-			return _index;
+			case 2:
+				return 1;
+			default:
+				return _index;
+			}
 		}
 	}
 
