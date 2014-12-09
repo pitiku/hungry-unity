@@ -267,6 +267,15 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 				currentLevelScore = 0;
 				Score.Instance.SetLevel(currentLevel + 1);
 
+				//Unlock babies
+				foreach(BabyData data in babyData)
+				{
+					if(!data.IsUnlocked() && data.GetStartLevel() <= currentLevel)
+					{
+						PlayerData.Instance.UnlockBaby((int)data.BabyType);
+					}
+				}
+
 				if(currentLevel >= NumBabies.Length)
 				{
 					//Game completed!

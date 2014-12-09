@@ -10,12 +10,16 @@ public class BabyInShop : MonoBehaviour
 	public GameObject priceVisual;
 	public int Price;
 	public MeshRenderer message;
+	public TextMesh priceText;
+	public TextMesh priceText_shadow;
 
 	void Awake()
 	{
 		baby = GetComponentInChildren<Baby>();
 		menuItem = GetComponentInChildren<Pushable>();
 		SetSelected(false);
+		priceText.text = "" + Price;
+		priceText_shadow.text = "" + Price;
 	}
 
 	public Baby GetBaby()
