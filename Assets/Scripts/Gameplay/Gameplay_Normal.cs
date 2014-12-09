@@ -203,7 +203,8 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 			if(currentBabies[fedBaby].baby != currentFood.foodType)
 			{
 				Score.Instance.Fail();
-
+				currentLevelScore = 0;
+				
 				cloudLinks[GetCloudLinkIndex(fedBaby)].StartAnimation("Out");
 				SetState(eState.CLOUD_OUT);
 
@@ -270,6 +271,11 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 				{
 					//Game completed!
 				}
+				ProgressBar.Instance.CompleteBar();
+			}
+			else
+			{
+				ProgressBar.Instance.SetProgress((float)currentLevelScore / (float)scoreToNextLevel[currentLevel]);
 			}
 
 			SetState(eState.CLOUDS_IN);
