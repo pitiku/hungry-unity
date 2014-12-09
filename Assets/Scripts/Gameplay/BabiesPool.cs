@@ -28,6 +28,10 @@ public class BabiesPool : MonoBehaviour
 		babies = GetComponentsInChildren<Baby>();
 		food = GetComponentsInChildren<Food>();
 		prizes = GetComponentsInChildren<Prize>();
+
+		foreach(Baby o in babies) o.gameObject.SetActive(false);
+		foreach(Food o in food) o.gameObject.SetActive(false);
+		foreach(Prize o in prizes) o.gameObject.SetActive(false);
 	}
 
 	public Baby GetBaby(GameConstants.eBabies _babyType)
@@ -36,6 +40,7 @@ public class BabiesPool : MonoBehaviour
 		{
 			if(baby.baby == _babyType && baby.transform.parent == transform)
 			{
+				baby.gameObject.SetActive(true);
 				return baby;
 			}
 		}
@@ -48,6 +53,7 @@ public class BabiesPool : MonoBehaviour
 		{
 			if(f.foodType == _babyType && f.transform.parent == transform)
 			{
+				f.gameObject.SetActive(true);
 				return f;
 			}
 		}
@@ -60,6 +66,7 @@ public class BabiesPool : MonoBehaviour
 		{
 			if(prize.foodType == _babyType && prize.transform.parent == transform)
 			{
+				prize.gameObject.SetActive(true);
 				return prize;
 			}
 		}
@@ -70,5 +77,6 @@ public class BabiesPool : MonoBehaviour
 	{
 		_transform.parent = transform;
 		_transform.localPosition = Vector3.zero;
+		_transform.gameObject.SetActive(false);
 	}	
 }

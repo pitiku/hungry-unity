@@ -6,18 +6,23 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 	const int MAX_BABIES = 3;
 
 	[Range(1,3)]
-	public int NumBabies = 2;
-	public bool AllowDiscard = false;
-	public bool AllowRepeat = false;
+	public int[] NumBabies;
+	public int[] scoreToNextLevel;
+	public bool[] AllowDiscard;
+	public bool[] AllowRepeat;
+
 	public float gameplayTime = 10.0f;
 	public float gameplayTime_rainbowplus = 15.0f;
 	public float gameplayTime_rainbowplusplus = 20.0f;
 	public float successTimeIncrement = 2.5f;
 
-	public BabyData[] babyData;
+	BabyData[] babyData;
 
 	public AnimatedObject[] cloudLinks;
 	public AnimatedObject foodLink;
+
+	int currentLevel = 0;
+	int currentLevelScore = 0;
 
 	bool PrizeSeasonActive = false;
 
@@ -42,7 +47,7 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 		FINISHED
 	};
 
-	public eState state;
+	eState state;
 	float stateTime;
 
 	bool inPlay = false;
@@ -54,6 +59,11 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 	void Start() 
 	{
 		SetState(eState.IDLE);
+
+		currentBabies = new Baby[MAX_BABIES];
+		currentClouds = new CloudForBaby[MAX_BABIES];
+
+		babyData = GetComponents<BabyData>();
 	}
 
 	void Update()
@@ -125,7 +135,7 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 		}
 
 		//Any baby pressed
-		for(int i=0; i<NumBabies; ++i)
+		for(int i=0; i<NumBabies[currentLevel]; ++i)
 		{
 			if(currentBabies[i].GetComponent<Pushable>().IsJustPressed())
 			{
@@ -141,12 +151,14 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 			}
 		}
 
+		/*
 		//Food pressed
 		if(currentFood.GetComponent<Pushable>().IsJustPressed())
 		{
 			foodLink.StartAnimation("Discard");
 			SetState(eState.DISCARD_FOOD);
 		}
+		*/
 	}
 	#endregion
 
@@ -203,6 +215,8 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 			else if(currentBabies[fedBaby].hunger <= 0)
 			{
 				Score.Instance.BabyFed(1);
+				currentLevelScore++;
+
 				timeLeft = Mathf.Min(totalTime, timeLeft + 2.5f);
 
 				//Drop prize
@@ -245,8 +259,18 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 			CloudPool.Instance.AddObject(currentClouds[fedBaby].transform);
 			currentBabies[fedBaby] = null;
 
-			//NumBabies++;
-			//if(NumBabies > 3) NumBabies = 3;
+			//Check level
+			if(currentLevel == 0 || currentLevelScore >= scoreToNextLevel[currentLevel])
+			{
+				currentLevel++;
+				currentLevelScore = 0;
+				Score.Instance.SetLevel(currentLevel + 1);
+
+				if(currentLevel >= NumBabies.Length)
+				{
+					//Game completed!
+				}
+			}
 
 			SetState(eState.CLOUDS_IN);
 		}
@@ -322,12 +346,16 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 	{
 	}
 	#endregion
-	
+
+	public void ResetGameplay()
+	{
+		currentLevel = 0;
+		Score.Instance.SetLevel(currentLevel + 1);
+	}
+
 	public void StartGameplay()
 	{
-		currentBabies = new Baby[MAX_BABIES];
-		currentClouds = new CloudForBaby[MAX_BABIES];
-
+		//Calculate total time
 		if(PlayerData.Instance.upgrade_rainbowplusplus)
 		{
 			totalTime = gameplayTime_rainbowplusplus;
@@ -351,7 +379,7 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 	void SetBabiesAndFood()
 	{
 		//Set babies
-		for(int i=0; i<NumBabies; ++i)
+		for(int i=0; i<NumBabies[currentLevel]; ++i)
 		{
 			if(currentBabies[i] == null)
 			{
@@ -379,7 +407,16 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 		}
 
 		//Set food
-		currentFood = BabiesPool.Instance.GetFood(currentBabies[Random.Range(0, NumBabies)].baby);
+		GameConstants.eBabies foodType;
+		if(currentLevel == 0)
+		{
+			foodType = currentBabies[Random.Range(0, NumBabies[currentLevel])].baby;
+		}
+		else
+		{
+			foodType = GetRandomFoodType();
+		}
+		currentFood = BabiesPool.Instance.GetFood(foodType);
 
 		currentFood.transform.parent = foodLink.transform;
 		currentFood.transform.localPosition = Vector3.zero;
@@ -393,7 +430,7 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 		float totalProbability = 0.0f;
 		foreach(BabyData data in babyData)
 		{
-			if(data.IsAvailable() && (AllowRepeat || !IsPlaying(data.BabyType)))
+			if(data.IsBought() && data.GetStartLevel() <= currentLevel && (AllowRepeat[currentLevel] || !IsPlaying(data.BabyType)))
 			{
 				totalProbability += data.GetProbability();
 			}
@@ -403,7 +440,7 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 		totalProbability = 0.0f;
 		for(int i=0; i<babyData.Length; ++i)
 		{
-			if(babyData[i].IsAvailable() && (AllowRepeat || !IsPlaying(babyData[i].BabyType)))
+			if(babyData[i].IsBought() && babyData[i].GetStartLevel() <= currentLevel && (AllowRepeat[currentLevel] || !IsPlaying(babyData[i].BabyType)))
 			{
 				if(fRand <= totalProbability + babyData[i].GetProbability())
 				{
@@ -415,7 +452,37 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 
 		//Error
 		Debug.LogError("ERROR: GetRandomBabyType");
-		return GameConstants.eBabies.ANTEATER;
+		return GameConstants.eBabies.HUMAN;
+	}
+
+	GameConstants.eBabies GetRandomFoodType()
+	{
+		float totalProbability = 0.0f;
+		foreach(BabyData data in babyData)
+		{
+			if(IsPlaying(data.BabyType) || (!data.IsBought() && data.GetStartLevel() <= currentLevel))
+			{
+				totalProbability += data.GetProbability();
+			}
+		}
+		
+		float fRand = Random.Range(0.0f, totalProbability);
+		totalProbability = 0.0f;
+		for(int i=0; i<babyData.Length; ++i)
+		{
+			if(IsPlaying(babyData[i].BabyType) || (!babyData[i].IsBought() && babyData[i].GetStartLevel() <= currentLevel))
+			{
+				if(fRand <= totalProbability + babyData[i].GetProbability())
+				{
+					return babyData[i].BabyType;
+				}
+				totalProbability += babyData[i].GetProbability();
+			}
+		}
+		
+		//Error
+		Debug.LogError("ERROR: GetRandomFoodType");
+		return GameConstants.eBabies.HUMAN;
 	}
 
 	public BabyData GetBabyData(GameConstants.eBabies _babyType)
@@ -447,7 +514,7 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 
 	int GetCloudLinkIndex(int _index)
 	{
-		if(NumBabies == 1)
+		if(NumBabies[currentLevel] == 1)
 		{
 			return 1;
 		}

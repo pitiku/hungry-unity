@@ -61,6 +61,7 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
 	void Enter_INIT()
 	{
 		Rainbow.Instance.SetValue(1.0f);
+		Gameplay_Normal.Instance.ResetGameplay();
 	}
 
 	void Update_INIT()
