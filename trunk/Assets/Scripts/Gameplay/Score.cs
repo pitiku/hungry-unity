@@ -25,11 +25,14 @@ public class Score : MonoBehaviour {
 	public TextMesh CoinsText_shadow;
 	public TextMesh ChainText;
 	public TextMesh ChainText_shadow;
+	public TextMesh Level_Text;
+	public TextMesh Level_Text_shadow;
 
 	public Animator ChainAnimator;
 	public Animator CoinsAnimator;
 	public Animator DiaperAnimator;
 	public Animator TopHUDAnimator;
+	public Animator LevelAnimator;
 
 	public Transform ChainTransform;
 	public Transform CoinsTransform;
@@ -167,15 +170,23 @@ public class Score : MonoBehaviour {
 		ChainText.text = "x" + Chain;
 		ChainText_shadow.text = "x" + Chain;
 	}
-	
+
+	public void SetLevel(int _level)
+	{
+		Level_Text.text = "Level " + _level;
+		Level_Text_shadow.text = "Level " + _level;
+	}
+
 	public void AnimateIn()
 	{
 		TopHUDAnimator.SetTrigger("In");
+		LevelAnimator.SetTrigger("In");
 	}
 	
 	public void AnimateOut()
 	{
 		TopHUDAnimator.SetTrigger("Out");
+		LevelAnimator.SetTrigger("Out");
 	}
 
 	public Vector3 GetCoinsDest()
