@@ -14,7 +14,7 @@ public class ProgressBar : SingletonMonoBehaviour<ProgressBar>
 	bool completing = false;
 	float completingTime;
 
-	void Start() 
+	void Start()
 	{
 		currentProgress = 0;
 		SetProgress(currentProgress, false);

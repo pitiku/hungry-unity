@@ -100,7 +100,7 @@ public class PlayerData
 		loaded = true;
 
 		//Uncomment to reset
-		PlayerPrefs.DeleteKey("music");
+		//PlayerPrefs.DeleteKey("music");
 
 		babyUnlocked = new bool[(int)GameConstants.eBabies.NUM_BABIES];
 		babyBought = new bool[(int)GameConstants.eBabies.NUM_BABIES];
@@ -115,7 +115,7 @@ public class PlayerData
 			maxBabies = PlayerPrefs.GetInt("maxBabies");
 			totalBabies = PlayerPrefs.GetInt("totalBabies");
 			maxCoinsInAGame = PlayerPrefs.GetInt("maxCoinsInAGame");
-			coins = 1000000;//PlayerPrefs.GetInt("coins");
+			coins = PlayerPrefs.GetInt("coins");
 			totalCoins = PlayerPrefs.GetInt("totalCoins");
 			spentCoins = PlayerPrefs.GetInt("spentCoins");
 			numGames = PlayerPrefs.GetInt("numGames");

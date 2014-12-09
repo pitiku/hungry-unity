@@ -17,10 +17,6 @@ public class Baby : MonoBehaviour
 		animator = GetComponent<Animator>();
 	}
 	
-	void Update () 
-	{
-	}
-
 	public void StopAnimation()
 	{
 		animator.enabled = false;
