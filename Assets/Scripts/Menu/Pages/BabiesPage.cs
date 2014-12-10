@@ -41,13 +41,17 @@ public class BabiesPage : MenuPage
 
 	void Select(BabyInShop _baby)
 	{
+		//Unselect current baby
 		if(currentBaby)
 		{
 			currentBaby.SetSelected(false);
 			currentBaby.message.enabled = false;
 			HiddenMessageText.enabled = false;
 		}
+
 		currentBaby = _baby;
+
+		//Select current baby
 		if(currentBaby)
 		{
 			currentBaby.SetSelected(true);
@@ -107,9 +111,16 @@ public class BabiesPage : MenuPage
 				if(currentBaby == baby)
 				{
 					//Buy
-					if(!currentBaby.GetBaby().IsBought() && PlayerData.Instance.Coins >= currentBaby.Price)
+					if(currentBaby.GetBaby().IsUnlocked() && !currentBaby.GetBaby().IsBought() && PlayerData.Instance.Coins >= currentBaby.Price)
 					{
 						PlayerData.Instance.BuyBaby((int)currentBaby.GetBaby().baby, currentBaby.Price);
+						currentBaby.ShowPrice(false);
+						currentBaby.SetShadowed(false);
+						currentBaby.GetBaby().Idle();
+
+						currentBaby.message.enabled = true;
+						HiddenMessageText.enabled = false;
+						SetMessage(null);
 					}
 				}
 				else
