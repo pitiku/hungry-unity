@@ -102,7 +102,7 @@ public class PlayerData
 		loaded = true;
 
 		//Uncomment to reset
-		PlayerPrefs.DeleteKey("music");
+		//PlayerPrefs.DeleteKey("music");
 
 		babyUnlocked = new bool[(int)GameConstants.eBabies.NUM_BABIES];
 		babyBought = new bool[(int)GameConstants.eBabies.NUM_BABIES];
@@ -153,14 +153,11 @@ public class PlayerData
 			babyUnlocked[(int)GameConstants.eBabies.CAT] = true;
 			babyUnlocked[(int)GameConstants.eBabies.DOG] = true;
 			babyUnlocked[(int)GameConstants.eBabies.BIRD] = true;
-			babyUnlocked[(int)GameConstants.eBabies.MONKEY] = true;
 
 			babyBought[(int)GameConstants.eBabies.HUMAN] = true;
 			babyBought[(int)GameConstants.eBabies.CAT] = true;
 			babyBought[(int)GameConstants.eBabies.DOG] = true;
 			babyBought[(int)GameConstants.eBabies.BIRD] = true;
-
-			coins = 200;
 
 			Save();
 		}
@@ -207,9 +204,64 @@ public class PlayerData
 		PlayerPrefs.Save();
 	}
 
+	public void Reset()
+	{
+		lastDayPlayed = 0;
+		
+		//Options
+		option_music = true;
+		option_sound = true;
+		option_accelerometer = false;
+		
+		//Stats
+		maxBabies = 0;
+		totalBabies = 0;
+		maxCoinsInAGame = 0;
+		coins = 0;
+		totalCoins = 0;
+		spentCoins = 0;
+		numGames = 0;
+		numPrizes = 0;
+		maxCombo = 0;
+		
+		//Items
+		upgrade_accelerometer = false;
+		upgrade_crown = false;
+		upgrade_gloves = false;
+		upgrade_rainbowplus = false;
+		upgrade_rainbowplusplus = false;
+		upgrade_vacuum = false;
+		
+		powerup_boletTime = 0;
+		powerup_chainBoost = 0;
+		powerup_doubleCoins = 0;
+		powerup_extraRainbow = 0;
+		powerup_megaChainBoost = 0;
+		powerup_prizeSeason = 0;
+		
+		//Babies
+		for(int i=0; i < (int)GameConstants.eBabies.NUM_BABIES; ++i)
+		{
+			SetBool("babyUnlocked"+i, false);
+			SetBool("babyBought"+i, false);
+		}
+
+		babyUnlocked[(int)GameConstants.eBabies.HUMAN] = true;
+		babyUnlocked[(int)GameConstants.eBabies.CAT] = true;
+		babyUnlocked[(int)GameConstants.eBabies.DOG] = true;
+		babyUnlocked[(int)GameConstants.eBabies.BIRD] = true;
+		
+		babyBought[(int)GameConstants.eBabies.HUMAN] = true;
+		babyBought[(int)GameConstants.eBabies.CAT] = true;
+		babyBought[(int)GameConstants.eBabies.DOG] = true;
+		babyBought[(int)GameConstants.eBabies.BIRD] = true;
+
+		Save();
+	}
+	
 	public bool AnyInitialPowerUp()
 	{
-		return powerup_boletTime > 0 || powerup_chainBoost > 0 || powerup_doubleCoins > 0 || powerup_megaChainBoost > 0 || powerup_prizeSeason > 0;
+		return powerup_chainBoost > 0 || powerup_doubleCoins > 0 || powerup_megaChainBoost > 0 || powerup_prizeSeason > 0;
 	}
 	
 	public void SetBool(string _key, bool _value)

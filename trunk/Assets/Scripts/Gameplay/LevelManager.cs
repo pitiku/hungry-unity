@@ -226,6 +226,17 @@ public class LevelManager : SingletonMonoBehaviour<LevelManager>
 	{
 		Score.Instance.AnimateOut();
 		ResultsScreen.Instance.Show();
+
+		PlayerData.Instance.Coins += Score.Instance.GetCoins();
+		PlayerData.Instance.maxCoinsInAGame = Mathf.Max(PlayerData.Instance.maxCoinsInAGame, Score.Instance.GetCoins());
+		PlayerData.Instance.totalBabies += Score.Instance.GetBabiesFed();
+		PlayerData.Instance.maxBabies = Mathf.Max(PlayerData.Instance.maxBabies, Score.Instance.GetBabiesFed());
+		PlayerData.Instance.numGames++;
+
+		//PlayerData.Instance.numPrizes;
+		//PlayerData.Instance.maxCombo;
+
+		PlayerData.Instance.Save();
 	}
 
 	void Update_RESULTS()
