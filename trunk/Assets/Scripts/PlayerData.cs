@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PlayerData
 {
+	#region Singleton
 	private static PlayerData _Instance = null;
 	public static PlayerData Instance
 	{
@@ -15,13 +16,14 @@ public class PlayerData
 			return _Instance;
 		}
 	}
+	#endregion
 
 	private PlayerData()
 	{
 		Load();
 	}
 
-	public bool loaded = false;
+	bool loaded = false;
 
 	public int lastDayPlayed = 0;
 
@@ -100,7 +102,7 @@ public class PlayerData
 		loaded = true;
 
 		//Uncomment to reset
-		//PlayerPrefs.DeleteKey("music");
+		PlayerPrefs.DeleteKey("music");
 
 		babyUnlocked = new bool[(int)GameConstants.eBabies.NUM_BABIES];
 		babyBought = new bool[(int)GameConstants.eBabies.NUM_BABIES];
@@ -151,11 +153,14 @@ public class PlayerData
 			babyUnlocked[(int)GameConstants.eBabies.CAT] = true;
 			babyUnlocked[(int)GameConstants.eBabies.DOG] = true;
 			babyUnlocked[(int)GameConstants.eBabies.BIRD] = true;
+			babyUnlocked[(int)GameConstants.eBabies.MONKEY] = true;
 
 			babyBought[(int)GameConstants.eBabies.HUMAN] = true;
 			babyBought[(int)GameConstants.eBabies.CAT] = true;
 			babyBought[(int)GameConstants.eBabies.DOG] = true;
 			babyBought[(int)GameConstants.eBabies.BIRD] = true;
+
+			coins = 200;
 
 			Save();
 		}
@@ -163,11 +168,6 @@ public class PlayerData
 
 	public void Save()
 	{
-		if(!loaded)
-		{
-			Load();
-		}
-
 		SetBool("music",  option_music);
 		SetBool("sound", option_sound);
 		SetBool("accelerometer", option_accelerometer);
@@ -210,11 +210,6 @@ public class PlayerData
 	public bool AnyInitialPowerUp()
 	{
 		return powerup_boletTime > 0 || powerup_chainBoost > 0 || powerup_doubleCoins > 0 || powerup_megaChainBoost > 0 || powerup_prizeSeason > 0;
-	}
-	
-	public bool AnyFinalPowerUp()
-	{
-		return powerup_extraRainbow > 0;
 	}
 	
 	public void SetBool(string _key, bool _value)
