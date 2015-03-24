@@ -19,6 +19,7 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 	BabyData[] babyData;
 
 	public AnimatedObject[] cloudLinks;
+	public AnimatedObject cloudEat;
 	public AnimatedObject foodLink;
 
 	int currentLevel = 0;
@@ -30,6 +31,7 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 	CloudForBaby[] currentClouds;
 	Food currentFood;
 	int fedBaby;
+	bool m_bLinkedToCloudEat;
 
 	float timeLeft;
 	float totalTime;
@@ -144,6 +146,9 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 				foodSrc = foodLink.transform.position;
 				foodDest = currentBabies[fedBaby].mouth.transform.position;
 				SetState(eState.LAUNCH_FOOD);
+
+				cloudLinks[GetCloudLinkIndex(fedBaby)].StartAnimation("Eat");
+				m_bLinkedToCloudEat = false;
 				
 				AudioManager.Instance.PlayLaunch();
 
@@ -165,6 +170,12 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 	#region LAUNCH_FOOD
 	void Update_LAUNCH_FOOD()
 	{
+		if(cloudLinks[GetCloudLinkIndex(fedBaby)].IsFinished() && !m_bLinkedToCloudEat)
+		{
+			m_bLinkedToCloudEat = true;
+			cloudLinks[GetCloudLinkIndex(fedBaby)].transform.parent = cloudEat.transform;
+		}
+
 		if(GetStateTime() > 0.0f && !babyFed)
 		{
 			babyFed = true;
@@ -173,6 +184,7 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 		
 		float fPerc = Mathf.Min(1.0f, GetStateTime() / 0.3f);
 
+		foodDest = currentBabies[fedBaby].mouth.transform.position;
 		foodLink.transform.position = foodSrc + (foodDest - foodSrc) * fPerc;
 		foodLink.transform.localScale = Vector3.one * Mathf.Pow((1-fPerc), 0.3f);
 		
@@ -206,6 +218,7 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 				currentLevelScore = 0;
 				
 				cloudLinks[GetCloudLinkIndex(fedBaby)].StartAnimation("Out");
+				cloudEat.StartAnimation("Out");
 				SetState(eState.CLOUD_OUT);
 
 				if(timeLeft <= 0.0f)
@@ -222,8 +235,8 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 
 				//Drop prize
 				float fRand = Random.Range(0.0f, 1.0f);
-				float fProb = (GetBabyData(currentBabies[fedBaby].baby).GetPrizeProbability() * (PrizeSeasonActive ? 2.0f : 1.0f));
-				if(fRand < fProb)
+				float fProb = GetBabyData(currentBabies[fedBaby].baby).GetPrizeProbability() * (PrizeSeasonActive ? 2.0f : 1.0f);
+				if(fRand <= fProb)
 				{
 					if(BabiesPool.Instance.GetPrize(currentBabies[fedBaby].baby))
 					{
@@ -232,6 +245,7 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 				}
 
 				cloudLinks[GetCloudLinkIndex(fedBaby)].StartAnimation("Out");
+				cloudEat.StartAnimation("Out");
 				SetState(eState.CLOUD_OUT);
 			}
 			else

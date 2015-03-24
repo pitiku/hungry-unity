@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Score : MonoBehaviour {
-
+public class Score : MonoBehaviour 
+{
 	#region Singleton
 	private static Score _Instance;
 
@@ -51,10 +51,7 @@ public class Score : MonoBehaviour {
 
 	public int Chain
 	{ 
-		get
-		{
-			return m_chain;
-		}
+		get { return m_chain; }
 		set
 		{
 			m_chain = value;

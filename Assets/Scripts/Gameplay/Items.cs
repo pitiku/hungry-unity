@@ -86,12 +86,16 @@ public class Items : SingletonMonoBehaviour<Items>
 	{
 		if(FeederGloves.IsJustPressed())
 		{
-			
+			//Gameplay_Normal.FeederGlovesPressed();
+			FeederGloves.gameObject.SetActive(false);
 		}
 		
 		if(BoletTime.menuItem.IsJustPressed())
 		{
-			
+			//Gameplay_Normal.BoletTimePressed();
+			PlayerData.Instance.powerup_boletTime -= 1;
+			PlayerData.Instance.Save();
+			BoletTime.gameObject.SetActive(false);
 		}
 	}
 

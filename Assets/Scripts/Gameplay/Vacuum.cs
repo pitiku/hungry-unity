@@ -8,7 +8,7 @@ public class Vacuum : SingletonMonoBehaviour<Vacuum>
 	public Transform VacuumingPosition;
 	public Transform Hole;
 
-	float speed = 1.0f;
+	public float MoveSpeed = 5.0f;
 
 	List<Prize> prizes = new List<Prize>();
 
@@ -21,6 +21,7 @@ public class Vacuum : SingletonMonoBehaviour<Vacuum>
 	};
 
 	eState state;
+	float m_fStateEntrTime;
 
 	void Start () 
 	{
@@ -47,7 +48,7 @@ public class Vacuum : SingletonMonoBehaviour<Vacuum>
 				state = eState.GOING_IN;
 			}
 
-			transform.position = Vector3.MoveTowards(transform.position, VacuumingPosition.transform.position, speed * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, VacuumingPosition.transform.position, MoveSpeed * Time.deltaTime);
 			if((transform.position - VacuumingPosition.transform.position).magnitude < 0.01f)
 			{
 				state = eState.VACUUMING;
@@ -58,11 +59,25 @@ public class Vacuum : SingletonMonoBehaviour<Vacuum>
 		case eState.VACUUMING:
 			transform.position = VacuumingPosition.position + 0.01f * Vector3.up * Mathf.Sin(Time.time * 40);
 
+			List<Prize> prizesToRemove = new List<Prize>();
 			foreach(Prize p in prizes)
 			{
-				p.Vacuummed(Hole.position);
+				if(p.IsIdle())
+				{
+					p.Vacuummed(Hole.position);
+				}
+
+				if(p.IsOut())
+				{
+					prizesToRemove.Add(p);
+				}
 			}
-			prizes.Clear();
+
+			foreach(Prize p in prizesToRemove)
+			{
+				prizes.Remove(p);
+			}
+			prizesToRemove.Clear();
 
 			if(prizes.Count <= 0)
 			{
@@ -76,7 +91,7 @@ public class Vacuum : SingletonMonoBehaviour<Vacuum>
 				state = eState.COMING_OUT;
 			}
 
-			transform.position = Vector3.MoveTowards(transform.position, HiddenPosition.transform.position, speed * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, HiddenPosition.transform.position, MoveSpeed * Time.deltaTime);
 			if((transform.position - HiddenPosition.transform.position).magnitude < 0.01f)
 			{
 				state = eState.HIDDEN;

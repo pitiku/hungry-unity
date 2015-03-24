@@ -6,7 +6,6 @@ public class Prize : MonoBehaviour
 	public GameConstants.eBabies foodType;
 	public int coins = 1;
 
-	public float speed = 0.1f;
 	Vector3 src;
 	Vector3 dest;
 
@@ -164,6 +163,16 @@ public class Prize : MonoBehaviour
 		gameObject.SendMessage("Enter_" + state.ToString(), SendMessageOptions.DontRequireReceiver);
 	}
 
+	public bool IsIdle()
+	{
+		return state == eState.IDLE;
+	}
+	
+	public bool IsOut()
+	{
+		return state == eState.OUT;
+	}
+	
 	float GetStateTime()
 	{
 		return Time.time - stateTimeStart;
