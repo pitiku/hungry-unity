@@ -11,7 +11,11 @@ public class FadeManager : SingletonMonoBehaviour<FadeManager>
 
 	protected override void OnAwake()
 	{
-		DontDestroyOnLoad (transform.gameObject);
+		DontDestroyOnLoad(gameObject);
+	}
+
+	void Start()
+	{
 		sprite = GetComponent<SpriteRenderer> ();
 	}
 
