@@ -16,11 +16,22 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 	public float gameplayTime_rainbowplusplus = 20.0f;
 	public float successTimeIncrement = 2.5f;
 
-	BabyData[] babyData;
+	public Transform Pos_LeftOut;
+	public Transform Pos_LeftIn;
+	public Transform Pos_RightOut;
+	public Transform Pos_RightIn;
+	public Transform Pos_CenterOut;
+	public Transform Pos_CenterIn;
+	public Transform Pos_EatIn;
+	public Transform Pos_EatOut;
 
-	public AnimatedObject[] cloudLinks;
-	public AnimatedObject cloudEat;
-	public AnimatedObject foodLink;
+	public Transform Pos_FoodInit;
+	public Transform Pos_FoodIn;
+	public Transform Pos_FoodOut;
+
+	public float Time_FoodMoveEat = 0.25f;
+
+	BabyData[] babyData;
 
 	int currentLevel = 0;
 	int currentLevelScore = 0;
@@ -29,9 +40,9 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 
 	Baby[] currentBabies;
 	CloudForBaby[] currentClouds;
+	CloudForBaby cloudEat;
 	Food currentFood;
 	int fedBaby;
-	bool m_bLinkedToCloudEat;
 
 	float timeLeft;
 	float totalTime;
@@ -111,16 +122,18 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 	{
 		//Check for clouds and food to be in place
 		bool bFinished = true;
-		foreach(AnimatedObject cloud in cloudLinks)
+		foreach(CloudForBaby cloud in currentClouds)
 		{
-			bFinished = bFinished && cloud.IsFinished();
+			if(cloud)
+			{
+				bFinished = bFinished && !cloud.IsMoving();
+			}
 		}
 		
-		bFinished = bFinished && foodLink.IsFinished();
+		bFinished = bFinished && !currentFood.IsMoving();
 
 		if(bFinished)
 		{
-			foodLink.StopAnimator();
 			SetState(eState.WAIT_INPUT);
 		}
 	}
@@ -143,12 +156,16 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 			{
 				fedBaby = i;
 				babyFed = false;
-				foodSrc = foodLink.transform.position;
-				foodDest = currentBabies[fedBaby].mouth.transform.position;
+				foodSrc = currentFood.transform.position;
+				foodDest = Pos_EatIn.position + (currentBabies[fedBaby].mouth.transform.position - currentClouds[GetCloudLinkIndex(fedBaby)].transform.position);
 				SetState(eState.LAUNCH_FOOD);
 
-				cloudLinks[GetCloudLinkIndex(fedBaby)].StartAnimation("Eat");
-				m_bLinkedToCloudEat = false;
+				if(currentFood.GetComponent<Living>())
+				{
+					currentFood.GetComponent<Living>().enabled = false;
+				}
+
+				currentClouds[GetCloudLinkIndex(fedBaby)].MoveTo(Pos_EatIn.position, 0.2f);
 				
 				AudioManager.Instance.PlayLaunch();
 
@@ -170,28 +187,28 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 	#region LAUNCH_FOOD
 	void Update_LAUNCH_FOOD()
 	{
-		if(cloudLinks[GetCloudLinkIndex(fedBaby)].IsFinished() && !m_bLinkedToCloudEat)
-		{
-			m_bLinkedToCloudEat = true;
-			cloudLinks[GetCloudLinkIndex(fedBaby)].transform.parent = cloudEat.transform;
-		}
-
 		if(GetStateTime() > 0.0f && !babyFed)
 		{
 			babyFed = true;
 			currentBabies[fedBaby].Eat(currentBabies[fedBaby].baby == currentFood.foodType);
 		}
-		
-		float fPerc = Mathf.Min(1.0f, GetStateTime() / 0.3f);
 
-		foodDest = currentBabies[fedBaby].mouth.transform.position;
-		foodLink.transform.position = foodSrc + (foodDest - foodSrc) * fPerc;
-		foodLink.transform.localScale = Vector3.one * Mathf.Pow((1-fPerc), 0.3f);
+		float fPerc = Mathf.Min(1.0f, GetStateTime() / Time_FoodMoveEat);
+
+		currentFood.transform.position = Vector3.Lerp(foodSrc, foodDest, fPerc);
+		currentFood.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, fPerc); 
 		
 		if(fPerc >= 1.0f)
 		{
 			BabiesPool.Instance.ReturnToPool(currentFood.transform);
+			if(currentFood.GetComponent<Living>())
+			{
+				currentFood.GetComponent<Living>().enabled = true;
+			}
+
 			SetState(eState.FEED_BABY);
+			cloudEat = currentClouds[GetCloudLinkIndex(fedBaby)];
+			currentClouds[GetCloudLinkIndex(fedBaby)] = null;
 		}
 	}
 	#endregion
@@ -199,7 +216,7 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 	#region DISCARD_FOOD
 	void Update_DISCARD_FOOD()
 	{
-		if(foodLink.IsFinished())
+		if(!currentFood.IsMoving())
 		{
 			BabiesPool.Instance.ReturnToPool(currentFood.transform);
 			SetState(eState.CLOUDS_IN);
@@ -210,15 +227,14 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 	#region FEED_BABY
 	void Update_FEED_BABY()
 	{
-		if(!currentBabies[fedBaby].IsEating())
+		//if(!currentBabies[fedBaby].IsEating())
 		{
 			if(currentBabies[fedBaby].baby != currentFood.foodType)
 			{
 				Score.Instance.Fail();
 				currentLevelScore = 0;
 				
-				cloudLinks[GetCloudLinkIndex(fedBaby)].StartAnimation("Out");
-				cloudEat.StartAnimation("Out");
+				cloudEat.MoveTo(Pos_EatOut.position, 0.2f);
 				SetState(eState.CLOUD_OUT);
 
 				if(timeLeft <= 0.0f)
@@ -244,8 +260,7 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 					}
 				}
 
-				cloudLinks[GetCloudLinkIndex(fedBaby)].StartAnimation("Out");
-				cloudEat.StartAnimation("Out");
+				cloudEat.MoveTo(Pos_EatOut.position, 0.2f);
 				SetState(eState.CLOUD_OUT);
 			}
 			else
@@ -267,11 +282,11 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 	#region CLOUD_OUT
 	void Update_CLOUD_OUT()
 	{
-		if(cloudLinks[GetCloudLinkIndex(fedBaby)].IsFinished())
+		//if(!cloudEat.IsMoving())
 		{
-			cloudLinks[GetCloudLinkIndex(fedBaby)].transform.localScale = Vector3.one;
+			cloudEat.transform.localScale = Vector3.one;
 			BabiesPool.Instance.ReturnToPool(currentBabies[fedBaby].transform);
-			CloudPool.Instance.AddObject(currentClouds[fedBaby].transform);
+			CloudPool.Instance.AddObject(cloudEat.transform);
 			currentBabies[fedBaby] = null;
 
 			//Check level
@@ -313,20 +328,26 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 
 		inPlay = false;
 
-		foodLink.StartAnimation("Discard");
-		foreach(AnimatedObject cloud  in cloudLinks)
+		currentFood.MoveTo(Pos_FoodOut, 0.2f);
+		foreach(CloudForBaby cloud in currentClouds)
 		{
-			cloud.StartAnimation("Out");
+			if(cloud)
+			{
+				cloud.MoveTo(Pos_CenterOut.position, 0.2f);
+			}
 		}
 	}
 	
 	void Update_FINISHING()
 	{
-		bool finished = foodLink.IsFinished();
+		bool finished = !currentFood.IsMoving();
 
-		foreach(AnimatedObject cloud in cloudLinks)
+		foreach(CloudForBaby cloud in currentClouds)
 		{
-			finished = finished && cloud.IsFinished();
+			if(cloud)
+			{
+				finished = finished && !cloud.IsMoving();
+			}
 		}
 
 		if(finished)
@@ -344,9 +365,12 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 			BabiesPool.Instance.ReturnToPool(currentFood.transform);
 		}
 
-		foreach(AnimatedObject cloud in cloudLinks)
+		foreach(CloudForBaby cloud in currentClouds)
 		{
-			cloud.transform.localScale = Vector3.one;
+			if(cloud)
+			{
+				cloud.transform.localScale = Vector3.one;
+			}
 		}
 
 		foreach(Baby baby in currentBabies)
@@ -378,7 +402,7 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 
 	public void ResetGameplay()
 	{
-		currentLevel = 0;
+		currentLevel = 9;
 		Score.Instance.SetLevel(currentLevel + 1);
 	}
 
@@ -419,27 +443,28 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 
 				//Link a cloud
 				int cloudLinkIndex = GetCloudLinkIndex(i);
-				currentClouds[i] = CloudPool.Instance.GetCloud();
-				currentClouds[i].transform.parent = cloudLinks[cloudLinkIndex].transform;
-				currentClouds[i].transform.localPosition = Vector3.zero;
+
+				currentClouds[cloudLinkIndex] = CloudPool.Instance.GetCloud();
+				currentClouds[cloudLinkIndex].transform.parent = null;
 
 				//Link baby to cloud
-				currentBabies[i].transform.parent = currentClouds[i].babyLink;
+				currentBabies[i].transform.parent = currentClouds[cloudLinkIndex].babyLink;
 				currentBabies[i].transform.localPosition = Vector3.zero;
 				if(cloudLinkIndex == 0)
 				{
-					cloudLinks[cloudLinkIndex].transform.localScale = new Vector3(-1, 1, 1);
+					currentClouds[cloudLinkIndex].transform.localScale = new Vector3(-1, 1, 1);
 				}
 
-				cloudLinks[cloudLinkIndex].StartAnimation("In");
+				currentClouds[cloudLinkIndex].SetPos(cloudLinkIndex == 0 ? Pos_LeftOut : cloudLinkIndex == 1 ? Pos_CenterOut : Pos_RightOut);
+				currentClouds[cloudLinkIndex].MoveTo(cloudLinkIndex == 0 ? Pos_LeftIn : cloudLinkIndex == 1 ? Pos_CenterIn : Pos_RightIn, 0.2f);
 			}
 		}
 
 		//Set food
 		GameConstants.eBabies foodType;
-		if(currentLevel == 0)
+		if(NumBabies[currentLevel] <= 1)
 		{
-			foodType = currentBabies[Random.Range(0, NumBabies[currentLevel])].baby;
+			foodType = currentBabies[0].baby;
 		}
 		else
 		{
@@ -447,11 +472,12 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 		}
 		currentFood = BabiesPool.Instance.GetFood(foodType);
 
-		currentFood.transform.parent = foodLink.transform;
-		currentFood.transform.localPosition = Vector3.zero;
+		currentFood.transform.parent = null;
 		currentFood.transform.localScale = Vector3.one;
 		currentFood.gameObject.SetActive(true);
-		foodLink.StartAnimation("In");
+
+		currentFood.SetPos(Pos_FoodInit);
+		currentFood.MoveTo(Pos_FoodIn, 0.2f);
 	}
 
 	GameConstants.eBabies GetRandomBabyType()
