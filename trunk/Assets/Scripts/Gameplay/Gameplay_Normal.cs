@@ -11,10 +11,10 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 	public bool[] AllowDiscard;
 	public bool[] AllowRepeat;
 
-	public float gameplayTime = 10.0f;
-	public float gameplayTime_rainbowplus = 15.0f;
-	public float gameplayTime_rainbowplusplus = 20.0f;
-	public float successTimeIncrement = 2.5f;
+	public float gameplayTime = 4.0f;
+	public float gameplayTime_rainbowplus = 5.0f;
+	public float gameplayTime_rainbowplusplus = 7.0f;
+	public float successTimeIncrement = 0.5f;
 
 	public Transform Pos_LeftOut;
 	public Transform Pos_LeftIn;
@@ -31,12 +31,15 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 
 	public float Time_FoodMoveEat = 0.25f;
 
+	public bool m_bWaitEat = true;
+	public bool m_bWaitCloudOut = true;
+
 	BabyData[] babyData;
 
 	int currentLevel = 0;
 	int currentLevelScore = 0;
 
-	bool PrizeSeasonActive = false;
+	bool m_bPrizeSeasonActive = false;
 
 	Baby[] currentBabies;
 	CloudForBaby[] currentClouds;
@@ -154,10 +157,14 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 		{
 			if(currentBabies[i].GetComponent<Pushable>().IsJustPressed())
 			{
+				//Update the logic
 				fedBaby = i;
-				babyFed = false;
 				foodSrc = currentFood.transform.position;
 				foodDest = Pos_EatIn.position + (currentBabies[fedBaby].mouth.transform.position - currentClouds[GetCloudLinkIndex(fedBaby)].transform.position);
+				cloudEat = currentClouds[GetCloudLinkIndex(fedBaby)];
+				currentClouds[GetCloudLinkIndex(fedBaby)] = null;
+
+				babyFed = false;
 				SetState(eState.LAUNCH_FOOD);
 
 				if(currentFood.GetComponent<Living>())
@@ -165,10 +172,21 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 					currentFood.GetComponent<Living>().enabled = false;
 				}
 
-				currentClouds[GetCloudLinkIndex(fedBaby)].MoveTo(Pos_EatIn.position, 0.2f);
+				cloudEat.MoveTo(Pos_EatIn.position, 0.2f);
 				
 				AudioManager.Instance.PlayLaunch();
 
+				if(currentBabies[fedBaby].baby == currentFood.foodType)
+				{
+					Score.Instance.BabyFed(1);
+					Success();
+				}
+				else
+				{
+					Score.Instance.Fail();
+					Fail();
+				}
+				
 				return;
 			}
 		}
@@ -177,7 +195,7 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 		//Food pressed
 		if(currentFood.GetComponent<Pushable>().IsJustPressed())
 		{
-			foodLink.StartAnimation("Discard");
+			currentFood.MoveTo(Pos_FoodOut, 0.2f);
 			SetState(eState.DISCARD_FOOD);
 		}
 		*/
@@ -207,8 +225,10 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 			}
 
 			SetState(eState.FEED_BABY);
-			cloudEat = currentClouds[GetCloudLinkIndex(fedBaby)];
-			currentClouds[GetCloudLinkIndex(fedBaby)] = null;
+
+			cloudEat.LinkBaby(currentBabies[fedBaby], currentFood.foodType == currentBabies[fedBaby].baby);
+
+			currentBabies[fedBaby] = null;
 		}
 	}
 	#endregion
@@ -227,43 +247,9 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 	#region FEED_BABY
 	void Update_FEED_BABY()
 	{
-		//if(!currentBabies[fedBaby].IsEating())
+		if(GetStateTime() > 0.15f)
 		{
-			if(currentBabies[fedBaby].baby != currentFood.foodType)
-			{
-				Score.Instance.Fail();
-				currentLevelScore = 0;
-				
-				cloudEat.MoveTo(Pos_EatOut.position, 0.2f);
-				SetState(eState.CLOUD_OUT);
-
-				if(timeLeft <= 0.0f)
-				{
-					SetState(eState.FINISHING);
-				}
-			}
-			else if(currentBabies[fedBaby].hunger <= 0)
-			{
-				Score.Instance.BabyFed(1);
-				currentLevelScore++;
-
-				timeLeft = Mathf.Min(totalTime, timeLeft + 2.5f);
-
-				//Drop prize
-				float fRand = Random.Range(0.0f, 1.0f);
-				float fProb = GetBabyData(currentBabies[fedBaby].baby).GetPrizeProbability() * (PrizeSeasonActive ? 2.0f : 1.0f);
-				if(fRand <= fProb)
-				{
-					if(BabiesPool.Instance.GetPrize(currentBabies[fedBaby].baby))
-					{
-						BabiesPool.Instance.GetPrize(currentBabies[fedBaby].baby).Dropped(currentBabies[fedBaby].transform.position);
-					}
-				}
-
-				cloudEat.MoveTo(Pos_EatOut.position, 0.2f);
-				SetState(eState.CLOUD_OUT);
-			}
-			else
+			if(m_bWaitEat && !cloudEat.GetLinkedBaby().IsEating())
 			{
 				if(timeLeft <= 0.0f)
 				{
@@ -271,51 +257,80 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 				}
 				else
 				{
-					//Baby is still hungry
-					SetState(eState.CLOUDS_IN);
+					SetState(eState.CLOUD_OUT);
 				}
+			}
+			else if(!m_bWaitEat) //We don't wait for cloud out either
+			{
+				SetState(eState.CLOUDS_IN);
 			}
 		}
 	}
+
+	public void Success()
+	{
+		currentLevelScore++;
+		
+		timeLeft = Mathf.Min(totalTime, timeLeft + successTimeIncrement);
+		
+		CheckLevel();
+	}
+	
+	public void Fail()
+	{
+		currentLevelScore = 0;
+
+		/*
+		if(timeLeft <= 0.0f)
+		{
+			SetState(eState.FINISHING);
+		}
+		else
+		{
+			SetState(eState.CLOUD_OUT);
+		}
+		*/	
+	
+		CheckLevel();
+	}
+	
+	private void CheckLevel()
+	{
+		//Check level
+		if(currentLevelScore >= scoreToNextLevel[currentLevel])
+		{
+			currentLevel++;
+			currentLevelScore = 0;
+			Score.Instance.SetLevel(currentLevel + 1);
+			
+			//Unlock babies
+			foreach(BabyData data in babyData)
+			{
+				if(!data.IsUnlocked() && data.GetStartLevel() <= currentLevel)
+				{
+					PlayerData.Instance.UnlockBaby((int)data.BabyType);
+				}
+			}
+			
+			if(currentLevel >= NumBabies.Length)
+			{
+				//Game completed!
+			}
+			ProgressBar.Instance.CompleteBar();
+		}
+		else
+		{
+			ProgressBar.Instance.SetProgress((float)currentLevelScore / (float)scoreToNextLevel[currentLevel]);
+		}
+	}
+
 	#endregion
 
 	#region CLOUD_OUT
 	void Update_CLOUD_OUT()
 	{
-		//if(!cloudEat.IsMoving())
+		if(!m_bWaitCloudOut || !cloudEat.IsMoving())
 		{
-			cloudEat.transform.localScale = Vector3.one;
-			BabiesPool.Instance.ReturnToPool(currentBabies[fedBaby].transform);
-			CloudPool.Instance.AddObject(cloudEat.transform);
-			currentBabies[fedBaby] = null;
-
-			//Check level
-			if(currentLevel == 0 || currentLevelScore >= scoreToNextLevel[currentLevel])
-			{
-				currentLevel++;
-				currentLevelScore = 0;
-				Score.Instance.SetLevel(currentLevel + 1);
-
-				//Unlock babies
-				foreach(BabyData data in babyData)
-				{
-					if(!data.IsUnlocked() && data.GetStartLevel() <= currentLevel)
-					{
-						PlayerData.Instance.UnlockBaby((int)data.BabyType);
-					}
-				}
-
-				if(currentLevel >= NumBabies.Length)
-				{
-					//Game completed!
-				}
-				ProgressBar.Instance.CompleteBar();
-			}
-			else
-			{
-				ProgressBar.Instance.SetProgress((float)currentLevelScore / (float)scoreToNextLevel[currentLevel]);
-			}
-
 			SetState(eState.CLOUDS_IN);
 		}
 	}
@@ -402,7 +417,7 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 
 	public void ResetGameplay()
 	{
-		currentLevel = 9;
+		currentLevel = 0;
 		Score.Instance.SetLevel(currentLevel + 1);
 	}
 
@@ -477,7 +492,7 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 		currentFood.gameObject.SetActive(true);
 
 		currentFood.SetPos(Pos_FoodInit);
-		currentFood.MoveTo(Pos_FoodIn, 0.2f);
+		currentFood.MoveTo(Pos_FoodIn, 0.15f);
 	}
 
 	GameConstants.eBabies GetRandomBabyType()
@@ -589,11 +604,16 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 		}
 	}
 
-	public void PrizeSeason()
+	public void ActivatePrizeSeason()
 	{
-		PrizeSeasonActive = true;
+		m_bPrizeSeasonActive = true;
 	}
-
+	
+	public bool IsPrizeSeasonActive()
+	{
+		return m_bPrizeSeasonActive;
+	}
+	
 	public bool IsFinished()
 	{
 		return state == eState.FINISHED;
@@ -615,5 +635,10 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 	float GetStateTime()
 	{
 		return stateTime;
+	}
+
+	public Vector3 GetPos_EatOut()
+	{
+		return Pos_EatOut.position;
 	}
 }

@@ -65,7 +65,7 @@ public class Items : SingletonMonoBehaviour<Items>
 			PlayerData.Instance.Save();
 			PrizeSeason.SetCount(PlayerData.Instance.powerup_prizeSeason);
 			PrizeSeason.SetEnabled(false);
-			Gameplay_Normal.Instance.PrizeSeason();
+			Gameplay_Normal.Instance.ActivatePrizeSeason();
 		}
 	}
 
