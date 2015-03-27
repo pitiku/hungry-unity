@@ -12,6 +12,11 @@ public class CloudForBaby : MonoBehaviour
 	private float m_timeStart;
 	private Vector3 m_initPos;
 
+	private Baby m_linkedBaby = null;
+	private bool m_success;
+
+	private bool m_bBabyAte = false;
+
 	void Update()
 	{
 		if(m_bMoving)
@@ -21,6 +26,43 @@ public class CloudForBaby : MonoBehaviour
 			if(fPerc >= 1.0f)
 			{
 				m_bMoving = false;
+			}
+		}
+
+		if(m_linkedBaby != null)
+		{
+			if(!m_bBabyAte)
+			{
+				if(!m_linkedBaby.IsEating()) //Baby just ate
+				{
+					m_bBabyAte = true;
+					MoveTo(Gameplay_Normal.Instance.GetPos_EatOut(), 0.2f);
+
+					if(m_success)
+					{
+						//Drop prize
+						float fRand = Random.Range(0.0f, 1.0f);
+						float fProb = Gameplay_Normal.Instance.GetBabyData(m_linkedBaby.baby).GetPrizeProbability() * (Gameplay_Normal.Instance.IsPrizeSeasonActive() ? 2.0f : 1.0f);
+						if(fRand <= fProb)
+						{
+							if(BabiesPool.Instance.GetPrize(m_linkedBaby.baby))
+							{
+								BabiesPool.Instance.GetPrize(m_linkedBaby.baby).Dropped(m_linkedBaby.transform.position);
+							}
+						}
+						
+					}
+				}
+			}
+			else
+			{
+				if(!IsMoving()) //Going Out
+				{
+					transform.localScale = Vector3.one;
+					BabiesPool.Instance.ReturnToPool(m_linkedBaby.transform);
+					CloudPool.Instance.AddObject(transform);
+					m_linkedBaby = null;
+				}
 			}
 		}
 	}
@@ -54,5 +96,22 @@ public class CloudForBaby : MonoBehaviour
 	public bool IsMoving()
 	{
 		return m_bMoving;
+	}
+
+	public void LinkBaby(Baby _baby, bool _bSuccess)
+	{
+		m_linkedBaby = _baby;
+		m_success = _bSuccess;
+		m_bBabyAte = false;
+	}
+
+	public Baby GetLinkedBaby()
+	{
+		return m_linkedBaby;
+	}
+
+	private void UnlinkBaby()
+	{
+
 	}
 }
