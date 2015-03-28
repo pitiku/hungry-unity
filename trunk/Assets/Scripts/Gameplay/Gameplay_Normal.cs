@@ -157,23 +157,23 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 		{
 			if(currentBabies[i].GetComponent<Pushable>().IsJustPressed())
 			{
-				//Update the logic
 				fedBaby = i;
-				foodSrc = currentFood.transform.position;
-				foodDest = Pos_EatIn.position + (currentBabies[fedBaby].mouth.transform.position - currentClouds[GetCloudLinkIndex(fedBaby)].transform.position);
+
 				cloudEat = currentClouds[GetCloudLinkIndex(fedBaby)];
-				currentClouds[GetCloudLinkIndex(fedBaby)] = null;
+				cloudEat.MoveTo(Pos_EatIn.position, 0.2f);
 
 				babyFed = false;
 				SetState(eState.LAUNCH_FOOD);
 
+				foodSrc = currentFood.transform.position;
+				foodDest = Pos_EatIn.position + (currentBabies[fedBaby].mouth.transform.position - currentClouds[GetCloudLinkIndex(fedBaby)].transform.position);
 				if(currentFood.GetComponent<Living>())
 				{
 					currentFood.GetComponent<Living>().enabled = false;
 				}
 
-				cloudEat.MoveTo(Pos_EatIn.position, 0.2f);
-				
+				currentClouds[GetCloudLinkIndex(fedBaby)] = null;
+
 				AudioManager.Instance.PlayLaunch();
 
 				if(currentBabies[fedBaby].baby == currentFood.foodType)
@@ -280,17 +280,6 @@ public class Gameplay_Normal : SingletonMonoBehaviour<Gameplay_Normal>
 	{
 		currentLevelScore = 0;
 
-		/*
-		if(timeLeft <= 0.0f)
-		{
-			SetState(eState.FINISHING);
-		}
-		else
-		{
-			SetState(eState.CLOUD_OUT);
-		}
-		*/	
-	
 		CheckLevel();
 	}
 	
